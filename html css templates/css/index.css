@@ -1,0 +1,34 @@
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+}
+body {
+    display: grid;
+    justify-content: center;
+}
+img {
+    width: 100px;
+}
+.container {
+    display: flex;
+}
+
+.double {
+    display: block;
+}
+
+.pciture {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #7c9ab6;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 15px 15px 20px 15px;
+  }
+  img {
+    margin: 7px;
+    border-radius: 10px;
+  }
