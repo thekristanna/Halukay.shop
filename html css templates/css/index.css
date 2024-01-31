@@ -18,6 +18,16 @@ img {
     gap: 10px; /* Adjust the gap to your desired spacing */
 }
 
-.picture-2 {
+.double {
     display: block;
 }
+
+.pciture {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #7c9ab6;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 15px 15px 20px 15px;
+  }
