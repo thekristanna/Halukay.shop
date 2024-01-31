@@ -12,10 +12,7 @@ img {
     width: 100px;
 }
 .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-    grid-auto-rows: minmax(100px, auto); /* Adjust the minmax to your desired height */
-    gap: 10px; /* Adjust the gap to your desired spacing */
+    display: flex;
 }
 
 .double {
@@ -30,4 +27,8 @@ img {
     overflow: hidden;
     border-radius: 20px;
     margin: 15px 15px 20px 15px;
+  }
+  img {
+    margin: 7px;
+    border-radius: 10px;
   }
