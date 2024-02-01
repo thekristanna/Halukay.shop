@@ -7,6 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script>
+        $(document).ready(function(){
+        $('#signup_form').submit(function(x){
+            x.preventDefault();
+        })
+    });
+    </script> --}}
     
     <title>Document</title>
 </head>
@@ -14,40 +21,40 @@
     @include('layouts/messages')
     <div class="container">
         <h1 class="text-center">Sign Up</h1>
-        <form action="/signup" method="POST" enctype="multipart/form-data">
+        <form action="/signup" id="signup_form" method="POST" enctype="multipart/form-data">
             @csrf
             <label>First Name</label>
-            <input type="text" class="form-control" name="first_name" placeholder="First Name"/><br />
+            <input type="text" class="form-control" name="first_name" placeholder="First Name" value="{{old('first_name')}}"/><br />
             <label>Last Name</label>
-            <input type="text" class="form-control" name="last_name" placeholder="Last Name"/><br />
+            <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="{{old('last_name')}}"/><br />
             <input type="file" class="form-control" name="profile_picture" />
             <br />
             <label>Email Address</label>
-            <input type="email" class="form-control" name="email_address" placeholder="Email Address"/><br />
+            <input type="email" class="form-control" name="email_address" placeholder="Email Address" value="{{old('email_address')}}"/><br />
             <label>Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Username"/><br />
+            <input type="text" class="form-control" name="username" placeholder="Username" value="{{old('username')}}"/><br />
             <label>Password</label>
             <input type="password" class="form-control" name="password" placeholder="Password"/><br />
             <label>Confirm Password</label>
             <input type="password" class="form-control" name="con_pw" placeholder="Confirm Password"/><br />
             <label>Phone number</label>
-            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number"/><br />
+            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number" value="{{old('phone_number')}}" /><br />
             <label>Street</label>
-            <input type="text" class="form-control" name="address_street" placeholder="Street Address"/><br />
+            <input type="text" class="form-control" name="address_street" placeholder="Street Address" value="{{old('address_street')}}"/><br />
             <label>Barangay</label>
-            <input type="text" class="form-control" name="address_barangay" placeholder="Barangay"/><br />
+            <input type="text" class="form-control" name="address_barangay" placeholder="Barangay" value="{{old('address_barangay')}}" /><br />
             <label>City</label>
-            <input type="text" class="form-control" name="address_citytown" placeholder="City/Town"/><br />
+            <input type="text" class="form-control" name="address_citytown" placeholder="City/Town" value="{{old('address_citytown')}}" /><br />
             <label>Province</label>
-            <input type="text" class="form-control" name="address_province" placeholder="Province"/><br />
+            <input type="text" class="form-control" name="address_province" placeholder="Province" value="{{old('address_province')}}" /><br />
             <label>Zip Code</label>
-            <input type="text" class="form-control" name="address_zip" placeholder="Zip Code"/><br />
+            <input type="text" class="form-control" name="address_zip" placeholder="Zip Code" value="{{old('address_zip')}}" /><br />
             <h3>Role</h3>
             <input type="radio" name="role" value="shopper"><label for="role">Shopper</label>
             <input type="radio" name="role" value="seller"><label for="role">Seller</label>
             <br />
             <input type="checkbox" name="accept_tc" value="accept_tc">
-            <label for="accept_tc">I agree to the terms and conditions.</label>
+            <label for="accept_tc">I agree to the Terms and Conditions.</label>
             <br />
             <input type="submit" class="btn btn-success" />
         </form>

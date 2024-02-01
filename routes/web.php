@@ -10,6 +10,11 @@ Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/signup', [UserController::class, 'signup_show']);
 Route::post('/signup', [UserController::class, 'signup']);
 
+Route::get('/login', [UserController::class, 'login_show']);
+Route::post('/login', [UserController::class, 'login']);
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });

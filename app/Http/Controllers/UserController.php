@@ -28,10 +28,9 @@ class UserController extends Controller
             'address_zip' => 'required|string',
             'role' => 'required',
             'accept_tc' => 'required'
-            /// question
 
         ], [
-            'accept_tc.required' => 'Accepting the Terms & Condition is required to proceed',
+            'accept_tc.required' => 'Accepting the Terms & Conditions is required to proceed',
             'role' => 'Need to select a role (Shopper or Seller)'
         ], [
             'pw' => 'password',
@@ -44,7 +43,7 @@ class UserController extends Controller
         $user->last_name = $r->input('last_name');
         $user->email_address = $r->input('email_address');
         $user->username = $r->input('username');
-        $user->password = $r->input('password');
+        $user->password = Hash::make($r->input('password'));
         $user->phone_number = $r->input('phone_number');
         $user->address_street = $r->input('address_street');
         $user->address_barangay = $r->input('address_barangay');
