@@ -9,6 +9,7 @@ Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/signup', [UserController::class, 'signup_show']);
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
