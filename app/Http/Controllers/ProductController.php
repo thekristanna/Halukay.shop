@@ -23,4 +23,15 @@ class ProductController extends Controller
         $products->appends($r->except('page'));
         return view('all_products', compact('products'));
     }
+
+    public function show_product(string $id)
+    {
+        $product = Product::query()
+            ->select('*')
+            ->where('product_id', '=', $id)
+            ->get()
+            ->first();
+
+        return view('show_product', compact('product'));
+    }
 }

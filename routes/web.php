@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 
 //PUBLIC
 Route::get('/shop', [ProductController::class, 'show_all_products']);
+Route::get('/shop/{id}', [ProductController::class, 'show_product']);
 
 Route::get('/signup', [UserController::class, 'signup_show']);
 Route::post('/signup', [UserController::class, 'signup']);

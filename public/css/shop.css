@@ -9,10 +9,15 @@
     margin: 0.5rem;
     font-size: 1.5dvh;
     border-color: white;
+    color: #8e583c;
+}
+#product_name {
+    text-decoration: none;
+    color: #8e583c;
 }
 .image {
     border-radius: 10%;
-    border: solid 2px #a58a6a;
+    border: solid 2px #8e583c;
 }
 #price {
     font-size: 2dvh;
@@ -45,4 +50,23 @@
     --bs-btn-disabled-bg: #a58a6a;
     --bs-btn-disabled-border-color: #a58a6a;
     --bs-btn-border-radius: 2rem;
+}
+#product.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10%;
+    border: solid 1px #8e583c;
+}
+.per_product {
+    border-radius: 2rem;
+    min-width: 100%;
+    height: 100%;
+    border: solid 1px #8e583c;
+}
+.card-body-info {
+    padding: 8% 5%;
+    color: #8e583c;
+}
+.card-body-info p {
+    font-style: italic;
 }
