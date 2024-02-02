@@ -8,6 +8,18 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+    public function show_product(string $id)
+    {
+        $product = Product::query()
+            ->select('*')
+            ->where('product_id', '=', $id)
+            ->get()
+            ->first();
+
+        return view('show_product', compact('product'));
+    }
+
     public function show_all_products(Request $r)
     {
         $products = Product::query()
@@ -22,16 +34,5 @@ class ProductController extends Controller
             ->paginate(20);
         $products->appends($r->except('page'));
         return view('all_products', compact('products'));
-    }
-
-    public function show_product(string $id)
-    {
-        $product = Product::query()
-            ->select('*')
-            ->where('product_id', '=', $id)
-            ->get()
-            ->first();
-
-        return view('show_product', compact('product'));
     }
 }

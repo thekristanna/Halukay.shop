@@ -38,7 +38,6 @@
           <div class="card">
             <img src="img/products/{{$p -> product_photo}}" class="card-img-top image" alt="{{$p -> name}}" >
             <div class="card-body">
-              <h1 id="price">₱ {{$p -> price}}</h1>
               <a href="/shop/{{$p -> product_id}}" id="product_name">{{$p -> name}} <br>{{$p -> nego_status}}</a>
             </div>
           </div>
