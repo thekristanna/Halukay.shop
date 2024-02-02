@@ -73,7 +73,7 @@
                     <input type="password" required id="password" placeholder="Password" name="password">
                 </div>
                 <input type="submit" class="login" value="Login"/>
-                <button class="login">Login</button>
+                {{-- <button class="login">Login</button> --}}
             </form>
                 <div class="signup">
                     <p>No account yet? <span><a href="/signup" id="signup">Sign Up</a></span></p>
