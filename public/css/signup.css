@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
     /* Colors */
     --color-one: #ffffff;
@@ -19,11 +20,13 @@
     text-decoration: none;
     color: var(--color-two);
 }
+
 body {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
 }
+
 /* Header: Start */
 header {
     position: fixed;
@@ -40,26 +43,31 @@ header {
     background: var(--color-one);
     padding: 12px 0;
 }
+
 #brand {
     font-family: Merriweather;
     font-weight: 700;
     font-style: italic;
     color: var(--color-two);
 }
+
 .navbar a {
     color: var(--color-seven);
     margin: 20px;
     font-weight: 400;
     font-size: 13px;
 }
+
 .navbar .active {
     color: var(--color-two);
     border-bottom: 2px solid var(--color-two);
     font-weight: 600;
 }
+
 #logo {
     width: 55px;
 }
+
 #search-input {
     outline: none;
     border: 1px solid var(--color-six);
@@ -69,11 +77,13 @@ header {
     width: 200px;
     margin-left: 40px;
 }
+
 #search-button {
     background: none;
     border: none;
     cursor: pointer;
 }
+
 #search-icon {
     font-weight: bold;
     color: var(--color-seven);
@@ -81,6 +91,7 @@ header {
     border-right: 1px solid var(--color-six);
     transform: translate(-275px);
 }
+
 #register {
     padding: 15px;
     width: 130px;
@@ -91,10 +102,12 @@ header {
     letter-spacing: 0.5px;
     margin-right: 10px;
 }
+
 #menu-icon {
     display: none;
     font-size: 20px;
 }
+
 /* Header: Media Query */
 @media (max-width: 1200px) {
     header {
@@ -102,49 +115,59 @@ header {
         margin-left: 40px;
     }
 }
+
 @media (max-width: 900px) {
     header {
         margin-right: 50px;
         margin-left: 50px;
     }
+
     .navbar a {
         display: none;
     }
+
     #register {
         display: none;
     }
+
     #menu-icon {
         display: block;
         margin-right: 10px;
     }
 }
+
 @media (max-width: 400px) {
-  header {
-    margin-right: 50px;
-    margin-left: 50px;
-}
+    header {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
     .search {
         display: none;
     }
 }
-/* Header: End */
 
+/* Header: End */
 
 .container {
     display: block;
     margin-top: 90px;
 }
-.signup {
-    position: relative;
-    width: 300px;
-    display: block;
-  }
-  h1 {
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 10px;
     font-size: 50px;
-  }
-  .signup div input {
+}
+
+.signup-form .row-one input {
     padding: 12px 22px;
     border: none;
     outline: none;
@@ -155,20 +178,355 @@ header {
     font-size: 13px;
     color: var(--color-t);
     margin: 12px;
-  }
-  #span-first-name {
+}
+
+#span-first-name {
     position: absolute;
     padding: 15px 20px;
     pointer-events: none;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.5px;
     transition: 0.3s;
-    transform: translate(-325px, -1px);
-  }
-  input:is(:focus, :valid) ~   #span-first-name {
+    transform: translate(-365px, -1px);
+}
+
+#first-name:is(:focus, :valid) ~ #span-first-name {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
     font-size: 10px;
-    transform: translate(-340px, -23px);
-  }
+    transform: translate(-368px, -23px);
+}
+
+#span-last-name {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-145px, -1px);
+}
+
+#last-name:is(:focus, :valid) ~ #span-last-name {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-150px, -23px);
+}
+
+#span-phone-number {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(310px, -1px);
+}
+
+#phone-number:is(:focus, :valid) ~ #span-phone-number {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(300px, -23px);
+}
+
+.signup-form .row-two input {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 370px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+#span-username {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-367px, -1px);
+}
+
+#username:is(:focus, :valid) ~ #span-username {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-370px, -23px);
+}
+
+#span-address-street {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(89px, -1px);
+}
+
+#address-street:is(:focus, :valid) ~ #span-address-street {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(80px, -23px);
+}
+
+.signup-form .row-three input:nth-of-type(1) {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 370px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+.signup-form .row-three input:nth-of-type(2) {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+.signup-form .row-three input:nth-of-type(3) {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+#span-email {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-355px, -1px);
+}
+
+#email:is(:focus, :valid) ~ #span-email {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-360px, -23px);
+}
+
+#span-address-barangay {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(70px, -1px);
+}
+
+#address-barangay:is(:focus, :valid) ~ #span-address-barangay {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(68px, -23px);
+}
+
+#span-address-city {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(293px, -1px);
+}
+
+#address-city:is(:focus, :valid) ~ #span-address-city {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(287px, -23px);
+}
+
+.signup-form .row-four input {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+#span-password {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-368px, -1px);
+}
+
+#password:is(:focus, :valid) ~ #span-password {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-370px, -23px);
+}
+
+#span-confirm-password {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-118px, -1px);
+}
+
+#confirm-password:is(:focus, :valid) ~ #span-confirm-password {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-130px, -23px);
+}
+
+#span-address-province {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(69px, -1px);
+}
+
+#address-province:is(:focus, :valid) ~ #span-address-province {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(65px, -23px);
+}
+
+#span-address-zip {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(289px, -1px);
+}
+
+#address-zip:is(:focus, :valid) ~ #span-address-zip {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(285px, -23px);
+}
+
+.shopper,
+.seller {
+    margin: 15px;
+}
+
+#terms {
+    padding-left: 5px;
+    font-style: italic;
+}
+
+.signup-form .row-six {
+    font-size: 12px;
+}
+
+.signup {
+    outline: none;
+    border: none;
+    background: var(--color-two);
+    color: var(--color-one);
+    padding: 10px 40px;
+    border-radius: 50px;
+    margin: 25px 25px 10px 25px;
+    cursor: pointer;
+}
+
+.login {
+    font-size: 12px;
+}
+
+#login {
+    padding-left: 5px;
+    font-weight: 700;
+}
+#logo-background {
+    position: absolute;
+    z-index: -100;
+    opacity: 0.1;
+    top: 100px;
+}
+
+/* Error modal */
+.modal {
+    border-radius: 25px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    z-index: 1;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}

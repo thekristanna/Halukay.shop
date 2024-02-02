@@ -1,15 +1,9 @@
-
+{{-- 
 
 @if (Session::has('success'))
     <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                {{-- <div class="modal-header">
-                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div> --}}
                 <div class="modal-body">
                     <p class="text-success">{{ Session::get('success') }}</p>
                 </div>
@@ -30,12 +24,6 @@
     <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                {{-- <div class="modal-header">
-                    <h5 class="modal-title" id="failModalLabel">Error!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div> --}}
                 <div class="modal-body">
                     <p class="text-danger">{{ Session::get('fail') }}</p>
                 </div>
@@ -58,12 +46,6 @@
     <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                {{-- <div class="modal-header">
-                    <h5 class="modal-title" id="errorModalLabel">Errors!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div> --}}
                 <div class="modal-body">
                     @foreach ($errors->all() as $error)
                         <p class="text-danger">{{ $error }}</p>
@@ -82,4 +64,13 @@
             $('#errorModal').modal('show');
         });
     </script>
+@endif --}}
+
+@if (Session::has('success'))
+<p class="notif bg bg-success text-light text-center">{{Session::get('success')}}</p>
+@elseif (Session::has('fail'))
+<p class=" notif bg bg-danger text-light text-center">{{Session::get('fail')}}</p>
 @endif
+@foreach ($errors -> all() as $error)
+    <p id="notif" class="notif bg bg-danger text-light">{{$error}}</p>
+@endforeach

@@ -1,66 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {{-- <script>
-        $(document).ready(function(){
-        $('#signup_form').submit(function(x){
-            x.preventDefault();
-        })
-    });
-    </script> --}}
-    
-    <title>Document</title>
-</head>
-<body>
-    @include('layouts/messages')
-    <div class="container">
-        <h1 class="text-center">Sign Up</h1>
-        <form action="/signup" id="signup_form" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label>First Name</label>
-            <input type="text" class="form-control" name="first_name" placeholder="First Name" value="{{old('first_name')}}"/><br />
-            <label>Last Name</label>
-            <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="{{old('last_name')}}"/><br />
-            <input type="file" class="form-control" name="profile_picture" />
-            <br />
-            <label>Email Address</label>
-            <input type="email" class="form-control" name="email_address" placeholder="Email Address" value="{{old('email_address')}}"/><br />
-            <label>Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Username" value="{{old('username')}}"/><br />
-            <label>Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Password"/><br />
-            <label>Confirm Password</label>
-            <input type="password" class="form-control" name="con_pw" placeholder="Confirm Password"/><br />
-            <label>Phone number</label>
-            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number" value="{{old('phone_number')}}" /><br />
-            <label>Street</label>
-            <input type="text" class="form-control" name="address_street" placeholder="Street Address" value="{{old('address_street')}}"/><br />
-            <label>Barangay</label>
-            <input type="text" class="form-control" name="address_barangay" placeholder="Barangay" value="{{old('address_barangay')}}" /><br />
-            <label>City</label>
-            <input type="text" class="form-control" name="address_citytown" placeholder="City/Town" value="{{old('address_citytown')}}" /><br />
-            <label>Province</label>
-            <input type="text" class="form-control" name="address_province" placeholder="Province" value="{{old('address_province')}}" /><br />
-            <label>Zip Code</label>
-            <input type="text" class="form-control" name="address_zip" placeholder="Zip Code" value="{{old('address_zip')}}" /><br />
-            <h3>Role</h3>
-            <input type="radio" name="role" value="shopper"><label for="role">Shopper</label>
-            <input type="radio" name="role" value="seller"><label for="role">Seller</label>
-            <br />
-            <input type="checkbox" name="accept_tc" value="accept_tc">
-            <label for="accept_tc">I agree to the Terms and Conditions.</label>
-            <br />
-            <input type="submit" class="btn btn-success" />
-        </form>
-        <br />
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- Remix icon -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <!-- Box icons -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/signup.css" />
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="../img/halukay-favicon.png"
+            type="image/x-icon"
+        />
+        <script src="js/failmessage.js"></script>
+        <!-- Page Title -->
+        <!-- <title>Halukay</title> -->
+    </head>
+    <body>
+        @include('layouts/messages2')
+        <!-- header -->
+        <header>
+            <div class="brand">
+                <img
+                    src="../img/halukay-logo.png"
+                    alt="halukay-logo"
+                    id="logo"
+                />
+                <a href="#" id="brand">halukay.com</a>
+            </div>
+            <div class="navbar">
+                <a href="index.html" class="active" id="home">Home</a>
+                <a href="#synrgy" id="about">About</a>
+                <a href="#" id="shop">Shop</a>
+                <form class="search">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search here"
+                    />
+                    <button type="submit" id="search-button">
+                        <i class="ri-search-line" id="search-icon"></i>
+                    </button>
+                </form>
+            </div>
+            <div><a href="#" id="register">Sign Up</a></div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </header>
 
-
-</body>
+        <!-- sign up -->
+        <div class="container">
+            <h1>Sign Up</h1>
+            <form action="/signup" id="signup_form" method="POST" enctype="multipart/form-data">
+                @csrf
+            <div class="signup-form" id="signup">
+                <!-- row1 -->
+                <div class="row-one">
+                    <input type="text" required id="first-name" name="first_name" value="{{old('first_name')}}"/>
+                    <span id="span-first-name">First Name</span>
+                    <input type="text" required id="last-name" name="last_name" value="{{old('last_name')}}"/>
+                    <span id="span-last-name">Last Name</span>
+                    <input type="file" required id="upload" value="photo" name="profile_picture"/>
+                    <input type="text" required id="phone-number" name="phone_number" value="{{old('phone_number')}}"/>
+                    <span id="span-phone-number">Phone Number</span>
+                </div>
+                <!-- row2 -->
+                <div class="row-two">
+                    <input type="text" required id="username" name="username" value="{{old('username')}}"/>
+                    <span id="span-username">Username</span>
+                    <input type="text" required id="address-street" name="address_street" value="{{old('address_street')}}"/>
+                    <span id="span-address-street">Street Address</span>
+                </div>
+                <!-- row3 -->
+                <div class="row-three">
+                    <input type="text" required id="email" name="email_address" value="{{old('email_address')}}"/>
+                    <span id="span-email">Email Address</span>
+                    <input type="text" required id="address-barangay" name="address_barangay" value="{{old('address_barangay')}}"/>
+                    <span id="span-address-barangay">Barangay</span>
+                    <input type="text" required id="address-city" name="address_citytown" value="{{old('address_citytown')}}"/>
+                    <span id="span-address-city">City/Town</span>
+                </div>
+                <!-- row4 -->
+                <div class="row-four">
+                    <input type="password" required id="password" name="password"/>
+                    <span id="span-password">Password</span>
+                    <input type="password" required id="confirm-password" name="con_pw"/>
+                    <span id="span-confirm-password">Confirm Password</span>
+                    <input type="text" required id="address-province" name="address_province" value="{{old('address_province')}}"/>
+                    <span id="span-address-province">Province</span>
+                    <input type="text" required id="address-zip" name="address_zip" value="{{old('address_zip')}}"/>
+                    <span id="span-address-zip">Zip Code</span>
+                </div>
+                <!-- row5 -->
+                <div class="row-five">
+                    <div class="shopper">
+                        <input
+                            type="radio"
+                            id="shopper"
+                            name="role"
+                            value="shopper"
+                        />
+                        <label for="shopper">Shopper</label>
+                    </div>
+                    <div class="seller">
+                        <input
+                            type="radio"
+                            id="seller"
+                            name="role"
+                            value="seller"
+                        />
+                        <label for="seller">Seller</label>
+                    </div>
+                </div>
+                <!-- row6 -->
+                <div class="row-six">
+                    <input type="checkbox" id="terms" name="accept_tc" value="accept_tc">
+                    <label for="terms">I agree to the<span id="terms">Terms & Conditions</span></label>
+                </div>
+                <!-- signup -->
+                <input type="submit" class="signup"/>
+            </form>
+                {{-- <button class="signup">Sign Up</button> --}}
+                <div class="login">
+                    <p>Already a member? <span><a href="/login" id="login">Login</a></span></p>
+                </div>
+            </div>
+        </div>
+        <img src="../img/halukay-logo.png"id="logo-background">
+        <!-- footer -->
+    </body>
 </html>

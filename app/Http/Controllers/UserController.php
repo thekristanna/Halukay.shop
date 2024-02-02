@@ -50,7 +50,7 @@ class UserController extends Controller
             'username' => 'required|unique:users,username',
             'password' => 'required|min:6',
             'con_pw' => 'required|same:password',
-            'phone_number' => 'required|unique:users,phone_number',
+            'phone_number' => 'required|string',
             'address_street' => 'required|string',
             'address_barangay' => 'required|string',
             'address_citytown' => 'required|string',

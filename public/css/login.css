@@ -195,6 +195,7 @@ h1 {
 
 /* Error modal */
 .modal {
+    border-radius: 25px;
     display: none;
     position: fixed;
     top: 50%;
