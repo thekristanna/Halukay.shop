@@ -22,6 +22,8 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/login', [UserController::class, 'login_show']);
 Route::post('/login', [UserController::class, 'login']);
 
+Route::get('logout', [UserController::class, 'logout']);
+
 
 Route::middleware(['checkSessionShopper'])->group(function () {
     // 

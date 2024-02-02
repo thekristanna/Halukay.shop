@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,13 +15,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('users')->delete();
-        
-        \DB::table('users')->insert(array (
-            0 => 
-            array (
+
+        DB::table('users')->delete();
+
+        DB::table('users')->insert(array(
+            0 =>
+            array(
                 'user_id' => 1,
                 'first_name' => 'Daiben',
                 'last_name' => 'Sanchez',
@@ -36,8 +37,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => NULL,
             ),
-            1 => 
-            array (
+            1 =>
+            array(
                 'user_id' => 2,
                 'first_name' => 'Queza',
                 'last_name' => 'Fabela',
@@ -53,8 +54,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => NULL,
             ),
-            2 => 
-            array (
+            2 =>
+            array(
                 'user_id' => 3,
                 'first_name' => 'Dante',
                 'last_name' => 'Magbuhos',
@@ -70,8 +71,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => NULL,
             ),
-            3 => 
-            array (
+            3 =>
+            array(
                 'user_id' => 4,
                 'first_name' => 'Paul',
                 'last_name' => 'Quiachon',
@@ -87,8 +88,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => NULL,
             ),
-            4 => 
-            array (
+            4 =>
+            array(
                 'user_id' => 5,
                 'first_name' => 'Tanna',
                 'last_name' => 'Slay',
@@ -104,8 +105,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => NULL,
             ),
-            5 => 
-            array (
+            5 =>
+            array(
                 'user_id' => 6,
                 'first_name' => 'CJ',
                 'last_name' => 'Salvino',
@@ -121,8 +122,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            6 => 
-            array (
+            6 =>
+            array(
                 'user_id' => 7,
                 'first_name' => 'Kevin',
                 'last_name' => 'Daus',
@@ -138,8 +139,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            7 => 
-            array (
+            7 =>
+            array(
                 'user_id' => 8,
                 'first_name' => 'Maynard',
                 'last_name' => 'Villalobos',
@@ -155,8 +156,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            8 => 
-            array (
+            8 =>
+            array(
                 'user_id' => 9,
                 'first_name' => 'April',
                 'last_name' => 'Ipac',
@@ -172,8 +173,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            9 => 
-            array (
+            9 =>
+            array(
                 'user_id' => 10,
                 'first_name' => 'Jehd',
                 'last_name' => 'Jandoc',
@@ -189,8 +190,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            10 => 
-            array (
+            10 =>
+            array(
                 'user_id' => 11,
                 'first_name' => 'Christian Jeuel',
                 'last_name' => 'Venturina',
@@ -206,8 +207,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            11 => 
-            array (
+            11 =>
+            array(
                 'user_id' => 12,
                 'first_name' => 'Jeinin',
                 'last_name' => 'Arellano',
@@ -223,8 +224,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            12 => 
-            array (
+            12 =>
+            array(
                 'user_id' => 13,
                 'first_name' => 'Rafael',
                 'last_name' => 'Uchi',
@@ -240,8 +241,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            13 => 
-            array (
+            13 =>
+            array(
                 'user_id' => 14,
                 'first_name' => 'Keith',
                 'last_name' => 'Aquino',
@@ -257,8 +258,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            14 => 
-            array (
+            14 =>
+            array(
                 'user_id' => 15,
                 'first_name' => 'Rendell',
                 'last_name' => 'Soberano',
@@ -274,8 +275,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            15 => 
-            array (
+            15 =>
+            array(
                 'user_id' => 16,
                 'first_name' => 'Angelica',
                 'last_name' => 'Libang',
@@ -291,8 +292,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            16 => 
-            array (
+            16 =>
+            array(
                 'user_id' => 17,
                 'first_name' => 'Vivien',
                 'last_name' => 'Caampued',
@@ -308,8 +309,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => NULL,
             ),
-            17 => 
-            array (
+            17 =>
+            array(
                 'user_id' => 18,
                 'first_name' => 'Fernando',
                 'last_name' => 'Valenzuela',
@@ -326,7 +327,5 @@ class UsersTableSeeder extends Seeder
                 'profile_photo' => NULL,
             ),
         ));
-        
-        
     }
 }

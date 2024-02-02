@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductTableSeeder extends Seeder
 {
@@ -14,13 +16,13 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('product')->delete();
-        
-        \DB::table('product')->insert(array (
-            0 => 
-            array (
+
+        DB::table('product')->delete();
+
+        DB::table('product')->insert(array(
+            0 =>
+            array(
                 'product_id' => 1,
                 'name' => 'Uniqlo Trousers',
                 'price' => 307,
@@ -36,8 +38,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, loose fit',
                 'notes' => 'Uniqlo Trousers-barely used Uniqlo cotton spandex khaki large, loose fit Slight discoloration on the',
             ),
-            1 => 
-            array (
+            1 =>
+            array(
                 'product_id' => 2,
                 'name' => 'H&M Blazer',
                 'price' => 879,
@@ -53,8 +55,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, formal fit',
                 'notes' => 'H&M Blazer-like new H&M polyester black medium, formal fit Missing a button on the front, minor thre',
             ),
-            2 => 
-            array (
+            2 =>
+            array(
                 'product_id' => 3,
                 'name' => 'Old Navy Shirt',
                 'price' => 647,
@@ -70,8 +72,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, casual fit',
                 'notes' => 'Old Navy Shirt-used Old Navy cotton blue small, casual fit Faded color around the collar, light stai',
             ),
-            3 => 
-            array (
+            3 =>
+            array(
                 'product_id' => 4,
                 'name' => 'Zara Skirt',
                 'price' => 449,
@@ -87,8 +89,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, A-line',
                 'notes' => 'Zara Skirt-gently used Zara polyester blend red medium, A-line Zipper occasionally sticks, small tea',
             ),
-            4 => 
-            array (
+            4 =>
+            array(
                 'product_id' => 5,
                 'name' => 'Mango Dress',
                 'price' => 665,
@@ -104,8 +106,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, flowy',
                 'notes' => 'Mango Dress-worn once Mango silk navy small, flowy Minor pilling on the fabric, one loose seam near ',
             ),
-            5 => 
-            array (
+            5 =>
+            array(
                 'product_id' => 6,
                 'name' => 'Topshop Jeans',
                 'price' => 154,
@@ -121,8 +123,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 28, skinny fit',
                 'notes' => 'Topshop Jeans-well-worn Topshop denim light blue size 28, skinny fit Slight fraying on the hems, fad',
             ),
-            6 => 
-            array (
+            6 =>
+            array(
                 'product_id' => 7,
                 'name' => 'Gap Hoodie',
                 'price' => 307,
@@ -138,8 +140,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, oversized',
                 'notes' => 'Gap Hoodie-used Gap fleece grey large, oversized Drawstring missing, light fabric wear from regular ',
             ),
-            7 => 
-            array (
+            7 =>
+            array(
                 'product_id' => 8,
                 'name' => 'Forever 21 Top',
                 'price' => 763,
@@ -155,8 +157,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, cropped',
                 'notes' => 'Forever 21 Top-like new Forever 21 cotton white medium, cropped Small ink stain on the back, slight ',
             ),
-            8 => 
-            array (
+            8 =>
+            array(
                 'product_id' => 9,
                 'name' => 'Ralph Lauren Polo',
                 'price' => 979,
@@ -172,8 +174,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, classic fit',
                 'notes' => 'Color slightly faded from washing, tiny hole near the logo.',
             ),
-            9 => 
-            array (
+            9 =>
+            array(
                 'product_id' => 10,
                 'name' => 'Levi\'s Shorts',
                 'price' => 899,
@@ -189,8 +191,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => '',
                 'notes' => 'Distressed look, small paint splatters on the back pocket.',
             ),
-            10 => 
-            array (
+            10 =>
+            array(
                 'product_id' => 11,
                 'name' => 'Calvin Klein T-Shirt',
                 'price' => 359,
@@ -206,8 +208,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, slim fit',
                 'notes' => 'Calvin Klein T-Shirt-lightly used Calvin Klein cotton white medium, slim fit Logo slightly cracked, ',
             ),
-            11 => 
-            array (
+            11 =>
+            array(
                 'product_id' => 12,
                 'name' => 'Guess Jacket',
                 'price' => 125,
@@ -223,8 +225,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, biker style',
                 'notes' => 'Guess Jacket-barely used Guess leather brown medium, biker style Wear on the cuffs, one inner pocket',
             ),
-            12 => 
-            array (
+            12 =>
+            array(
                 'product_id' => 13,
                 'name' => 'Nike Sweatpants',
                 'price' => 371,
@@ -240,8 +242,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, relaxed fit',
                 'notes' => 'Nike Sweatpants-used Nike polyester black large, relaxed fit Drawstring frayed, light pilling on the',
             ),
-            13 => 
-            array (
+            13 =>
+            array(
                 'product_id' => 14,
                 'name' => 'Adidas Track Jacket',
                 'price' => 873,
@@ -257,8 +259,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, athletic fit',
                 'notes' => 'Adidas Track Jacket-like new Adidas polyester navy small, athletic fit Slight discoloration under th',
             ),
-            14 => 
-            array (
+            14 =>
+            array(
                 'product_id' => 15,
                 'name' => 'Lacoste Sweater',
                 'price' => 736,
@@ -274,8 +276,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, snug fit',
                 'notes' => 'Lacoste Sweater-well-worn Lacoste wool cream medium, snug fit Minor shrinkage, small moth hole near ',
             ),
-            15 => 
-            array (
+            15 =>
+            array(
                 'product_id' => 16,
                 'name' => 'ASOS Maxi Dress',
                 'price' => 974,
@@ -291,8 +293,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, empire waist',
                 'notes' => 'ASOS Maxi Dress-used ASOS viscose floral small, empire waist Hem slightly uneven, faint makeup marks',
             ),
-            16 => 
-            array (
+            16 =>
+            array(
                 'product_id' => 17,
                 'name' => 'Tommy Hilfiger Denim Jacket',
                 'price' => 331,
@@ -308,8 +310,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, classic fit',
                 'notes' => 'Tommy Hilfiger Denim Jacket-gently used Tommy Hilfiger denim blue large, classic fit Slight rust on ',
             ),
-            17 => 
-            array (
+            17 =>
+            array(
                 'product_id' => 18,
                 'name' => 'Puma Sports Tee',
                 'price' => 676,
@@ -325,8 +327,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, regular fit',
                 'notes' => 'Puma Sports Tee-lightly used Puma polyester red medium, regular fit Print faded from washing, fabric',
             ),
-            18 => 
-            array (
+            18 =>
+            array(
                 'product_id' => 19,
                 'name' => 'American Eagle Outfitters Shorts',
                 'price' => 478,
@@ -342,8 +344,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => '32 waist, regular fit',
                 'notes' => 'American Eagle Outfitters Shorts-used American Eagle cotton khaki 32 waist, regular fit Distressed e',
             ),
-            19 => 
-            array (
+            19 =>
+            array(
                 'product_id' => 20,
                 'name' => 'Burberry Trench Coat',
                 'price' => 607,
@@ -359,8 +361,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, tailored fit',
                 'notes' => 'Burberry Trench Coat-vintage Burberry cotton gabardine beige medium, tailored fit Slight water stain',
             ),
-            20 => 
-            array (
+            20 =>
+            array(
                 'product_id' => 21,
                 'name' => 'Adidas Running Shoes',
                 'price' => 540,
@@ -376,8 +378,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 10, snug fit',
                 'notes' => 'Adidas Running Shoes-well-worn Adidas synthetic black size 10, snug fit Sole slightly worn, insole s',
             ),
-            21 => 
-            array (
+            21 =>
+            array(
                 'product_id' => 22,
                 'name' => 'Nike Air Max',
                 'price' => 433,
@@ -393,8 +395,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 9, cushioned sole',
                 'notes' => 'Nike Air Max-moderately used Nike mesh grey size 9, cushioned sole Minor scuff on the toe box, laces',
             ),
-            22 => 
-            array (
+            22 =>
+            array(
                 'product_id' => 23,
                 'name' => 'Converse All-Stars',
                 'price' => 787,
@@ -410,8 +412,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 8, standard fit',
                 'notes' => 'Converse All-Stars-lightly used Converse canvas red size 8, standard fit Canvas faded, small tear ne',
             ),
-            23 => 
-            array (
+            23 =>
+            array(
                 'product_id' => 24,
                 'name' => 'Dr. Martens Boots',
                 'price' => 521,
@@ -427,8 +429,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 7, tight fit',
                 'notes' => 'Dr. Martens Boots-vintage Dr. Martens leather black size 7, tight fit Leather creased at ankles, sli',
             ),
-            24 => 
-            array (
+            24 =>
+            array(
                 'product_id' => 25,
                 'name' => 'Vans Skate Shoes',
                 'price' => 569,
@@ -444,8 +446,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 11, comfortable fit',
                 'notes' => 'Vans Skate Shoes-used Vans canvas checkered size 11, comfortable fit Faded pattern, slight detachmen',
             ),
-            25 => 
-            array (
+            25 =>
+            array(
                 'product_id' => 26,
                 'name' => 'Birkenstock Sandals',
                 'price' => 595,
@@ -461,8 +463,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 6, wide fit',
                 'notes' => 'Birkenstock Sandals-well-worn Birkenstock cork and leather brown size 6, wide fit Footbed shows impr',
             ),
-            26 => 
-            array (
+            26 =>
+            array(
                 'product_id' => 27,
                 'name' => 'Steve Madden Heels',
                 'price' => 170,
@@ -478,8 +480,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 7, high heel',
                 'notes' => 'Steve Madden Heels-lightly used Steve Madden suede black size 7, high heel Heel tips worn, slight sc',
             ),
-            27 => 
-            array (
+            27 =>
+            array(
                 'product_id' => 28,
                 'name' => 'Clarks Desert Boots',
                 'price' => 456,
@@ -495,8 +497,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 9, classic fit',
                 'notes' => 'Clarks Desert Boots-gently used Clarks suede brown size 9, classic fit Leather creased, soles show m',
             ),
-            28 => 
-            array (
+            28 =>
+            array(
                 'product_id' => 29,
                 'name' => 'Reebok Trainers',
                 'price' => 945,
@@ -512,8 +514,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 10, athletic fit',
                 'notes' => 'Reebok Trainers-used Reebok mesh blue size 10, athletic fit Fabric slightly loose on one side, insol',
             ),
-            29 => 
-            array (
+            29 =>
+            array(
                 'product_id' => 30,
                 'name' => 'Jimmy Choo High Heels',
                 'price' => 478,
@@ -529,8 +531,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 8, elegant fit',
                 'notes' => 'Jimmy Choo High Heels-barely used Jimmy Choo leather grey size 8, elegant fit Minor scuffs on the he',
             ),
-            30 => 
-            array (
+            30 =>
+            array(
                 'product_id' => 31,
                 'name' => 'New Balance Sneakers',
                 'price' => 696,
@@ -546,8 +548,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 11, comfortable fit',
                 'notes' => 'New Balance Sneakers-well-worn New Balance suede and mesh grey size 11, comfortable fit Slight disco',
             ),
-            31 => 
-            array (
+            31 =>
+            array(
                 'product_id' => 32,
                 'name' => 'Timberland Boots',
                 'price' => 698,
@@ -563,8 +565,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 12, rugged fit',
                 'notes' => 'Timberland Boots-moderately used Timberland leather wheat size 12, rugged fit Leather slightly scuff',
             ),
-            32 => 
-            array (
+            32 =>
+            array(
                 'product_id' => 33,
                 'name' => 'Gucci Loafers',
                 'price' => 886,
@@ -580,8 +582,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 8, luxury fit',
                 'notes' => 'Gucci Loafers-like new Gucci leather black size 8, luxury fit Creases on the top, heel shows wear.',
             ),
-            33 => 
-            array (
+            33 =>
+            array(
                 'product_id' => 34,
                 'name' => 'Crocs Sandals',
                 'price' => 828,
@@ -597,8 +599,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 7, relaxed fit',
                 'notes' => 'Crocs Sandals-used Crocs rubber navy size 7, relaxed fit Color faded from sunlight exposure, strap s',
             ),
-            34 => 
-            array (
+            34 =>
+            array(
                 'product_id' => 35,
                 'name' => 'Skechers Walking Shoes',
                 'price' => 757,
@@ -614,8 +616,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 9, cushioned fit',
                 'notes' => 'Skechers Walking Shoes-lightly used Skechers mesh black size 9, cushioned fit Insoles compressed, sl',
             ),
-            35 => 
-            array (
+            35 =>
+            array(
                 'product_id' => 36,
                 'name' => 'Puma Running Shoes',
                 'price' => 404,
@@ -631,8 +633,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 10, sporty fit',
                 'notes' => 'Puma Running Shoes-gently used Puma synthetic white size 10, sporty fit Mesh slightly torn near the ',
             ),
-            36 => 
-            array (
+            36 =>
+            array(
                 'product_id' => 37,
                 'name' => 'Balenciaga Sneakers',
                 'price' => 610,
@@ -648,8 +650,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 11, oversized fit',
                 'notes' => 'Balenciaga Sneakers-like new Balenciaga leather white size 11, oversized fit Leather creased at the ',
             ),
-            37 => 
-            array (
+            37 =>
+            array(
                 'product_id' => 38,
                 'name' => 'Yeezy Boost 350',
                 'price' => 823,
@@ -665,8 +667,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 9, snug fit',
                 'notes' => 'Yeezy Boost 350-worn once Yeezy knit black size 9, snug fit Slight discoloration on the knit upper, ',
             ),
-            38 => 
-            array (
+            38 =>
+            array(
                 'product_id' => 39,
                 'name' => 'Under Armour Sports Shoes',
                 'price' => 849,
@@ -682,8 +684,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 8, athletic fit',
                 'notes' => 'Under Armour Sports Shoes-moderately used Under Armour synthetic red size 8, athletic fit Laces slig',
             ),
-            39 => 
-            array (
+            39 =>
+            array(
                 'product_id' => 40,
                 'name' => 'Salvatore Ferragamo Dress Shoes',
                 'price' => 658,
@@ -699,8 +701,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'size 10, elegant fit',
                 'notes' => 'Salvatore Ferragamo Dress Shoes-vintage Salvatore Ferragamo leather black size 10, elegant fit Leath',
             ),
-            40 => 
-            array (
+            40 =>
+            array(
                 'product_id' => 41,
                 'name' => 'Michael Kors Handbag',
                 'price' => 723,
@@ -716,8 +718,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium-sized, spacious interior',
                 'notes' => 'Michael Kors Handbag-like new Michael Kors leather tan medium-sized, spacious interior Minor scratch',
             ),
-            41 => 
-            array (
+            41 =>
+            array(
                 'product_id' => 42,
                 'name' => 'Coach Shoulder Bag',
                 'price' => 473,
@@ -733,8 +735,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, compact design',
                 'notes' => 'Leather slightly faded, strap shows signs of wear.',
             ),
-            42 => 
-            array (
+            42 =>
+            array(
                 'product_id' => 43,
                 'name' => 'Kate Spade Clutch',
                 'price' => 211,
@@ -750,8 +752,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'one size, elegant look',
                 'notes' => 'Kate Spade Clutch-like new Kate Spade satin black one size, elegant look Minor scratch on the clasp,',
             ),
-            43 => 
-            array (
+            43 =>
+            array(
                 'product_id' => 44,
                 'name' => 'Longchamp Tote Bag',
                 'price' => 156,
@@ -767,8 +769,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, foldable',
                 'notes' => 'Longchamp Tote Bag-gently used Longchamp nylon pink large, foldable Corners worn, small ink stain on',
             ),
-            44 => 
-            array (
+            44 =>
+            array(
                 'product_id' => 45,
                 'name' => 'Prada Crossbody Bag',
                 'price' => 538,
@@ -784,8 +786,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, adjustable strap',
                 'notes' => 'Prada Crossbody Bag-like new Prada Saffiano leather red medium, adjustable strap Slight wear on the ',
             ),
-            45 => 
-            array (
+            45 =>
+            array(
                 'product_id' => 46,
                 'name' => 'Fossil Satchel',
                 'price' => 389,
@@ -801,8 +803,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, multiple pockets',
                 'notes' => 'Fossil Satchel-barely used Fossil leather grey medium, multiple pockets Zipper sticks occasionally, ',
             ),
-            46 => 
-            array (
+            46 =>
+            array(
                 'product_id' => 47,
                 'name' => 'Louis Vuitton Speedy',
                 'price' => 957,
@@ -818,8 +820,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, iconic design',
                 'notes' => 'Louis Vuitton Speedy-vintage Louis Vuitton canvas and leather brown small, iconic design Handles dar',
             ),
-            47 => 
-            array (
+            47 =>
+            array(
                 'product_id' => 48,
                 'name' => 'Gucci Marmont',
                 'price' => 118,
@@ -835,8 +837,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, luxury style',
                 'notes' => 'Gucci Marmont-well-worn Gucci leather black medium, luxury style Minor scratch on the front flap, ha',
             ),
-            48 => 
-            array (
+            48 =>
+            array(
                 'product_id' => 49,
                 'name' => 'Hermes Birkin',
                 'price' => 714,
@@ -852,8 +854,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, exclusive design',
                 'notes' => 'Hermes Birkin-lightly used Hermes leather beige large, exclusive design Slight wear on the corners, ',
             ),
-            49 => 
-            array (
+            49 =>
+            array(
                 'product_id' => 50,
                 'name' => 'Chanel Flap Bag',
                 'price' => 296,
@@ -869,8 +871,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, classic style',
                 'notes' => 'Chanel Flap Bag-vintage Chanel leather navy medium, classic style Chain strap shows wear, leather sl',
             ),
-            50 => 
-            array (
+            50 =>
+            array(
                 'product_id' => 51,
                 'name' => 'Marc Jacobs Backpack',
                 'price' => 699,
@@ -886,8 +888,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, casual look',
                 'notes' => 'Marc Jacobs Backpack-used Marc Jacobs nylon black large, casual look Zipper tab missing, fabric slig',
             ),
-            51 => 
-            array (
+            51 =>
+            array(
                 'product_id' => 52,
                 'name' => 'YSL Clutch',
                 'price' => 873,
@@ -903,8 +905,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, chic style',
                 'notes' => 'YSL Clutch-like new Yves Saint Laurent leather red medium, chic style Minor marks on the leather, ma',
             ),
-            52 => 
-            array (
+            52 =>
+            array(
                 'product_id' => 53,
                 'name' => 'Givenchy Antigona',
                 'price' => 917,
@@ -920,8 +922,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, structured design',
                 'notes' => 'Givenchy Antigona-gently used Givenchy leather grey medium, structured design Small stain inside, ha',
             ),
-            53 => 
-            array (
+            53 =>
+            array(
                 'product_id' => 54,
                 'name' => 'Alexander Wang Bucket Bag',
                 'price' => 367,
@@ -937,8 +939,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, modern style',
                 'notes' => 'Alexander Wang Bucket Bag-barely used Alexander Wang leather black small, modern style Leather creas',
             ),
-            54 => 
-            array (
+            54 =>
+            array(
                 'product_id' => 55,
                 'name' => 'Tory Burch Tote',
                 'price' => 174,
@@ -954,8 +956,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'large, versatile design',
                 'notes' => 'Tory Burch Tote-used Tory Burch canvas navy large, versatile design Straps slightly frayed, small ma',
             ),
-            55 => 
-            array (
+            55 =>
+            array(
                 'product_id' => 56,
                 'name' => 'Chloe Drew Bag',
                 'price' => 854,
@@ -971,8 +973,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, elegant look',
                 'notes' => 'Chloe Drew Bag-lightly used Chloe leather tan small, elegant look Slight scratch on the front, clasp',
             ),
-            56 => 
-            array (
+            56 =>
+            array(
                 'product_id' => 57,
                 'name' => 'Burberry Crossbody',
                 'price' => 558,
@@ -988,8 +990,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, classic design',
                 'notes' => 'Burberry Crossbody-vintage Burberry check canvas beige medium, classic design Buckle slightly tarnis',
             ),
-            57 => 
-            array (
+            57 =>
+            array(
                 'product_id' => 58,
                 'name' => 'Valentino Shoulder Bag',
                 'price' => 582,
@@ -1005,8 +1007,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'medium, rockstud details',
                 'notes' => 'Valentino Shoulder Bag-like new Valentino leather black medium, rockstud details Studs slightly tarn',
             ),
-            58 => 
-            array (
+            58 =>
+            array(
                 'product_id' => 59,
                 'name' => 'Miu Miu Satchel',
                 'price' => 280,
@@ -1022,8 +1024,8 @@ class ProductTableSeeder extends Seeder
                 'size_fit' => 'small, feminine style',
                 'notes' => 'Miu Miu Satchel-gently used Miu Miu leather pink small, feminine style Minor wear on the handle, sma',
             ),
-            59 => 
-            array (
+            59 =>
+            array(
                 'product_id' => 60,
                 'name' => 'Dolce & Gabbana Clutch',
                 'price' => 504,
@@ -1040,7 +1042,5 @@ class ProductTableSeeder extends Seeder
                 'notes' => 'Dolce & Gabbana Clutch-barely used Dolce & Gabbana leather gold one size, glamorous look Fabric slig',
             ),
         ));
-        
-        
     }
 }

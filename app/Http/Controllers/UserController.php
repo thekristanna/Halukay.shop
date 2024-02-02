@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function logout()
+    {
+        if (Session::has('user_id')) {
+            Session::flush();
+        }
+
+        return redirect('/');
+    }
+
     public function login(Request $r)
     {
         $user = User::where("username", '=', $r->username)
