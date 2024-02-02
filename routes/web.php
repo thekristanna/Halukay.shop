@@ -23,6 +23,13 @@ Route::get('/login', [UserController::class, 'login_show']);
 Route::post('/login', [UserController::class, 'login']);
 
 
+Route::middleware(['checkSessionShopper'])->group(function () {
+    // 
+});
+Route::middleware(['checkSessionSeller'])->group(function () {
+    // 
+});
+
 
 // Route::get('/', function () {
 //     return view('welcome');
