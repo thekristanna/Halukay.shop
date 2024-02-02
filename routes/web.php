@@ -5,6 +5,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 //PUBLIC
+Route::get('/about', function () {
+    return view('about');
+}); //will create about page ye
+
+Route::get('/', function () {
+    return view('home');
+}); //still in process
+
 Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
 
@@ -16,7 +24,6 @@ Route::post('/login', [UserController::class, 'login']);
 
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });

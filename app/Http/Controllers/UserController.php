@@ -11,6 +11,36 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function login(Request $r)
+    {
+        $user = User::where("username", '=', $r->username)
+            ->first();
+
+        if ($user) {
+            if (Hash::check($r->password, $user->password)) {
+                Session::put('user_id', $user->user_id);
+                Session::put('first_name', $user->first_name);
+                Session::put('last_name', $user->last_name);
+                Session::put('email', $user->email);
+                Session::put('role', $user->role);
+                if (Session::get('role') == 'seller') {
+                    return redirect('/'); // will still update redirect once profile is ready
+                } else if (Session::get('role') == 'shopper') {
+                    return redirect('/'); // will still update redirect once profile is ready
+                }
+            } else {
+                return redirect('login')->with('fail', 'Incorrect password');
+            }
+        } else {
+            return redirect('login')->with('fail', 'An account with that username does not exist');
+        }
+    }
+
+    public function login_show()
+    {
+        return view('login');
+    }
+
     public function signup(Request $r)
     {
         $this->validate($r, [
