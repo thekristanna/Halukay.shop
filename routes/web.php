@@ -29,7 +29,11 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     // 
 });
 Route::middleware(['checkSessionSeller'])->group(function () {
-    // 
+    Route::get('/seller/add_product', [ProductController::class, 'add_product_view']);
+    Route::post('/seller/add_product', [ProductController::class, 'add_product']);
+
+    Route::get('/seller/notifications', [UserController::class, 'view_notifications']);
+    Route::get('/seller/profile', [UserController::class, 'view_profile']);
 });
 
 

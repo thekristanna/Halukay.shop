@@ -1,36 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    @include('layouts/head')
-    <title>Shop</title>
-</head>
-<body>
-    <div class="container">
-         <div class="row mt-5">
-             <div class="col-lg-5">
-                 <img src="/img/products/{{ $product->product_photo }}" class="img-fluid" id="product" alt="{{ $product->name }}"><br><p class="mt-2 ms-3 mb-0">Seller: <a href="/profile/daibenangelo">@daibenangelo</a>
-                 </p> 
-                </div> 
-                <div class="col-lg-7"> 
-                    <div class="card per_product"> 
-                        <div class="card-body-info"> 
-                            <h1 id="price">₱ {{ $product -> price }}</h1> <br>
-                            <h4 class="fs-5">{{$product -> name}}</h4>
-                            <h4 class="fs-5">{{$product -> nego_status}}</h4>
-                            <hr>
-                            <h6 class="fs-5">Description:</h6>
-                            <p>Condition: {{$product -> product_condition}}</p>
-                            <p>Brand: {{$product -> brand}}</p>
-                            <p>Material: {{$product -> material}}</p>
-                            <p>Size & Fit: {{$product -> size_fit}}</p>
-                            <p>Notes: {{$product -> notes}}</p>
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-             
-    </div> 
-</div>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- Remix icon -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <!-- Box icons -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/product.css" />
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="../img/halukay-favicon.png"
+            type="image/x-icon"
+        />
+        <!-- Page Title -->
+        <!-- <title>Halukay</title> -->
+    </head>
+    <body>
+    
+       <!-- product -->
+       <div class="container">
+            <!-- button -->
+            <button class="previous-button">
+                <i class="ri ri-arrow-left-circle-line"></i> 
+                <i class="ri ri-arrow-left-circle-fill"></i> 
+            </button>
+            <!-- image -->
+            <div class="product-image">
+                <img src="/img/products/{{ $product->product_photo }}" id="product-image">
+                <div class="seller-details">
+                    <a href="#"><i class="ri-user-fill"></i> @daibenangelo</a>
+                    <p><i class="ri-map-pin-fill"></i>Quezon City</p>
+                </div>
+            </div>
+            <!-- details -->
+            <div class="product-details">
+                <!-- part 1 -->
+                <div class="upper-details">
+                    <div class="price-and-icons">
+                        <p class="price">₱ {{ $product -> price }}</p>
+                        <div class="icons">
+                            <button class="icon-btn">
+                                <i class="ri-heart-3-line heart-icon"></i>
+                                <i class="ri-heart-3-fill heart-icon-fill"></i>
+                            </button>
+                            <button class="icon-btn">
+                                <i class="ri-shopping-bag-line shopping-icon"></i>
+                                <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                            </button>
+                        </div>
+                        <button class="checkout">Checkout Now</button>
+                    </div>
+                    <p class="product-name">{{$product -> name}}</p>
+                    <p class="nego-status">{{$product -> nego_status}}
+                        <button class="icon-btn nego-icon-btn">
+                            <i class="ri-discuss-line"></i> 
+                            <i class="ri-discuss-fill" id="filled-message"></i>
+                        </button>
+                    </p>
+                </div>
+                <hr/>
+                <!-- part 2 -->
+                <div class="lower-details">
+                    <h1 class="description">Description:</h1>
+                    <p><span>Condition</span>{{$product -> product_condition}}</p><br/>
+                    <p><span>Brand</span>{{$product -> brand}}</p><br/>
+                    <p><span>Material</span>{{$product -> material}}</p><br/>
+                    <p><span>Color</span>{{$product -> color}}</p><br/>
+                    <p><span>Size & Fit</span>{{$product -> size_fit}}</p><br/>
+                    <p><span>Note</span>{{$product -> notes}}</p><br/>
+                </div>
+            </div>
+            <!-- button -->
+            <button class="next-button">
+                <i class="ri ri-arrow-right-circle-line"></i> 
+                <i class="ri ri-arrow-right-circle-fill"></i> 
+            </button>
+       </div>
 
+       {{-- @include('layouts/footer') --}}
+    </body>
+</html>

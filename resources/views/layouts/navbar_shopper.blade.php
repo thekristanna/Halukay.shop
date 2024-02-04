@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/navbar_shopper.css" />
 <header>
     <div class="brand">
         <img
