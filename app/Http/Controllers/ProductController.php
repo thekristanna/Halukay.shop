@@ -7,7 +7,6 @@ use App\Models\Product;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Kyslik\ColumnSortable\Sortable;
 
@@ -15,6 +14,13 @@ use Kyslik\ColumnSortable\Sortable;
 class ProductController extends Controller
 {
     use Sortable;
+
+
+
+    public function shopper_bag_view()
+    {
+        return view('shopper_bag');
+    }
 
     public function add_product(Request $r)
     {

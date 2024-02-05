@@ -1,5 +1,10 @@
 @if (Session::has('success'))
-    <p class="notif bg bg-success text-light text-center">{{ Session::get('success') }}</p>
+<div id="errorModal" class="modal">
+    <span class="close" onclick="document.getElementById('errorModal').style.display='none'">&times;</span>
+    <div class="modal-content">
+        <p>{{ Session::get('success') }}</p>
+    </div>
+</div>
 @elseif (Session::has('fail'))
     <div id="errorModal" class="modal">
         <span class="close" onclick="document.getElementById('errorModal').style.display='none'">&times;</span>

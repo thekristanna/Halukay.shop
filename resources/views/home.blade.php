@@ -24,9 +24,9 @@
   <body>
     <!-- header -->
     @if (Session::get('role') == 'seller')
-        @include('layouts/navbar_seller')
+        @include('layouts/seller/navbar_home_seller')
     @elseif (Session::get('role') == 'shopper')
-        @include('layouts/navbar_shopper')
+        @include('layouts/shopper/navbar_home_shopper')
     @else
         @include('layouts/navbar_home_public')
     @endif
@@ -101,6 +101,7 @@
       <!-- footer -->
       
     </div>
-    @include('layouts/footer')
+    {{-- @include('layouts/footer') --}}
+    {{-- commented out as it affects other styles as of the moment --}}
   </body>
 </html>

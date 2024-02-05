@@ -15,7 +15,7 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/add_item.css" />
+        <link rel="stylesheet" href="/css/add_item.css" />
         <!-- Favicon -->
         <link
             rel="icon"
@@ -41,8 +41,14 @@
                 </div>
                 <!-- row2 -->
                 <div class="row-two">
-                    <input type="text" required id="category" name="category" />
-                    <span id="span-category">Category</span>
+                    {{-- <input type="text" required id="category" name="category" />
+                    <span id="span-category">Category</span> --}}
+                    <select id="category-select" name="category">
+                        <option value="" disabled selected>--Please choose an option--</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="bags">Bags</option>
+                    </select>  
                     <input type="text" required id="condition" name="product_condition" />
                     <span id="span-condition">Condition</span>
                     <input type="text" required id="brand" name="brand" />

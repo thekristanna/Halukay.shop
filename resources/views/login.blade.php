@@ -83,7 +83,7 @@
         <img src="../img/halukay-logo.png"id="logo-background">
 
         <!-- footer -->
-        @include('layouts/footer') 
+        {{-- @include('layouts/footer')  --}}
         {{-- Eto din naglalaban yung css ng footer at login --}}
     </body>
 </html>
