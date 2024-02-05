@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/navbar_seller.css" />
 <header>
     <div class="brand">
         <img

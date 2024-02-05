@@ -15,6 +15,6 @@
         </button>
       </form>        
     </div>
-    <div><a href="/signup" id="register">Register</a></div>
+    <div><a href="/signup" id="register">Sign Up</a></div>
     <div class="bx bx-menu" id="menu-icon"></div>
   </header>

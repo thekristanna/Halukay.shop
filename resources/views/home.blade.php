@@ -99,6 +99,8 @@
       <!-- shop or sell -->
       <!-- faqs -->
       <!-- footer -->
+      
     </div>
+    @include('layouts/footer')
   </body>
 </html>

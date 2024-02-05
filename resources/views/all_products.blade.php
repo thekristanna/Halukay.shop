@@ -36,7 +36,7 @@
         <div class="col-12 d-flex justify-content-between flex-wrap">
           @foreach ($products as $p)
           <div class="card">
-            <img src="img/products/{{$p -> product_photo}}" class="card-img-top image" alt="{{$p -> name}}" >
+            <img src="/img/products/{{$p -> product_photo}}" class="card-img-top image" alt="{{$p -> name}}" >
             <div class="card-body">
               <a href="/shop/{{$p -> product_id}}" id="product_name">{{$p -> name}} <br>{{$p -> nego_status}}</a>
             </div>
@@ -45,7 +45,10 @@
         </div>
       
       </div>
+      {{$products -> links('pagination::bootstrap-5')}}
     </div>
-    {{$products -> links('pagination::bootstrap-5')}}
+    
+    
+    
 </body>
 </html>

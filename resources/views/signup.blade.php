@@ -15,7 +15,7 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/signup.css" />
+        <link rel="stylesheet" href="css/signup.css" />
         <!-- Favicon -->
         <link
             rel="icon"
@@ -27,8 +27,15 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
-        @include('layouts/messages2')
+        {{-- @include('layouts/messages2')
         <!-- header -->
+        @if (Session::get('role') == 'seller')
+        @include('layouts/navbar_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/navbar_shopper')
+    @else
+        @include('layouts/navbar_public')
+    @endif --}}
         <header>
             <div class="brand">
                 <img
@@ -137,5 +144,8 @@
         </div>
         <img src="../img/halukay-logo.png"id="logo-background">
         <!-- footer -->
+        {{-- @include('layouts/footer')  --}}
+        {{-- padouble check naglalaban ata styles ng footer at signup. thanks --}}
+        
     </body>
 </html>
