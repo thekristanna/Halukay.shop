@@ -9,6 +9,7 @@ use App\Models\Product;
 class ProductController extends Controller
 {
 
+
     public function show_product(string $id)
     {
         $product = Product::query()
