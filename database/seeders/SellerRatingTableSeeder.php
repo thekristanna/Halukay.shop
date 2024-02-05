@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SellerRatingTableSeeder extends Seeder
 {
@@ -14,11 +15,8 @@ class SellerRatingTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('seller_rating')->delete();
-        
-        
-        
+
+        DB::table('seller_rating')->delete();
     }
 }

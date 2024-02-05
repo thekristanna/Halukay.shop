@@ -14,7 +14,9 @@ Route::get('/', function () {
 }); //still in process
 
 Route::get('/shop', [ProductController::class, 'show_all_products']);
+Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
+
 
 Route::get('/signup', [UserController::class, 'signup_show']);
 Route::post('/signup', [UserController::class, 'signup']);
@@ -25,9 +27,12 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
 
 
+
+
 Route::middleware(['checkSessionShopper'])->group(function () {
     // 
 });
+
 Route::middleware(['checkSessionSeller'])->group(function () {
     Route::get('/seller/add_product', [ProductController::class, 'add_product_view']);
     Route::post('/seller/add_product', [ProductController::class, 'add_product']);

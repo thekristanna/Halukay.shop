@@ -9,10 +9,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Kyslik\ColumnSortable\Sortable;
 
 
 class ProductController extends Controller
 {
+    use Sortable;
+
     public function add_product(Request $r)
     {
         $product = Product::query()
@@ -51,24 +54,26 @@ class ProductController extends Controller
         return view('add_product');
     }
 
-    //this is search bar. still pending due to search bar is in the nav and it will show in all pages.
-    // public function index(Request $r)
-    // {
-    //     $products = Product::query()
-    //         ->select('name', 'price', 'nego_status', 'category', 'product_photo');
+    //completely working ////// 
+    public function search_product(Request $r)
+    {
+        $products = Product::query()
+            ->select('name', 'price', 'nego_status', 'category', 'product_photo');
 
-    //     if ($r->filled("search")) {
-    //         $products->where(function ($query) use ($r) {
-    //             $query->where('name', 'LIKE', '%' . $r->input('search') . '%')
-    //                 ->orWhere('category', 'LIKE', '%' . $r->input('search') . '%');
-    //         });
-    //     }
+        if ($r->filled("search")) {
+            $products->where(function ($query) use ($r) {
+                $query->where('name', 'LIKE', '%' . $r->input('search') . '%')
+                    ->orWhere('category', 'LIKE', '%' . $r->input('search') . '%');
+            });
+        }
 
-    //     $products = $products
-    //         ->sortable()->paginate(20);
-    //     $products->appends($r->except('page'));
-    // }
+        $products = $products
+            ->sortable()->paginate(20);
+        $products->appends($r->except('page'));
 
+        return view('all_products', compact('products'));
+    }
+    /////////////////////////////////////
 
     public function show_product(string $id)
     {

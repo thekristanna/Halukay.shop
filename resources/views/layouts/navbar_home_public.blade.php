@@ -6,8 +6,8 @@
     </div>
     <div class="navbar">
       <a href="index.html" class="active" id="home">Home</a>
-      <a href="#synrgy" id="about">About</a>
-      <a href="#" id="shop">Shop</a>
+      <a href="/about" id="about">About</a>
+      <a href="/shop" id="shop">Shop</a>
       <form class="search">
         <input type="text" id="search-input" placeholder="Search here"/>
         <button type="submit" id="search-button">

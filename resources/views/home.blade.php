@@ -28,7 +28,7 @@
     @elseif (Session::get('role') == 'shopper')
         @include('layouts/navbar_shopper')
     @else
-        @include('layouts/navbar_public')
+        @include('layouts/navbar_home_public')
     @endif
     {{-- <header>
       <div class="brand">

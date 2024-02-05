@@ -27,7 +27,7 @@
     </head>
     
     <body>
-        @include ('layouts/navbar_public')
+        {{-- @include ('layouts/navbar_public') --}}
        <!-- product -->
        <div class="container ">
             <!-- button -->

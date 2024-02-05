@@ -5,12 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function view_notifications()
+    {
+        $notifications = Notification::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->orderBy('date_sent', 'DESC')
+            ->get();
+
+        return view('notification', compact('notifications'));
+    }
+
     public function logout()
     {
         if (Session::has('user_id')) {

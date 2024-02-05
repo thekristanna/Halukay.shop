@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     @include('layouts/head')
-    @include('layouts/navbar_public')
     <link rel="stylesheet" href="/css/shop.css">
     <title>Shop</title>
 </head>
 <body>
+  {{-- @include('layouts/navbar_public') --}}
    {{-- Sorting --}}
     <div class="container">
       <div class="container">

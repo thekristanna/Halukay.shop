@@ -29,15 +29,10 @@
         <a href="#" id="brand">halukay.com</a>
       </div>
       <div class="navbar">
-        <a href="index.html" id="home">Home</a>
+        <a href="/" id="home">Home</a>
         <a href="#synrgy" class="active" id="about">About</a>
-        <a href="#" id="shop">Shop</a>
-        <form class="search">
-          <input type="text" id="search-input" placeholder="Search here"/>
-          <button type="submit" id="search-button">
-            <i class="ri-search-line" id="search-icon"></i>
-          </button>
-        </form>        
+        <a href="/shop" id="shop">Shop</a>
+        @include('layouts/search')        
       </div>
       <div><a href="/signup" id="register">Register</a></div>
       <div class="bx bx-menu" id="menu-icon"></div>
@@ -92,6 +87,6 @@
       
     </div>
     <!-- footer -->
-    @include('layouts/footer')
+    {{-- @include('layouts/footer') --}}
   </body>
 </html>
