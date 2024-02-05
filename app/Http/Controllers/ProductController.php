@@ -72,13 +72,18 @@ class ProductController extends Controller
 
     public function show_product(string $id)
     {
+        $info = Product::query()
+            ->select('users.*')
+            ->join('users', 'users.user_id', '=', 'product.user_id')
+            ->get()
+            ->first();
         $product = Product::query()
             ->select('*')
             ->where('product_id', '=', $id)
             ->get()
             ->first();
 
-        return view('show_product', compact('product'));
+        return view('show_product', compact('product', 'info'));
     }
 
     public function show_all_products(Request $r)

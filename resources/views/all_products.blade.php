@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     @include('layouts/head')
+    @include('layouts/navbar_public')
+    <link rel="stylesheet" href="/css/shop.css">
     <title>Shop</title>
 </head>
 <body>
-   
+   {{-- Sorting --}}
     <div class="container">
       <div class="container">
         <form action="/shop" method="GET">
@@ -31,6 +33,7 @@
             </div>
         </form>
     </div>
+    {{-- Items --}}
       <div class="row">
         
         <div class="col-12 d-flex justify-content-between flex-wrap">

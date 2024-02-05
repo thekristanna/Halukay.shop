@@ -25,10 +25,11 @@
         <!-- Page Title -->
         <!-- <title>Halukay</title> -->
     </head>
-    <body>
     
+    <body>
+        @include ('layouts/navbar_public')
        <!-- product -->
-       <div class="container">
+       <div class="container ">
             <!-- button -->
             <button class="previous-button">
                 <i class="ri ri-arrow-left-circle-line"></i> 
@@ -38,8 +39,8 @@
             <div class="product-image">
                 <img src="/img/products/{{ $product->product_photo }}" id="product-image">
                 <div class="seller-details">
-                    <a href="#"><i class="ri-user-fill"></i> @daibenangelo</a>
-                    <p><i class="ri-map-pin-fill"></i>Quezon City</p>
+                    <a href="#"><i class="ri-user-fill"></i>{{ $info -> email_address }}</a>
+                    <p><i class="ri-map-pin-fill"></i>{{ $info -> address_citytown }}</p>
                 </div>
             </div>
             <!-- details -->
@@ -49,23 +50,30 @@
                     <div class="price-and-icons">
                         <p class="price">₱ {{ $product -> price }}</p>
                         <div class="icons">
+                            <a href="/login" class="heart-icon">
                             <button class="icon-btn">
-                                <i class="ri-heart-3-line heart-icon"></i>
-                                <i class="ri-heart-3-fill heart-icon-fill"></i>
-                            </button>
+                                  <i class="ri-heart-3-line heart-icon"></i>
+                                 <i class="ri-heart-3-fill heart-icon-fill"></i>
+                           
+                              </button>
+                            </a>
+                            <a href="/login" class="heart-icon">
                             <button class="icon-btn">
                                 <i class="ri-shopping-bag-line shopping-icon"></i>
                                 <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                             </button>
+                        </a>
                         </div>
-                        <button class="checkout">Checkout Now</button>
+                        <a hre class="checkout" >Checkout Now</a>
                     </div>
                     <p class="product-name">{{$product -> name}}</p>
                     <p class="nego-status">{{$product -> nego_status}}
+                        <a href="/login" class="heart-icon">
                         <button class="icon-btn nego-icon-btn">
                             <i class="ri-discuss-line"></i> 
                             <i class="ri-discuss-fill" id="filled-message"></i>
                         </button>
+                    </a>
                     </p>
                 </div>
                 <hr/>
