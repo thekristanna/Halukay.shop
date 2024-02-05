@@ -27,7 +27,11 @@
     </head>
     
     <body>
-        {{-- @include ('layouts/navbar_public') --}}
+        {{-- <div>
+        @include ('layouts/navbar_shop_public')
+        </div> --}}
+        {{-- still needs fixing. separate style for navbar is contradicting other styles in the page --}}
+        
        <!-- product -->
        <div class="container ">
             <!-- button -->

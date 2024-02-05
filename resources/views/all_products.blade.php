@@ -6,7 +6,8 @@
     <title>Shop</title>
 </head>
 <body>
-  {{-- @include('layouts/navbar_public') --}}
+  {{-- Tanna will help us fix this... will still redo this due to bootstrap not working well with other styles --}}
+  {{-- @include('layouts/navbar_shop_public') --}}
    {{-- Sorting --}}
     <div class="container">
       <div class="container">
