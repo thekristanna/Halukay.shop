@@ -111,12 +111,11 @@ class ProductController extends Controller
         if ($r->filled('category')) {
             $products->where('category', '=', $r->input('category'));
         }
-        if ($r->filled('nego')) {
-            $products->where('nego_status', '=', $r->input('nego'));
-        }
+
         $products = $products
             ->paginate(20);
         $products->appends($r->except('page'));
+
         return view('all_products', compact('products'));
     }
 }

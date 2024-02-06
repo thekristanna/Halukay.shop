@@ -2,58 +2,108 @@
 <html lang="en">
 <head>
     @include('layouts/head')
+    <!-- Remix icon -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <!-- Box icons -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+        />
+  
+    {{-- CSS --}}
     <link rel="stylesheet" href="/css/shop.css">
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" /> --}}
-    <title>Shop</title>
+
+    <!-- Favicon -->
+    <link
+    rel="icon"
+    href="../img/halukay-favicon.png"
+    type="image/x-icon"
+/>
+   
 </head>
 <body>
-  {{-- Tanna will help us fix this... will still redo this due to bootstrap not working well with other styles --}}
-  {{-- @include('layouts/navbar_shop_public') --}}
+  @if (Session::get('role') == 'seller')
+  @include('layouts/seller/navbar_home_seller')
+@elseif (Session::get('role') == 'shopper')
+  @include('layouts/shopper/navbar_home_shopper')
+@else
+  @include('layouts/navbar_home_public')
+@endif
    {{-- Sorting --}}
-    <div class="container">
-      <div class="container">
-        <form action="/shop" method="GET">
-            <div class="row mt-4 mb-4 d-flex align-items-center">
-                
-                <div class="col-lg-4 d-flex">
-                    <strong>Filter</strong>
-                    <select name="category" class="form-control" id="year_level">
-                        <option value="" selected>Any category</option>
-                        <option value="Clothes">Clothes</option>
-                        <option value="Bags">Bags</option>
-                        <option value="Shoes">Shoes</option>
-                    </select>
-                         <select name="nego" class="form-control" id="gender">
-                        <option value="" selected>Any</option>
-                        <option value="Negotiable">Negotiable</option>
-                        <option value="Non-negotiable">Non-negotiable</option>
-                    </select>
-                </div>
-                <div class="col-lg-1" >
-                    <input type="submit" class="btn btn-success" />
-                </div>
-            </div>
-        </form>
+   <div class="container">
+    <form action="/shop" method="GET">
+    <div class="filter-buttons">
+        <button name="category" value="Clothes">Clothes</button>
+        <button name="category" value="Shoes">Shoes</button>
+        <button name="category" value="Bags">Bags</button>
     </div>
+  </form>
+    <div class="shop">
     {{-- Items --}}
-      <div class="row">
-        
-        <div class="col-12 d-flex justify-content-between flex-wrap">
-          @foreach ($products as $p)
-          <div class="card">
-            <img src="/img/products/{{$p -> product_photo}}" class="card-img-top image" alt="{{$p -> name}}" >
-            <div class="card-body">
-              <a href="/shop/{{$p -> product_id}}" id="product_name">{{$p -> name}} <br>{{$p -> nego_status}}</a>
-            </div>
-          </div>
-          @endforeach
-        </div>
+    @foreach ($products as $p)
+    <div class="product">
       
+      <div class="image">
+          <img
+              src="/img/products/{{$p -> product_photo}}"
+              alt="{{$p -> name}}"
+          />
       </div>
-      {{$products -> links('pagination::bootstrap-5')}}
+      <div class="info">
+          <div class="price-buttons">
+              <div class="price"><p id="price">₱ {{ $p -> price }}</p></div>
+              <div class="icons">
+                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                  <button class="icon-btn">
+                      <i class="ri-heart-3-line heart-icon"></i>
+                      <i
+                          class="ri-heart-3-fill heart-icon-fill"
+                      ></i>
+                  </button>
+                </form>
+                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                  <button class="icon-btn">
+                      <i
+                          class="ri-shopping-bag-line shopping-icon"
+                      ></i>
+                      <i
+                          class="ri-shopping-bag-fill shopping-icon-fill"
+                      ></i>
+                  </button>
+                </form>
+              </div>
+          </div>
+          <div class="name">
+            <a href="/shop/{{$p -> product_id}}" id="product_name">
+              <p>{{$p -> name}} </p>
+          </div>
+          <div class="nego">
+              <p class="nego-status">
+                {{$p -> nego_status}}
+                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                  <button class="icon-btn nego-icon-btn">
+                      <i class="ri-discuss-line"></i>
+                      <i
+                          class="ri-discuss-fill"
+                          id="filled-message"
+                      ></i>
+                  </button>
+                </form>
+              </p>
+          </div> 
+        </a>
+      </div>
+  </div>
+  @endforeach
     </div>
+   </div>
+  
     
     
     
 </body>
 </html>
+
