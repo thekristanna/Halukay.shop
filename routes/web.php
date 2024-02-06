@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -32,7 +33,10 @@ Route::get('logout', [UserController::class, 'logout']);
 
 
 Route::middleware(['checkSessionShopper'])->group(function () {
-    // 
+    Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
+    Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
+    Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
+    Route::get('');
 });
 
 Route::middleware(['checkSessionSeller'])->group(function () {
@@ -40,7 +44,9 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     Route::post('/seller/add_product', [ProductController::class, 'add_product']);
 
     Route::get('/seller/notifications', [UserController::class, 'view_notifications']);
-    Route::get('/seller/profile', [UserController::class, 'view_profile']);
+    Route::get('/seller/profile', [UserController::class, 'view_profile']); //wala pa
+    Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
+    Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
 });
 
 
