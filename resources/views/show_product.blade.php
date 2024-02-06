@@ -54,19 +54,19 @@
                     <div class="price-and-icons">
                         <p class="price">₱ {{ $product -> price }}</p>
                         <div class="icons">
-                            <a href="/login" class="heart-icon">
-                            <button class="icon-btn">
+                            <form action="/redir_login/{{$product -> product_id}}" method="GET">
+                            <button class="icon-btn" type="submit">
                                   <i class="ri-heart-3-line heart-icon"></i>
                                  <i class="ri-heart-3-fill heart-icon-fill"></i>
                            
                               </button>
-                            </a>
-                            <a href="/login" class="heart-icon">
+                           </form>
+                           <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn">
                                 <i class="ri-shopping-bag-line shopping-icon"></i>
                                 <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                             </button>
-                        </a>
+                        </form>
                         </div>
                         <a hre class="checkout" >Checkout Now</a>
                     </div>

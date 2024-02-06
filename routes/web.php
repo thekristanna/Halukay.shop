@@ -17,6 +17,8 @@ Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
 
+Route::get('/redir_login/{id}', [ProductController::class, 'redirect_heart']);
+
 
 Route::get('/signup', [UserController::class, 'signup_show']);
 Route::post('/signup', [UserController::class, 'signup']);

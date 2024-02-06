@@ -34,7 +34,7 @@ class Product extends Model
 	protected $table = 'product';
 	protected $primaryKey = 'product_id';
 	public $timestamps = false;
-	public $sortable=['name', 'price', 'nego_status', 'category', 'product_photo'];
+	public $sortable = ['name', 'price', 'nego_status', 'category', 'product_photo'];
 
 	protected $casts = [
 		'price' => 'int',

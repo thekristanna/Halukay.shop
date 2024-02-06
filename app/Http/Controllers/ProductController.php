@@ -16,6 +16,14 @@ class ProductController extends Controller
 {
     use Sortable;
 
+
+    public function redirect_heart(string $id)
+    {
+        Session::put("last_viewed", $id);
+
+        return redirect("/login");
+    }
+
     public function add_product(Request $r)
     {
         $product = Product::query()

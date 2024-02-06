@@ -47,7 +47,11 @@ class UserController extends Controller
                 if (Session::get('role') == 'seller') {
                     return redirect('/'); // will still update redirect once profile is ready
                 } else if (Session::get('role') == 'shopper') {
-                    return redirect('/'); // will still update redirect once profile is ready
+                    if (Session::get('last_viewed')) {
+                        return redirect('/shop/' . Session::get('last_viewed'));
+                    } else {
+                        return redirect('/'); // will still update redirect once profile is ready
+                    }
                 }
             } else {
                 return redirect('login')->with('fail', 'Incorrect password');
