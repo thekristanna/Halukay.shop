@@ -68,15 +68,21 @@
                             </button>
                         </form>
                         </div>
-                        <a hre class="checkout" >Checkout Now</a>
+                        <form action="/redir_login/{{$product -> product_id}}" method="GET" >
+                            <button>
+                                <a class="checkout" >Checkout Now</a>
+                            </button>
+                        </form>
                     </div>
                     <p class="product-name">{{$product -> name}}</p>
                     <p class="nego-status">{{$product -> nego_status}}
                         <a href="/login" class="heart-icon">
+                            <form action="/redir_login/{{$product -> product_id}}" method="GET" >
                         <button class="icon-btn nego-icon-btn">
                             <i class="ri-discuss-line"></i> 
                             <i class="ri-discuss-fill" id="filled-message"></i>
                         </button>
+                            </form>
                     </a>
                     </p>
                 </div>

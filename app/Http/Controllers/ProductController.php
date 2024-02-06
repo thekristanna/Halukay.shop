@@ -16,18 +16,16 @@ class ProductController extends Controller
     use Sortable;
 
 
-<<<<<<< HEAD
     public function redirect_heart(string $id)
     {
         Session::put("last_viewed", $id);
 
         return redirect("/login");
-=======
+    }
 
     public function shopper_bag_view()
     {
         return view('shopper_bag');
->>>>>>> 7fc5f5c36f23938f0a4de6e701eb7c095159d72c
     }
 
     public function add_product(Request $r)
