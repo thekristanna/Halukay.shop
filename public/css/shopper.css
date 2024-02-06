@@ -27,168 +27,32 @@ body {
     overflow-x: hidden;
 }
 
-/* Header: Start */
-header {
-    position: fixed;
-    top: 0;
-    right: 20px;
-    left: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-bottom: 100px;
-    border-bottom: 1px solid var(--color-six);
-    background: var(--color-one);
-    padding: 12px 0;
-}
-
-#brand {
-    font-family: Merriweather;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--color-two);
-}
-
-.navbar a {
-    color: var(--color-seven);
-    margin: 20px;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.navbar .active {
-    color: var(--color-two);
-    border-bottom: 2px solid var(--color-two);
-    font-weight: 600;
-}
-
-#logo {
-    width: 55px;
-}
-
-#search-input {
-    outline: none;
-    border: 1px solid var(--color-six);
-    background: transparent;
-    border-radius: 20px;
-    padding: 8px 30px 8px 55px;
-    width: 200px;
-    margin-left: 40px;
-}
-
-#search-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-#search-icon {
-    font-weight: bold;
-    color: var(--color-seven);
-    padding-right: 12px;
-    border-right: 1px solid var(--color-six);
-    transform: translate(-275px);
-}
-
-
-
-#menu-icon {
-    display: none;
-    font-size: 20px;
-}
-
-
-#profile-pic {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-#dropdown {
-    cursor: pointer;
-    font-size: 18px;
-    outline: none;
-    background: none;
-    border: none;
-}
-
-.profile-name-role {
-    display: block;
-}
-
-.name {
-    margin-right: 15px;
-    transform: translate(0px, 5px);
-    font-size: 13px;
-    color: var(--color-two);
-}
-
-.role {
-    transform: translate(-23px, -12px);
-    font-size: 10px;
-    color: var(--color-two);
-}
-.header-icons button {
-    outline: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-.header-icons i {
-    font-size: 20px;
-}
-/* Header: Media Query */
-@media (max-width: 1200px) {
-    header {
-        margin-right: 40px;
-        margin-left: 40px;
-    }
-}
-
-@media (max-width: 900px) {
-    header {
-        margin-right: 50px;
-        margin-left: 50px;
-    }
-
-    .navbar a {
-        display: none;
-    }
-
-    #register {
-        display: none;
-    }
-
-    #menu-icon {
-        display: block;
-        margin-right: 10px;
-    }
-}
-
-@media (max-width: 400px) {
-    header {
-        margin-right: 50px;
-        margin-left: 50px;
-    }
-
-    .search {
-        display: none;
-    }
-}
-
-/* Header: End */
-
-/* Shopper: Start */
+/* Shopper Rating: Start */
 .container {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    margin-top: 120px;
+    text-align: center;
+    z-index: -10;
+}
+
+.shopper-profile {
+    flex: 1; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px;
-    justify-content: center;
-    text-align: center;
+    margin-right: 10px; 
+    position: fixed;
+    left: 150px;
+}
+
+.shopper-ratings {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    margin-left: 370px;
+    position: absolute
 }
 
 .container img {
@@ -197,24 +61,24 @@ header {
     height: 250px;
 }
 
+
 #name {
     margin: 20px 0px 0px 0px;
-    font-size: 35px;
+    font-size: 25px;
     padding: 0;
 }
 
 #username {
-    margin: -10px;
+    margin: -5px;
     font-size: 20px;
     padding: 0;
 }
-
 .numbers-bought-transactions {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: -10px 0px 10px;
 }
 
 .bought,
@@ -240,9 +104,9 @@ header {
 
 .review {
     display: block;
-
     font-size: 12px;
     padding: 0;
+    margin-top: -10px;
 }
 .stars {
     fill: var(--color-four);
@@ -252,8 +116,23 @@ header {
 }
 
 #shopper-review {
-    margin: 5px;
+ margin: 5px 0px;
 }
-#shopper-review:hover {
-border-bottom: 1px solid var(--color-four);
+
+
+.shopper-ratings {
+    display: block;
 }
+.card {
+    max-width: 600px;
+    border: 1px solid var(--color-four);
+    border-radius: 20px;
+    font-size: 12px;
+    text-align: start;
+    padding: 3px 25px;
+    margin-bottom: 15px;
+}
+#shopper-rating {
+    margin-left: 15px;
+}
+/* Shopper Rating: End */

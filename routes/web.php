@@ -31,6 +31,8 @@ Route::get('logout', [UserController::class, 'logout']);
 
 
 Route::middleware(['checkSessionShopper'])->group(function () {
+    Route::get('/shopper/profile', [UserController::class, 'view_profile_shopper']);
+
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
@@ -42,6 +44,10 @@ Route::middleware(['checkSessionShopper'])->group(function () {
 });
 
 Route::middleware(['checkSessionSeller'])->group(function () {
+    Route::get('/seller/my_account', [UserController::class, 'my_acct_seller_view']);
+    Route::get('/seller/my_account/edit', [UserController::class, 'my_acct_seller_form']);
+    Route::put('/seller/my_account/edit', [UserController::class, 'my_acct_seller_edit']);
+
     Route::get('/seller/add_product', [ProductController::class, 'add_product_view']);
     Route::post('/seller/add_product', [ProductController::class, 'add_product']);
 
@@ -49,7 +55,7 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     Route::delete('/seller/notifications/{id}', [UserController::class, 'delete_notification']);
     Route::put('/seller/notifications/seen/{id}', [UserController::class, 'seen_notification']);
 
-    Route::get('/seller/profile', [UserController::class, 'view_profile']); //wala pa
+    Route::get('/seller/profile', [UserController::class, 'view_profile_seller']); //wala pa
     Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
     Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
 });

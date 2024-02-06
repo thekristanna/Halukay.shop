@@ -1,0 +1,231 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    /* Colors */
+    --color-one: #ffffff;
+    --color-two: #774123;
+    --color-three: #8e583c;
+    --color-four: #a58a6a;
+    --color-five: #d1c8c1;
+    --color-six: #dddddd;
+    --color-seven: #949090;
+}
+
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    font-family: Poppins;
+    text-decoration: none;
+    color: var(--color-two);
+}
+body {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+/* Account: Start */
+.container {
+    display: flex;
+    margin-top: 120px;
+    align-items: center;
+    font-size: 13px;
+}
+.profile {
+    display: block;
+    justify-content: center;
+    margin-right: 10px;
+}
+.profile img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--color-two);
+    border-radius: 50%;
+
+}
+.profile button {
+    margin: 10px auto;
+    outline: none;
+    background: transparent;
+    border: 1px solid var(--color-two);
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+.profile button:hover {
+    color: var(--color-one);
+    background: var(--color-two);
+    cursor: pointer;
+}
+.account {
+    display: block;
+
+}
+.details p {
+    display: flex;
+    width: 200px;
+    justify-content: flex-start;
+    border: 1px solid var(--color-six);
+    border-radius: 20px;
+    padding: 10px 15px 10px 24px;
+    margin: 10px;
+}
+#span-first-name {
+    position: absolute;
+    transform: translate(-330px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-last-name {
+    position: absolute;
+    transform: translate(-70px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-username {
+    position: absolute;
+    transform: translate(190px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-email {
+    position: absolute;
+    transform: translate(-320px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-phone {
+    position: absolute;
+    transform: translate(-60px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-password {
+    position: absolute;
+    transform: translate(190px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-address-street {
+    position: absolute;
+    transform: translate(-320px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-address-barangay {
+    position: absolute;
+    transform: translate(-72px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-address-city {
+    position: absolute;
+    transform: translate(190px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+
+#span-address-province {
+    position: absolute;
+    transform: translate(-335px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-address-zip {
+    position: absolute;
+    transform: translate(-90px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+#span-role {
+    position: absolute;
+    transform: translate(175px, -21px);
+    font-size: 10px;
+    background: var(--color-one);
+    padding: 0 5px;
+    color: var(--color-seven);
+}
+/* Account: Media Query */
+@media (max-width: 900px) {
+    .container {
+        display: block;
+        transform: scale(0.85);
+    }
+    .profile img {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        display: block;
+        transform: scale(0.65);
+    }
+}
+@media (max-width: 500px) {
+    .details {
+        display: block;
+    }
+    .details p {
+        margin: 20px;
+    }
+    #span-first-name {
+        transform: translate(40px, -70px);
+    }
+    #span-last-name {
+        transform: translate(40px, -70px);
+    }
+    #span-username {
+        transform: translate(40px, -70px);
+    }
+    #span-email {
+        transform: translate(40px, -70px);
+    }
+    #span-phone {
+        transform: translate(40px, -70px);
+    }
+    #span-password {
+        transform: translate(40px, -70px);
+    }
+    #span-address-street {
+        transform: translate(40px, -70px);
+    }
+    #span-address-barangay {
+        transform: translate(40px, -70px);
+    }
+    #span-address-city {
+        transform: translate(40px, -70px);
+    }
+    #span-address-province {
+        transform: translate(40px, -70px);
+    }
+    #span-address-zip {
+        transform: translate(40px, -70px);
+    }
+    #span-role {
+        transform: translate(40px, -70px);
+    }
+}
+/* Account: End */

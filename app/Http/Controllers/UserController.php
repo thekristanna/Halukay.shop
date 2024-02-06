@@ -66,6 +66,53 @@ class UserController extends Controller
         return view('seller_notification', compact('notifications'));
     }
 
+    public function view_profile_shopper()
+    {
+        return view('shopper_profile');
+    }
+
+    public function my_acct_seller_edit(Request $r)
+    {
+        $profile = User::where('user_id', '=', Session::get('user_id'))
+            ->update(
+                [
+                    'first_name' => $r->input('first_name'),
+                    'last_name' => $r->input('last_name'),
+                    'email_address' => $r->input('email_address'),
+                    'phone_number' => $r->input('phone_number'),
+                    'address_street' => $r->input('address_street'),
+                    'address_barangay' => $r->input('address_barangay'),
+                    'address_citytown' => $r->input('address_citytown'),
+                    'address_province' => $r->input('address_province'),
+                    'address_zip' => $r->input('address_zip'),
+                ]
+            );
+
+        return redirect('/seller/my_account');
+    }
+
+    public function my_acct_seller_form()
+    {
+        $profile = User::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        return view('myacct_seller_form', compact('profile'));
+    }
+
+    public function my_acct_seller_view()
+    {
+        $profile = User::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        return view('myacct_seller', compact('profile'));
+    }
+
     public function logout()
     {
         if (Session::has('user_id')) {
@@ -88,12 +135,12 @@ class UserController extends Controller
                 Session::put('email', $user->email);
                 Session::put('role', $user->role);
                 if (Session::get('role') == 'seller') {
-                    return redirect('/'); // will still update redirect once profile is ready
+                    return redirect('/seller/my_account'); // will still update redirect once profile is ready
                 } else if (Session::get('role') == 'shopper') {
                     if (Session::get('last_viewed')) {
                         return redirect('/shop/' . Session::get('last_viewed'));
                     } else {
-                        return redirect('/'); // will still update redirect once profile is ready
+                        return redirect('/shopper/my_account'); // will still update redirect once profile is ready
                     }
                 }
             } else {
