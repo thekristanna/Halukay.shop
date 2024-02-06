@@ -77,7 +77,7 @@ body {
 }
 .upper-details {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;
     padding: 10px;
     width: 97%;
@@ -179,8 +179,7 @@ body {
     display: none;
 }
 .nego-icon-btn:hover #filled-message {
-    display: inline; 
-
+    display: inline;
 }
 
 hr {
@@ -189,16 +188,16 @@ hr {
 .lower-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
     font-size: 13px;
     margin: 0px 0px 0px 10px;
-    text-align: left; 
+    text-align: left;
 }
 
 .lower-details p {
     margin: 0px 0px -2px 0px;
     padding: 0;
-    text-align: left; 
+    text-align: left;
 }
 
 .description {
@@ -211,20 +210,21 @@ hr {
 
 .lower-details span {
     width: 90px;
-    display: inline-block; 
+    display: inline-block;
     font-style: italic;
 }
-.next-button, .previous-button {
+.next-button,
+.previous-button {
     outline: none;
     border: none;
     background: transparent;
-    cursor: pointer; 
-    font-size: 30px; 
+    cursor: pointer;
+    font-size: 30px;
     justify-content: center;
     align-items: center;
 }
 
- .ri-arrow-right-circle-fill,
+.ri-arrow-right-circle-fill,
 .ri-arrow-left-circle-fill {
     display: none;
 }
@@ -237,6 +237,13 @@ hr {
 .next-button:hover .ri-arrow-right-circle-fill,
 .previous-button:hover .ri-arrow-left-circle-fill {
     display: inline;
+}
+a {
+    text-decoration: none;
+    color: var(--color-four);
+}
+a:hover {
+    color: var(--color-three);
 }
 
 /* Product: End */

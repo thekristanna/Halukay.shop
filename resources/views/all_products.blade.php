@@ -12,6 +12,7 @@
             rel="stylesheet"
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
+        
   
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/shop.css">
@@ -22,16 +23,21 @@
     href="../img/halukay-favicon.png"
     type="image/x-icon"
 />
+
    
 </head>
 <body>
   @if (Session::get('role') == 'seller')
-  @include('layouts/seller/navbar_home_seller')
-@elseif (Session::get('role') == 'shopper')
-  @include('layouts/shopper/navbar_home_shopper')
-@else
-  @include('layouts/navbar_home_public')
-@endif
+        @include('layouts/seller/navbar_home_seller')
+        <link rel="stylesheet" href="../css/navbar_seller.css" />
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/shopper/navbar_home_shopper')
+        <link rel="stylesheet" href="../css/navbar_shopper.css" />
+    @else
+        @include('layouts/navbar_home_public')
+        <link rel="stylesheet" href="../css/navbar_public.css" />
+    @endif
+ 
    {{-- Sorting --}}
    <div class="container">
     <form action="/shop" method="GET">
@@ -56,7 +62,16 @@
           <div class="price-buttons">
               <div class="price"><p id="price">₱ {{ $p -> price }}</p></div>
               <div class="icons">
-                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                @if (Session::get('role') == 'shopper')
+                    <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
+                      <button class="icon-btn">
+                        <i class="ri-heart-3-line heart-icon"></i>
+                        <i
+                            class="ri-heart-3-fill heart-icon-fill"
+                        ></i>
+                    </button>
+                    @else
+                    <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn">
                       <i class="ri-heart-3-line heart-icon"></i>
                       <i
@@ -64,7 +79,19 @@
                       ></i>
                   </button>
                 </form>
-                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                @endif
+                @if (Session::get('role') == 'shopper')
+                            <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
+                              <button class="icon-btn">
+                                <i
+                                    class="ri-shopping-bag-line shopping-icon"
+                                ></i>
+                                <i
+                                    class="ri-shopping-bag-fill shopping-icon-fill"
+                                ></i>
+                            </button>
+                            @else
+                            <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn">
                       <i
                           class="ri-shopping-bag-line shopping-icon"
@@ -74,6 +101,7 @@
                       ></i>
                   </button>
                 </form>
+                @endif
               </div>
           </div>
           <div class="name">
@@ -83,7 +111,17 @@
           <div class="nego">
               <p class="nego-status">
                 {{$p -> nego_status}}
-                <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                @if (Session::get('role') == 'shopper')
+                            <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
+                              <button class="icon-btn nego-icon-btn">
+                                <i class="ri-discuss-line"></i>
+                                <i
+                                    class="ri-discuss-fill"
+                                    id="filled-message"
+                                ></i>
+                            </button>
+                            @else
+                            <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn nego-icon-btn">
                       <i class="ri-discuss-line"></i>
                       <i
@@ -92,6 +130,7 @@
                       ></i>
                   </button>
                 </form>
+                @endif
               </p>
           </div> 
         </a>

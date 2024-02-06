@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        
         <!-- Remix icon -->
         <link
             href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
@@ -22,6 +20,8 @@
             href="../img/halukay-favicon.png"
             type="image/x-icon"
         />
+       
+       
         <!-- Page Title -->
         <!-- <title>Halukay</title> -->
     </head>
@@ -29,11 +29,16 @@
     <body>
         @if (Session::get('role') == 'seller')
         @include('layouts/seller/navbar_home_seller')
+        <link rel="stylesheet" href="../css/navbar_seller.css" />
     @elseif (Session::get('role') == 'shopper')
         @include('layouts/shopper/navbar_home_shopper')
+        <link rel="stylesheet" href="../css/navbar_shopper.css" />
     @else
         @include('layouts/navbar_home_public')
+        <link rel="stylesheet" href="../css/navbar_public.css" />
     @endif
+       
+        
         {{-- <div>
         @include ('layouts/navbar_shop_public')
         </div> --}}
@@ -61,35 +66,61 @@
                     <div class="price-and-icons">
                         <p class="price">₱ {{ $product -> price }}</p>
                         <div class="icons">
+                            @if (Session::get('role') == 'shopper')
+                            <form action="/redir_shopper_like/{{$product -> product_id}}" method="GET">
+                                <button class="icon-btn" type="submit">
+                                    <i class="ri-heart-3-line heart-icon"></i>
+                                   <i class="ri-heart-3-fill heart-icon-fill"></i>
+                                </button>
+                            @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn" type="submit">
                                   <i class="ri-heart-3-line heart-icon"></i>
                                  <i class="ri-heart-3-fill heart-icon-fill"></i>
-                           
                               </button>
                            </form>
-                           <form action="/redir_login/{{$product -> product_id}}" method="GET">
+                           @endif
+                           @if (Session::get('role') == 'shopper')
+                            <form action="/redir_shopper_bag/{{$product -> product_id}}" method="GET">
+                                <button class="icon-btn">
+                                    <i class="ri-shopping-bag-line shopping-icon"></i>
+                                    <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                                </button>
+                            @else
+                            <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn">
                                 <i class="ri-shopping-bag-line shopping-icon"></i>
                                 <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                             </button>
                         </form>
+                        @endif
                         </div>
-                        <form action="/redir_login/{{$product -> product_id}}" method="GET" >
+                        @if (Session::get('role') == 'shopper')
+                        <form action="/redir_shopper_checkout/{{$product -> product_id}}" method="GET">
+                            <button>
+                                <a class="checkout" >Checkout Now</a>
+                            </button>
+                        @else
+                            <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button>
                                 <a class="checkout" >Checkout Now</a>
                             </button>
                         </form>
+                        @endif
                     </div>
                     <p class="product-name">{{$product -> name}}</p>
                     <p class="nego-status">{{$product -> nego_status}}
                         <a href="/login" class="heart-icon">
-                            <form action="/redir_login/{{$product -> product_id}}" method="GET" >
+                        @if (Session::get('role') == 'shopper')
+                            <form action="/redir_shopper_checkout/{{$product -> product_id}}" method="GET">
+                        @else
+                            <form action="/redir_login/{{$product -> product_id}}" method="GET">
                         <button class="icon-btn nego-icon-btn">
                             <i class="ri-discuss-line"></i> 
                             <i class="ri-discuss-fill" id="filled-message"></i>
                         </button>
                             </form>
+                            @endif
                     </a>
                     </p>
                 </div>
