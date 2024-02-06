@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    /* Colors */
+    --color-one: #ffffff;
+    --color-two: #774123;
+    --color-three: #8e583c;
+    --color-four: #a58a6a;
+    --color-five: #d1c8c1;
+    --color-six: #dddddd;
+    --color-seven: #949090;
+}
+
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    font-family: Poppins;
+    text-decoration: none;
+    color: var(--color-two);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Shopper to Seller Rating: Start */
+.container {
+    display: block;
+    align-items: flex-start; 
+    justify-content: center;
+    text-align: center;
+    border: 1px solid var(--color-two);
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+}
+h1 {
+    margin: 20px 0 0 0;
+}
+.comment form textarea {
+    width: 200px; 
+    height: 100px; 
+    padding: 20px; 
+    margin: 0 auto; 
+    display: block; 
+    border: 1px solid var(--color-two); 
+    color: var(--color-two); 
+    border-radius: 10px; 
+    resize: none; 
+    outline: none;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  outline: none;
+  border: none;
+  background: transparent;
+  border: 1px solid var(--color-two);
+  color: var(--color-two);
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button:hover {
+  background: var(--color-two);
+  color: var(--color-one);
+}
+.rating {
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: center; 
+}
+.rating:not(:checked) > input {
+    position: absolute;
+    appearance: none;
+  }
+  
+  .rating:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    fill: var(--color-six);
+    margin: 15px 2px 25px 2px;
+  }
+  
+  .rating:not(:checked) > label > svg {
+    fill: var(--color-six);
+    transition: fill 0.3s ease; 
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+    fill: var(--color-six);
+  }
+  
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    fill: var(--color-two)
+  }
+  
+  .rating > input:checked ~ label > svg {
+    fill: var(--color-two);
+  }
+  

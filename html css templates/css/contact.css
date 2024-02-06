@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    /* Colors */
+    --color-one: #ffffff;
+    --color-two: #774123;
+    --color-three: #8e583c;
+    --color-four: #a58a6a;
+    --color-five: #d1c8c1;
+    --color-six: #dddddd;
+    --color-seven: #949090;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    color: var(--color-two);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    max-height: 100vh;
+}
+/* Contact: Start */
+.container {
+    display: block; 
+    /* width: 100%;  */
+    text-align: center;
+}
+
+
+.container > h1 {
+    margin: 0 auto; 
+    padding: 20px 0; 
+}
+
+.form-area {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    text-align: left; 
+    margin: 20px;
+}
+.contact {
+    display: block; 
+}
+.contact .headers {
+    margin: 0px 0px 20px 0px;
+}
+.ri-mail-fill {
+    margin-bottom: 50px;
+}
+.form {
+    display: block; 
+    margin-right: 100px;
+}
+.form p {
+    margin-left: 5px;
+}
+.headers {
+    font-weight: bold; 
+    font-size: 20px;
+}
+i {
+    text-align: left; 
+    display: inline-block; 
+    padding-right: 5px; 
+}
+.icons a i {
+    font-size: 20px;
+}
+i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+input {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 192px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px 12px 6px 0;
+}
+#subject {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 400px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px 12px 6px 0;
+}
+#message {
+    padding: 15px 22px;
+    border: none;
+    outline: none;
+    width: 400px;
+    height: 80px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px 12px 6px 0;
+}
+#upload {
+    border: none;
+    outline: none;
+    margin: 6px 12px 6px 0;
+    cursor: pointer;
+}
+#span-first-name {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-205px, 9px);
+}
+#first-name:is(:focus, :valid) ~ #span-first-name {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-188px, 5px);
+}
+#span-last-name {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-200px, 9px);
+}
+#last-name:is(:focus, :valid) ~ #span-last-name {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-185px, 5px);
+}
+#span-email {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-205px, 9px);
+}
+#email:is(:focus, :valid) ~ #span-email {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-188px, 5px);
+}
+#span-phone {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-200px, 9px);
+}
+#phone:is(:focus, :valid) ~ #span-phone {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-185px, 5px);
+}
+#span-subject {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-406px, 9px);
+}
+#subject:is(:focus, :valid) ~ #span-subject {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-388px, 5px);
+}
+#span-message {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-406px, 9px);
+}
+#message:is(:focus, :valid) ~ #span-message {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-388px, 5px);
+}
+#upload {
+    width: 250px;
+    padding: 10px;
+}
+.row-five {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.send button {
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 13px;
+    background-color: var(--color-two);
+    color: var(--color-one);
+    margin: 12px 20px 6px 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.send button:hover {
+    transform: scale(1.02);
+}
+/* Contact" Media Query */
+@media (max-width: 900px) {
+    .container {
+        transform: scale(0.9);
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        transform: scale(0.8);
+        margin-top: auto;
+    }
+    .form {
+        margin-right: 10px;
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+    .form-area {
+        display: block;
+    }
+    #subject {
+        width: 100%;
+    }
+    #message {
+        width: 100%;
+    }
+    .form {
+        display: block;
+        width: 100%;
+    }
+    input {
+        width: 100%;
+    }
+    #span-first-name {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -55px);
+    }
+    #first-name:is(:focus, :valid) ~ #span-first-name {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -60px);
+    }
+    #span-last-name {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -55px);
+    }
+    #last-name:is(:focus, :valid) ~ #span-last-name {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -60px);
+    }
+    #span-email {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -55px);
+    }
+    #email:is(:focus, :valid) ~ #span-email {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -60px);
+    }
+    #span-phone {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -55px);
+    }
+    #phone:is(:focus, :valid) ~ #span-phone {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -60px);
+    }
+    #span-subject {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -55px);
+    }
+    #subject:is(:focus, :valid) ~ #span-subject {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -60px);
+    }
+    #span-message {
+        position: absolute;
+        padding: 15px 20px;
+        pointer-events: none;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        transform: translate(6px, -97px);
+    }
+    #message:is(:focus, :valid) ~ #span-message {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(22px, -100px);
+    }
+    .contact {
+        margin-top: 50px;
+        justify-content: center;
+    }
+    .ri-mail-fill {
+        margin-bottom: 30px;
+    }
+}
+/* Contact: End */

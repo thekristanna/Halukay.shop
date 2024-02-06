@@ -15,7 +15,7 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/login.css" />
+        <link rel="stylesheet" href="../css/seller_collection_status.css" />
         <!-- Favicon -->
         <link
             rel="icon"
@@ -26,27 +26,17 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
-
-        <!-- login -->
+        <!-- collection status -->
         <div class="container">
-            <h1>Login</h1>
-            <div class="login-form" id="login">
-                <div class="username">
-                    <i class="ri-user-fill"></i>
-                    <input type="text" required id="username" placeholder="Username">
-                </div>
-                <div class="password">
-                    <i class="ri-lock-fill"></i>
-                    <input type="text" required id="password" placeholder="Password">
-                </div>
-                <button class="login">Login</button>
-                <div class="signup">
-                    <p>No account yet? <span><a href="#" id="signup">Sign Up</a></span></p>
-                </div>
+            <div class="top-line">
+                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for delivery</span></p>
+                <button class="status-button">Status Button</button>
+            </div>
+            <button class="order-id">Order ID: <span id="order-id">1234</span></button>
+            <div class="status">
+                <p class="current-status"><span class="date">2020-10-10</span><span class="time">10:30 AM</span><span class="details">@daiben angelo is awaiting your reponse</span>
+               
             </div>
         </div>
-        <img src="../img/halukay-logo.png"id="logo-background">
-
-        <!-- footer -->
     </body>
 </html>

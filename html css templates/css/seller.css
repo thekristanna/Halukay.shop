@@ -27,7 +27,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Shopper Rating: Start */
+/* Seller Rating: Start */
 .container {
     display: flex;
     align-items: flex-start; 
@@ -35,6 +35,8 @@ body {
     margin-top: 120px;
     text-align: center;
     z-index: -10;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 .shopper-profile {
@@ -61,7 +63,6 @@ body {
     height: 250px;
 }
 
-
 #name {
     margin: 20px 0px 0px 0px;
     font-size: 25px;
@@ -72,6 +73,12 @@ body {
     margin: -5px;
     font-size: 20px;
     padding: 0;
+}
+#location {
+    margin: 10px 0px 0px 0px;
+}
+.ri-map-pin-fill {
+    margin-right: 5px;
 }
 .numbers-bought-transactions {
     text-align: center;
@@ -115,7 +122,7 @@ body {
     font-size: 15px;
 }
 
-#shopper-review {
+#seller-review {
  margin: 5px 0px;
 }
 
@@ -135,4 +142,4 @@ body {
 #shopper-rating {
     margin-left: 15px;
 }
-/* Shopper Rating: End */
+/* Seller Rating: End */

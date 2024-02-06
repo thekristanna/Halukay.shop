@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Remix icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- Box icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/account_edit.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="../img/halukay-favicon.png" type="image/x-icon" />
+    <!-- Page Title -->
+    <!-- <title>Halukay</title> -->
+  </head>
+  <body>
+
+    <!-- edit account -->
+    <div class="container">
+        <div class="profile">
+            <img src="../img/users/daiben.png" alt="profile">
+            <button>Save Edit</button>
+        </div>
+        <div class="account">
+            <div class="details">
+                <input type="text" id="first-name" /><span id="span-first-name">First Name</span>
+                <input type="text" id="last-name"/><span id="span-last-name">Last Name</span>
+                <input type="text" id="username"/><span id="span-username">Username</span>
+            </div>
+            <div class="details">
+                   <input type="text" id="email"/><span id="span-email">Email Address</span>
+                   <input type="text" id="phone"><span id="span-phone">Phone Number</span>
+                   <input type="text" id="password"/><span id="span-password">Password</span>
+            </div>
+            <div class="details">
+                   <input type="text" id="address-street"/><span id="span-address-street">Street Address</span>
+                   <input type="text" id="address-barangay"/><span id="span-address-barangay">Barangay</span>
+                   <input type="text" id="address-city"/><span id="span-address-city">City/Town</span>
+            </div>
+            <div class="details">
+                   <input type="text" id="address-province"/><span id="span-address-province">Province</span>
+                   <input type="text" id="address-zip"/><span id="span-address-zip">Zip</span>
+                <!-- role cannot be edited -->
+                <p id="role">Shopper</p><span id="span-role">Role</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

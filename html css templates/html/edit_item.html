@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- Remix icon -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <!-- Box icons -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/edit_item.css" />
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="../img/halukay-favicon.png"
+            type="image/x-icon"
+        />
+        <!-- Page Title -->
+        <!-- <title>Halukay</title> -->
+    </head>
+    <body>
+        <!-- edit item -->
+        <div class="container">
+            <h1>Edit Item</h1>
+            <div class="edit-form" id="edit-item">
+                <!-- row1 -->
+                <div class="row-one">
+                    <input type="text" required id="name" />
+                    <span id="span-name">Name</span>
+                    <input type="text" required id="price" />
+                    <span id="span-price">Price</span>
+                </div>
+                <!-- row2 -->
+                <div class="row-two">
+                    <span id="span-category">Category</span>
+                    <div class="category"> <select id="category-select" name="category">
+                        <option value="" disabled selected>Choose</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="bags">Bags</option>
+                    </select>
+                </div>
+                       
+                    <input type="text" required id="condition" />
+                    <span id="span-condition">Condition</span>
+                    <input type="text" required id="brand" />
+                    <span id="span-brand">Brand</span>
+                </div>
+                <!-- row3 -->
+                <div class="row-three">
+                    <input type="text" required id="material" />
+                    <span id="span-material">Material</span>
+                    <input type="text" required id="color" />
+                    <span id="span-color">Color</span>
+                    <input type="text" required id="size" />
+                    <span id="span-size">Size & Fit</span>
+                </div>
+                <!-- row4 -->
+                <div class="row-four">
+                    <input type="text" required id="notes" />
+                    <span id="span-notes">Notes</span>
+                    <input type="file" required id="upload" value="photo" />
+                </div>
+                <!-- row5 -->
+                <div class="row-five">
+                    <p>Price:</p>
+                    <div class="nego">
+                        <input
+                            type="radio"
+                            id="nego"
+                            name="role"
+                            value="Negotiable"
+                        />
+                        <label for="nego">Negotiable</label>
+                    </div>
+                    <div class="non-nego">
+                        <input
+                            type="radio"
+                            id="non-nego"
+                            name="role"
+                            value="non-nego"
+                        />
+                        <label for="non-nego">Non-negotiable</label>
+                    </div>
+                </div>
+
+                <!-- add -->
+                <button class="edit">Edit Item</button>
+            </div>
+        </div>
+    </body>
+</html>

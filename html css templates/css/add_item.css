@@ -27,13 +27,12 @@ body {
     overflow-x: hidden;
 }
 
-/* Signup: Start */
+/* Add Item: Start */
 .container {
     display: block;
-    margin-top: 90px;
 }
 
-.signup-form {
+.add-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,78 +44,7 @@ h1 {
     margin-bottom: 10px;
     font-size: 50px;
 }
-
-.signup-form .row-one input {
-    padding: 12px 22px;
-    border: none;
-    outline: none;
-    width: 150px;
-    background: transparent;
-    border: 1px solid var(--color-six);
-    border-radius: 30px;
-    font-size: 13px;
-    color: var(--color-t);
-    margin: 12px;
-}
-
-#span-first-name {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(-365px, -1px);
-}
-
-#first-name:is(:focus, :valid) ~ #span-first-name {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(-368px, -23px);
-    color: var(--color-seven);
-}
-
-#span-last-name {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(-145px, -1px);
-}
-
-#last-name:is(:focus, :valid) ~ #span-last-name {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(-150px, -23px);
-    color: var(--color-seven);
-}
-
-#span-phone-number {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(310px, -1px);
-}
-
-#phone-number:is(:focus, :valid) ~ #span-phone-number {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(300px, -23px);
-    color: var(--color-seven);
-}
-
-.signup-form .row-two input {
+.add-form .row-one input:nth-of-type(1) {
     padding: 12px 22px;
     border: none;
     outline: none;
@@ -129,45 +57,195 @@ h1 {
     margin: 12px;
 }
 
-#span-username {
+.add-form .row-one input:nth-of-type(2) {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+#span-name {
     position: absolute;
     padding: 15px 20px;
     pointer-events: none;
     font-size: 13px;
     letter-spacing: 0.5px;
     transition: 0.3s;
-    transform: translate(-367px, -1px);
+    transform: translate(-272px, -1px);
 }
 
-#username:is(:focus, :valid) ~ #span-username {
+#name:is(:focus, :valid) ~ #span-name {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
     font-size: 10px;
-    transform: translate(-370px, -23px);
-    color: var(--color-seven);
+    transform: translate(-272px, -23px);
 }
-
-#span-address-street {
+#span-price {
     position: absolute;
     padding: 15px 20px;
     pointer-events: none;
     font-size: 13px;
     letter-spacing: 0.5px;
     transition: 0.3s;
-    transform: translate(89px, -1px);
+    transform: translate(165px, -1px);
 }
 
-#address-street:is(:focus, :valid) ~ #span-address-street {
+#price:is(:focus, :valid) ~ #span-price {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
     font-size: 10px;
-    transform: translate(80px, -23px);
+    transform: translate(165px, -23px);
+}
+
+.add-form .row-two input {
+    padding: 12px 22px;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+.add-form .row-two select {
+    border: none;
+    outline: none;
+    width: 200px;
+    background: transparent;
+}
+.add-form .row-two .category {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+#span-category {
+    position: absolute;
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-265px, -23px);
     color: var(--color-seven);
 }
 
-.signup-form .row-three input:nth-of-type(1) {
+#span-condition {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-38px, -1px);
+}
+
+#condition:is(:focus, :valid) ~ #span-condition {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-38px, -23px);
+}
+
+#span-brand {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(169px, -1px);
+}
+
+#brand:is(:focus, :valid) ~ #span-brand {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(169px, -23px);
+}
+.add-form .row-three input {
+    padding: 12px 22px;
+    border: none;
+    outline: none;
+    width: 150px;
+    background: transparent;
+    border: 1px solid var(--color-six);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--color-t);
+    margin: 12px;
+}
+
+#span-material {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-264px, -1px);
+}
+
+#material:is(:focus, :valid) ~ #span-material {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-264px, -23px);
+}
+
+#span-color {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(-53px, -1px);
+}
+
+#color:is(:focus, :valid) ~ #span-color {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(-53px, -23px);
+}
+
+#span-size {
+    position: absolute;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    transform: translate(179px, -1px);
+}
+
+#size:is(:focus, :valid) ~ #span-size {
+    padding: 0 5px;
+    background: var(--color-one);
+    border-radius: 2px;
+    font-size: 10px;
+    transform: translate(179px, -23px);
+}
+
+.add-form .row-four input:nth-of-type(1) {
     padding: 12px 22px;
     border: none;
     outline: none;
@@ -180,7 +258,7 @@ h1 {
     margin: 12px;
 }
 
-.signup-form .row-three input:nth-of-type(2) {
+.add-form .row-four input:nth-of-type(2) {
     padding: 12px 22px;
     border: none;
     outline: none;
@@ -192,184 +270,32 @@ h1 {
     color: var(--color-t);
     margin: 12px;
 }
-
-.signup-form .row-three input:nth-of-type(3) {
-    padding: 12px 22px;
-    border: none;
-    outline: none;
-    width: 150px;
-    background: transparent;
-    border: 1px solid var(--color-six);
-    border-radius: 30px;
-    font-size: 13px;
-    color: var(--color-t);
-    margin: 12px;
-}
-
-#span-email {
+#span-notes {
     position: absolute;
     padding: 15px 20px;
     pointer-events: none;
     font-size: 13px;
     letter-spacing: 0.5px;
     transition: 0.3s;
-    transform: translate(-355px, -1px);
+    transform: translate(-272px, -1px);
 }
 
-#email:is(:focus, :valid) ~ #span-email {
+#notes:is(:focus, :valid) ~ #span-notes {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
     font-size: 10px;
-    transform: translate(-360px, -23px);
-    color: var(--color-seven);
+    transform: translate(-272px, -23px);
 }
-
-#span-address-barangay {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
+.add-form .row-five div {
     font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(70px, -1px);
+    margin: 10px 5px 0px 0px;
 }
-
-#address-barangay:is(:focus, :valid) ~ #span-address-barangay {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(68px, -23px);
-    color: var(--color-seven);
-}
-
-#span-address-city {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
+.add-form p {
     font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(293px, -1px);
+    margin: 10px 5px 0px 0px;
 }
-
-#address-city:is(:focus, :valid) ~ #span-address-city {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(287px, -23px);
-    color: var(--color-seven);
-}
-
-.signup-form .row-four input {
-    padding: 12px 22px;
-    border: none;
-    outline: none;
-    width: 150px;
-    background: transparent;
-    border: 1px solid var(--color-six);
-    border-radius: 30px;
-    font-size: 13px;
-    color: var(--color-t);
-    margin: 12px;
-    color: var(--color-seven);
-}
-
-#span-password {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(-368px, -1px);
-}
-
-#password:is(:focus, :valid) ~ #span-password {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(-370px, -23px);
-    color: var(--color-seven);
-}
-
-#span-confirm-password {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(-118px, -1px);
-}
-
-#confirm-password:is(:focus, :valid) ~ #span-confirm-password {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(-130px, -23px);
-    color: var(--color-seven);
-}
-
-#span-address-province {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(69px, -1px);
-}
-
-#address-province:is(:focus, :valid) ~ #span-address-province {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(65px, -23px);
-    color: var(--color-seven);
-}
-
-#span-address-zip {
-    position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(289px, -1px);
-}
-
-#address-zip:is(:focus, :valid) ~ #span-address-zip {
-    padding: 0 5px;
-    background: var(--color-one);
-    border-radius: 2px;
-    font-size: 10px;
-    transform: translate(285px, -23px);
-    color: var(--color-seven);
-}
-
-.shopper,
-.seller {
-    margin: 15px;
-}
-
-#terms {
-    padding-left: 5px;
-    font-style: italic;
-}
-.terms:hover {
-    font-weight: 700;
-}
-.signup-form .row-six {
-    font-size: 12px;
-}
-
-.signup {
+.add {
     outline: none;
     border: none;
     background: var(--color-two);
@@ -378,23 +304,34 @@ h1 {
     border-radius: 50px;
     margin: 25px 25px 10px 25px;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
-.signup:hover {
+.add:hover {
     transform: scale(1.02);
 }
-.login{
-    font-size: 12px;
-}
-
-#login {
-    padding-left: 5px;
-    font-weight: 700;
-}
-#logo-background {
+#dropdown {
+    outline: none;
+    border: none;
+    background: transparent;
     position: absolute;
-    z-index: -100;
-    opacity: 0.1;
-    top: 100px;
+    transform: translate(-150px, -1px);
+    font-size: 20px;
+    cursor: pointer;
 }
-/* Signup: End */
+/* Add Item: Media Query */
+@media (max-width: 900px){
+    .container {
+        transform: scale(0.9);
+    }
+}
+@media (max-width: 700px){
+    .container {
+        transform: scale(0.7);
+    }
+}
+@media (max-width: 500px){
+    .container {
+        transform: scale(0.45);
+    }
+}
+/* Add Item: End */

@@ -53,7 +53,7 @@ header {
 
 .navbar a {
     color: var(--color-seven);
-    margin: 20px;
+    margin: 10px;
     font-weight: 400;
     font-size: 13px;
 }
@@ -75,7 +75,7 @@ header {
     border-radius: 20px;
     padding: 8px 30px 8px 55px;
     width: 200px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 #search-button {
@@ -137,6 +137,9 @@ header {
 .header-icons i {
     font-size: 20px;
 }
+.header-icons button:hover {
+    transform: scale(1.1);
+}
 /* Header: Media Query */
 @media (max-width: 1200px) {
     header {
@@ -177,113 +180,3 @@ header {
 }
 
 /* Header: End */
-
-/* Shopper Rating: Start */
-.container {
-    display: flex;
-    align-items: flex-start; 
-    justify-content: center;
-    margin-top: 120px;
-    text-align: center;
-    z-index: -10;
-}
-
-.shopper-profile {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 10px; 
-    position: fixed;
-    left: 150px;
-}
-
-.shopper-ratings {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    margin-left: 370px;
-    position: absolute
-}
-
-.container img {
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-}
-
-
-#name {
-    margin: 20px 0px 0px 0px;
-    font-size: 45px;
-    padding: 0;
-}
-
-#username {
-    margin: -5px;
-    font-size: 20px;
-    padding: 0;
-}
-.numbers-bought-transactions {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: -10px 0px 10px;
-}
-
-.bought,
-.transactions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 35px 20px 30px 20px;
-    padding: 0;
-}
-
-.numbers {
-    font-size: 25px;
-    font-weight: 700;
-    margin: 0px;
-    padding: 0;
-}
-.description {
-    margin: 0px;
-    font-size: 12px;
-    padding: 0;
-}
-
-.review {
-    display: block;
-    font-size: 12px;
-    padding: 0;
-    margin-top: -10px;
-}
-.stars {
-    fill: var(--color-four);
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-}
-
-#shopper-review {
- margin: 5px 0px;
-}
-
-
-.shopper-ratings {
-    display: block;
-}
-.card {
-    max-width: 750px;
-    border: 1px solid var(--color-four);
-    border-radius: 20px;
-    font-size: 12px;
-    text-align: start;
-    padding: 3px 25px;
-    margin-bottom: 15px;
-}
-#shopper-rating {
-    margin-left: 15px;
-}
-/* Shopper Rating: End */
