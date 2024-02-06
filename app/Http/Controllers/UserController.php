@@ -12,6 +12,49 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function seen_notification(string $id)
+    {
+        Notification::where('notif_id', '=', $id)
+            ->update(
+                [
+                    'marked_seen' => '1'
+                ]
+            );
+
+        if (Session::get('role') == 'shopper') {
+            return redirect('/shopper/notifications');
+        } elseif (Session::get('role') == 'seller') {
+            return redirect('/seller/notifications');
+        } else {
+            return redirect('/login')->with('fail', 'You need to be logged in to access notifications');
+        }
+    }
+
+    public function delete_notification(string $id)
+    {
+        Notification::where('notif_id', '=', $id)
+            ->delete();
+
+        if (Session::get('role') == 'shopper') {
+            return redirect('/shopper/notifications');
+        } elseif (Session::get('role') == 'seller') {
+            return redirect('/seller/notifications');
+        } else {
+            return redirect('/login')->with('fail', 'You need to be logged in to access notifications');
+        }
+    }
+
+    public function view_notifications_shopper()
+    {
+        $notifications = Notification::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->orderBy('date_sent', 'DESC')
+            ->get();
+
+        return view('shopper_notification', compact('notifications'));
+    }
+
     public function view_notifications()
     {
         $notifications = Notification::query()
@@ -20,7 +63,7 @@ class UserController extends Controller
             ->orderBy('date_sent', 'DESC')
             ->get();
 
-        return view('notification', compact('notifications'));
+        return view('seller_notification', compact('notifications'));
     }
 
     public function logout()

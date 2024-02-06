@@ -6,14 +6,15 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Notification
  * 
  * @property int $notif_id
- * @property int $content
- * @property int $date_sent
+ * @property string $content
+ * @property Carbon $date_sent
  * @property int $marked_seen
  * @property int $user_id
  *
@@ -22,19 +23,16 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
 	protected $table = 'notifications';
-	public $incrementing = false;
+	protected $primaryKey = 'notif_id';
 	public $timestamps = false;
 
 	protected $casts = [
-		'notif_id' => 'int',
-		'content' => 'int',
-		'date_sent' => 'int',
+		'date_sent' => 'datetime',
 		'marked_seen' => 'int',
 		'user_id' => 'int'
 	];
 
 	protected $fillable = [
-		'notif_id',
 		'content',
 		'date_sent',
 		'marked_seen',
