@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shopper_rating', function (Blueprint $table) {
-            $table->integer('rating_id', true);
+        Schema::create('mybag', function (Blueprint $table) {
+            $table->integer('bag_id', true);
             $table->integer('shopper_id');
-            $table->integer('rate');
-            $table->string('comm', 200);
+            $table->integer('seller_id');
+            $table->integer('product_id');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shopper_rating');
+        Schema::dropIfExists('mybag');
     }
 };
