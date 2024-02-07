@@ -39,14 +39,13 @@
         <!-- row2 -->
         <div class="row-two">
           <span id="span-category">Category</span>
-          <div class="category">
-            <select id="category-select" name="category">
+          <div class="category"> <select id="category-select" name="category">
               <option value="{{$product -> category}}" selected>{{$product -> category}}</option>
-              <option value="" disabled>----------</option>
+              <option value="" disabled>---------</option>
               <option value="clothes">Clothes</option>
               <option value="shoes">Shoes</option>
               <option value="bags">Bags</option>
-            </select>
+              </select>
           </div>
 
           <input type="text" required id="condition" name="condition" value="{{$product -> product_condition}}"/>
@@ -60,7 +59,7 @@
           <span id="span-material">Material</span>
           <input type="text" required id="color" name="color" value="{{$product -> color}}"/>
           <span id="span-color">Color</span>
-          <input type="text" required id="size" name="brand" value="{{$product -> brand}}"/>
+          <input type="text" required id="size" name="size_fit" value="{{$product -> size_fit}}"/>
           <span id="span-size">Size & Fit</span>
         </div>
         <!-- row4 -->

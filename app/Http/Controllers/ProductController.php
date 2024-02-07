@@ -17,27 +17,30 @@ class ProductController extends Controller
 
     public function edit_product(Request $r, string $id)
     {
-        $product = Product::where('product_id', '=', $id);
-        if ($product->seller_id == Session::get('user_id')) {
-            $product->update(
-                [
-                    'name' => $r->input('name'),
-                    'price' => $r->input('price'),
-                    'category' => $r->input('category'),
-                    'condition' => $r->input('condition'),
-                    'brand' => $r->input('brand'),
-                    'material' => $r->input('material'),
-                    'color' => $r->input('color'),
-                    'size_fit' => $r->input('size_fit'),
-                    'notes' => $r->input('notes'),
-                    'product_photo' => $r->input('product_photo'),
-                    'nego_status' => $r->input('nego_status'),
-                ]
-            );
+        $product = Product::where('product_id', $id)->first();
+        if ($product && $product->seller_id == Session::get('user_id')) {
+            $updateData = [
+                'name' => $r->input('name'),
+                'price' => $r->input('price'),
+                'category' => $r->input('category'),
+                'condition' => $r->input('condition'),
+                'brand' => $r->input('brand'),
+                'material' => $r->input('material'),
+                'color' => $r->input('color'),
+                'size_fit' => $r->input('size_fit'),
+                'notes' => $r->input('notes'),
+                'nego_status' => $r->input('nego_status'),
+            ];
 
-            return redirect('/seller/edit/product/' . $id); //will update redirect
+            if ($r->input('product_photo') !== null) {
+                $updateData['product_photo'] = $r->input('product_photo');
+            }
+
+            $product->update($updateData);
+
+            return redirect('/seller/edit/product/' . $id);
         } else {
-            redirect('/login')->with('fail', 'Invalid user logged in.');
+            return redirect('/login')->with('fail', 'Invalid user logged in.');
         }
     }
 

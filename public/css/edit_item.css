@@ -137,22 +137,12 @@ h1 {
 }
 #span-category {
     position: absolute;
-    padding: 15px 20px;
-    pointer-events: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    transform: translate(0px, 0px);
-}
-
-.row-two:is(:focus, :valid) ~ #span-category {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
     font-size: 10px;
-    transform: translate(-260px, 0px);
+    transform: translate(-265px, -23px);
     color: var(--color-seven);
-    display: inline;
 }
 
 #span-condition {
