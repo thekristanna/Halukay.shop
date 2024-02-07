@@ -27,9 +27,9 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
-        {{-- @include('layouts/messages2')
+        @include('layouts/messages2')
         <!-- header -->
-        @if (Session::get('role') == 'seller')
+        {{-- @if (Session::get('role') == 'seller')
         @include('layouts/navbar_seller')
     @elseif (Session::get('role') == 'shopper')
         @include('layouts/navbar_shopper')
