@@ -188,6 +188,7 @@ class UserController extends Controller
         $user->last_name = $r->input('last_name');
         $user->email_address = $r->input('email_address');
         $user->username = $r->input('username');
+        $user->display_name = '@' . $r->input('username');
         $user->password = Hash::make($r->input('password'));
         $user->phone_number = $r->input('phone_number');
         $user->address_street = $r->input('address_street');
@@ -195,7 +196,7 @@ class UserController extends Controller
         $user->address_citytown = $r->input('address_citytown');
         $user->address_province = $r->input('address_province');
         $user->address_zip = $r->input('address_zip');
-        $user->role = $r->input('role');
+        $user->role = $r->input('role') ;
         if ($r->file('profile_picture')) {
             $file = $r->file('profile_picture');
             $filename = date('YmdHiu') . $file->getClientOriginalName();

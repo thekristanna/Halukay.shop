@@ -15,6 +15,42 @@ class ProductController extends Controller
 {
     use Sortable;
 
+    public function edit_product(Request $r, string $id)
+    {
+        $product = Product::where('product_id', '=', $id);
+        if ($product->seller_id == Session::get('user_id')) {
+            $product->update(
+                [
+                    'name' => $r->input('name'),
+                    'price' => $r->input('price'),
+                    'category' => $r->input('category'),
+                    'condition' => $r->input('condition'),
+                    'brand' => $r->input('brand'),
+                    'material' => $r->input('material'),
+                    'color' => $r->input('color'),
+                    'size_fit' => $r->input('size_fit'),
+                    'notes' => $r->input('notes'),
+                    'product_photo' => $r->input('product_photo'),
+                    'nego_status' => $r->input('nego_status'),
+                ]
+            );
+
+            return redirect('/seller/edit/product/' . $id); //will update redirect
+        } else {
+            redirect('/login')->with('fail', 'Invalid user logged in.');
+        }
+    }
+
+    public function edit_product_form(string $id)
+    {
+        $product = Product::query()
+            ->select('*')
+            ->where('product_id', '=', $id)
+            ->where('seller_id', '=', Session::get('user_id'))
+            ->first();
+
+        return view('edit_product', compact('product'));
+    }
 
     public function redirect_heart(string $id)
     {
@@ -90,7 +126,7 @@ class ProductController extends Controller
     public function show_product(string $id)
     {
         $info = Product::query()
-            ->select('users.*')
+            ->select('*')
             ->join('users', 'users.user_id', '=', 'product.user_id')
             ->get()
             ->first();

@@ -50,6 +50,8 @@ Route::middleware(['checkSessionSeller'])->group(function () {
 
     Route::get('/seller/add_product', [ProductController::class, 'add_product_view']);
     Route::post('/seller/add_product', [ProductController::class, 'add_product']);
+    Route::get('seller/edit/product/{id}', [ProductController::class, 'edit_product_form']);
+    Route::put('seller/edit/product/{id}', [ProductController::class, 'edit_product']);
 
     Route::get('/seller/notifications', [UserController::class, 'view_notifications']);
     Route::delete('/seller/notifications/{id}', [UserController::class, 'delete_notification']);
