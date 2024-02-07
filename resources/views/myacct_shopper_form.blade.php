@@ -30,7 +30,7 @@
         <!-- edit account -->
         <div class="container">
             <form
-                action="/seller/my_account/edit"
+                action="/shopper/my_account/edit"
                 method="POST"
                 enctype="multipart/form-data"
             >
@@ -78,7 +78,7 @@
                             value="{{$profile -> phone_number}}"
                         /><span id="span-phone">Phone Number</span>
                         <!-- role cannot be edited -->
-                        <p id="role">Seller</p>
+                        <p id="role">Shopper</p>
                         <span id="span-role">Role</span>
                     </div>
                     <div class="details">

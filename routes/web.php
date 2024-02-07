@@ -32,6 +32,9 @@ Route::get('logout', [UserController::class, 'logout']);
 
 Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/profile', [UserController::class, 'view_profile_shopper']);
+    Route::get('/shopper/my_account', [UserController::class, 'my_acct_shopper_view']);
+    Route::get('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_form']);
+    Route::put('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_edit']);
 
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order

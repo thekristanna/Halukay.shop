@@ -71,6 +71,50 @@ class UserController extends Controller
         return view('shopper_profile');
     }
 
+    /////___MY ACCOUNT SHOPPER___/////
+    public function my_acct_shopper_edit(Request $r)
+    {
+        $profile = User::where('user_id', '=', Session::get('user_id'))
+            ->update(
+                [
+                    'first_name' => $r->input('first_name'),
+                    'last_name' => $r->input('last_name'),
+                    'email_address' => $r->input('email_address'),
+                    'phone_number' => $r->input('phone_number'),
+                    'address_street' => $r->input('address_street'),
+                    'address_barangay' => $r->input('address_barangay'),
+                    'address_citytown' => $r->input('address_citytown'),
+                    'address_province' => $r->input('address_province'),
+                    'address_zip' => $r->input('address_zip'),
+                ]
+            );
+
+        return redirect('/shopper/my_account');
+    }
+
+    public function my_acct_shopper_form()
+    {
+        $profile = User::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        return view('myacct_shopper_form', compact('profile'));
+    }
+
+    public function my_acct_shopper_view()
+    {
+        $profile = User::query()
+            ->select('*')
+            ->where('user_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        return view('myacct_shopper', compact('profile'));
+    }
+
+    /////___MY ACCOUNT SELLER___/////
     public function my_acct_seller_edit(Request $r)
     {
         $profile = User::where('user_id', '=', Session::get('user_id'))
@@ -113,6 +157,7 @@ class UserController extends Controller
         return view('myacct_seller', compact('profile'));
     }
 
+    /////___LOGOUT___/////
     public function logout()
     {
         if (Session::has('user_id')) {
@@ -122,6 +167,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    /////___LOGIN___/////
     public function login(Request $r)
     {
         $user = User::where("username", '=', $r->username)
@@ -156,6 +202,7 @@ class UserController extends Controller
         return view('login');
     }
 
+    /////___SIGN UP___/////
     public function signup(Request $r)
     {
         $this->validate($r, [
@@ -196,7 +243,7 @@ class UserController extends Controller
         $user->address_citytown = $r->input('address_citytown');
         $user->address_province = $r->input('address_province');
         $user->address_zip = $r->input('address_zip');
-        $user->role = $r->input('role') ;
+        $user->role = $r->input('role');
         if ($r->file('profile_picture')) {
             $file = $r->file('profile_picture');
             $filename = date('YmdHiu') . $file->getClientOriginalName();
