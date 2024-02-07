@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('last_name', 50);
             $table->string('email_address', 50);
             $table->string('username', 50);
-            $table->string('password', 50);
+            $table->string('display_name', 50);
+            $table->string('password', 2000);
             $table->string('phone_number', 15);
             $table->string('address_street', 50);
             $table->string('address_barangay', 50);
