@@ -92,4 +92,8 @@ h1 {
     opacity: 0.1;
     top: 100px;
 }
+#forgot {
+    font-size: 10px;
+    cursor: pointer;
+}
 /* Login: End */

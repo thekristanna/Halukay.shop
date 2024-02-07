@@ -27,18 +27,19 @@
     <div class="container">
         <div class="profile">
             <img src="../img/users/daiben.png" alt="profile">
-            <button>Save Edit</button>
+            <input type="file" id="upload">
         </div>
         <div class="account">
             <div class="details">
                 <input type="text" id="first-name" /><span id="span-first-name">First Name</span>
                 <input type="text" id="last-name"/><span id="span-last-name">Last Name</span>
-                <input type="text" id="username"/><span id="span-username">Username</span>
+                <p id="username">daibenangelo</p><span id="span-username">Display Name</span>
             </div>
             <div class="details">
                    <input type="text" id="email"/><span id="span-email">Email Address</span>
                    <input type="text" id="phone"><span id="span-phone">Phone Number</span>
-                   <input type="text" id="password"/><span id="span-password">Password</span>
+                   <!-- role cannot be edited -->
+                <p id="role">Shopper</p><span id="span-role">Role</span>
             </div>
             <div class="details">
                    <input type="text" id="address-street"/><span id="span-address-street">Street Address</span>
@@ -48,8 +49,8 @@
             <div class="details">
                    <input type="text" id="address-province"/><span id="span-address-province">Province</span>
                    <input type="text" id="address-zip"/><span id="span-address-zip">Zip</span>
-                <!-- role cannot be edited -->
-                <p id="role">Shopper</p><span id="span-role">Role</span>
+                <button>Change Password</button>
+                <button>Save</button>
             </div>
         </div>
     </div>

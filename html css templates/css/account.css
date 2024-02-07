@@ -39,13 +39,13 @@ body {
 }
 .profile img {
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border: 2px solid var(--color-two);
     border-radius: 50%;
 
 }
-.profile button {
+button {
     margin: 10px auto;
     outline: none;
     background: transparent;
@@ -53,7 +53,7 @@ body {
     border-radius: 20px;
     padding: 5px 15px;
 }
-.profile button:hover {
+button:hover {
     color: var(--color-one);
     background: var(--color-two);
     cursor: pointer;
@@ -89,7 +89,7 @@ body {
 }
 #span-username {
     position: absolute;
-    transform: translate(190px, -21px);
+    transform: translate(200px, -21px);
     font-size: 10px;
     background: var(--color-one);
     padding: 0 5px;
@@ -111,9 +111,9 @@ body {
     padding: 0 5px;
     color: var(--color-seven);
 }
-#span-password {
+#span-role  {
     position: absolute;
-    transform: translate(190px, -21px);
+    transform: translate(175px, -21px);
     font-size: 10px;
     background: var(--color-one);
     padding: 0 5px;
@@ -160,14 +160,6 @@ body {
     padding: 0 5px;
     color: var(--color-seven);
 }
-#span-role {
-    position: absolute;
-    transform: translate(175px, -21px);
-    font-size: 10px;
-    background: var(--color-one);
-    padding: 0 5px;
-    color: var(--color-seven);
-}
 /* Account: Media Query */
 @media (max-width: 900px) {
     .container {
@@ -175,7 +167,7 @@ body {
         transform: scale(0.85);
     }
     .profile img {
-        margin: 0 auto;
+        margin: 50px auto;
     }
 }
 @media (max-width: 700px) {
@@ -189,43 +181,43 @@ body {
         display: block;
     }
     .details p {
-        margin: 20px;
+        margin: 20px auto;
     }
     #span-first-name {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-last-name {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-username {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-email {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-phone {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-password {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-address-street {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-address-barangay {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-address-city {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-address-province {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-address-zip {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
     #span-role {
-        transform: translate(40px, -70px);
+        transform: translate(55px, -70px);
     }
 }
 /* Account: End */
