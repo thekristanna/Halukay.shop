@@ -118,10 +118,34 @@ footer a, footer p {
     }
 }
 @media (max-width:700px) {
-   footer {
+    footer {
+        margin: 0;
+        padding: 0px 40px 40px 40px;
+    }
+   footer p {
+    font-size: 7px;
+    justify-content: flex-start;
+    margin-left: 10px;
+   }
+   .footer-proper div p{
+    font-size: 10px;
+   }
+   footer a {
+    font-size: 10px;
+   }
+   .subscription input {
     transform: scale(0.7);
-    padding: 0px 50px 50px;
+    margin-left: -20px;
+    
+   }
+   .ri-arrow-right-line {
+    position: absolute;
+    transform: scale(0.7) translate(175px, -47px);
    }
 }
-
+@media (max-width:500px) {
+    footer {
+        margin: ;
+    }
+}
 /* Footer: End */
