@@ -41,11 +41,15 @@
         
         {{-- <div>
         @include ('layouts/navbar_shop_public')
+      
+
         </div> --}}
         {{-- still needs fixing. separate style for navbar is contradicting other styles in the page --}}
         
        <!-- product -->
-       <div class="container ">
+       <div class="container ">  
+        
+        
             <!-- button -->
             <button class="previous-button">
                 <i class="ri ri-arrow-left-circle-line"></i> 
@@ -55,8 +59,8 @@
             <div class="product-image">
                 <img src="/img/products/{{ $product->product_photo }}" id="product-image">
                 <div class="seller-details">
-                    <a href="#"><i class="ri-user-fill"></i>{{ $info -> email_address }}</a>
-                    <p><i class="ri-map-pin-fill"></i>{{ $info -> address_citytown }}</p>
+                    <a href="#"><i class="ri-user-fill"></i>{{ $info->email_address }}</a>
+                    <p><i class="ri-map-pin-fill"></i>{{ $info->address_citytown }}</p>
                 </div>
             </div>
             <!-- details -->
@@ -72,6 +76,7 @@
                                     <i class="ri-heart-3-line heart-icon"></i>
                                    <i class="ri-heart-3-fill heart-icon-fill"></i>
                                 </button>
+                            </form>
                             @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn" type="submit">
@@ -81,11 +86,13 @@
                            </form>
                            @endif
                            @if (Session::get('role') == 'shopper')
-                            <form action="/redir_shopper_bag/{{$product -> product_id}}" method="GET">
-                                <button class="icon-btn">
+                            <form action="/shopper/my_bag/{{$product -> product_id}}" method="POST">
+                                @csrf
+                                <button class="icon-btn" type="submit">
                                     <i class="ri-shopping-bag-line shopping-icon"></i>
                                     <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                                 </button>
+                            </form>
                             @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn">
@@ -100,11 +107,13 @@
                             <button>
                                 <a class="checkout" >Checkout Now</a>
                             </button>
+                        </form>
                         @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button>
                                 <a class="checkout" >Checkout Now</a>
                             </button>
+
                         </form>
                         @endif
                     </div>

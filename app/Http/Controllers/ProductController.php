@@ -6,14 +6,34 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\LikeProduct;
 use App\Models\User;
+use App\Models\Mybag;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+
+
 use Kyslik\ColumnSortable\Sortable;
 
 
 class ProductController extends Controller
 {
     use Sortable;
+    public function add_to_bag(string $id)
+    {
+        $product = Product::query()
+            ->select('*')
+            ->join('users', 'users.user_id', '=', 'product.user_id')
+            ->get()
+            ->first();
+
+        $cart = new Mybag();
+        $cart->shopper_id = Session::get('user_id');
+        $cart->product_id = $id;
+        $cart->seller_id =  $id;
+        $cart->save();
+
+        return redirect('/shop')->with('success', 'Item was added to cart');
+    }
 
     public function redirect_heart(string $id)
     {
@@ -24,7 +44,23 @@ class ProductController extends Controller
 
     public function shopper_bag_view()
     {
-        return view('shopper_bag');
+        $shopper_id = Session::get('user_id');
+
+        // Fetch product information for products in the shopper's bag
+        $info = Product::query()
+            ->select('product.*', 'users.email_address', 'users.address_citytown')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
+            ->where('mybag.shopper_id', '=', $shopper_id)
+            ->get();
+
+        $by_seller = $info
+            ->groupBy('seller_id');
+
+
+
+
+        return view('shopper_bag', compact('info', 'by_seller'));
     }
 
     /////______SHOPPER PRODUCT FUNCTIONS________/////
@@ -210,6 +246,7 @@ class ProductController extends Controller
             ->where('product_id', '=', $id)
             ->get()
             ->first();
+
 
         return view('show_product', compact('product', 'info'));
     }

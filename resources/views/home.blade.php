@@ -314,6 +314,8 @@
     </div>
     <!-- faqs -->
     <div class="faqs">
+        <p class="faqs-header three">Frequently Asked</p>
+            <p class="faqs-header four">Questions</p>
         <div class="left">
             <div class="faq">
                 <p class="question">
@@ -321,7 +323,7 @@
                     items?
                 </p>
                 <p class="answer">
-                    To sell on Halukay.com, simply click the "Sign Up"
+                    To sell on Halukay, simply click the "Sign Up"
                     button, select 'Seller,' and complete your account
                     details. You can then list your items by providing
                     descriptions, conditions, prices, and photos. Each
@@ -335,7 +337,7 @@
                     website?
                 </p>
                 <p class="answer">
-                    To buy on Halukay.com, find an item you like, add it
+                    To buy on Halukay, find an item you like, add it
                     to your cart, and proceed to checkout. You'll need
                     to sign up for an account if you haven't already,
                     then choose your payment method and provide shipping
@@ -350,7 +352,7 @@
                     website?
                 </p>
                 <p class="answer">
-                    To buy on Halukay.com, find an item you like, add it
+                    To buy on Halukay, find an item you like, add it
                     to your cart, and proceed to checkout. You'll need
                     to sign up for an account if you haven't already,
                     then choose your payment method and provide shipping
