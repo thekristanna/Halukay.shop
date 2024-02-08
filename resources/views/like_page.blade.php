@@ -48,55 +48,26 @@
                     <p>Price</p>
                     <p class="product-price">{{$p -> price}}</p>
                 </div>
-                <button class="delete">
+                <form action="/shopper/products/likes/delete/{{$p -> like_id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                <button class="delete" type="submit">
                     <i class="ri-delete-bin-line"></i>
                     <i class="ri-delete-bin-fill"></i>
                 </button>
+                </form>
+                <form action="">
                 <button class="icon-btn">
                     <i class="ri-shopping-bag-line shopping-icon"></i>
                     <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                 </button>
+                </form>
             </div>
             @endif
             @endforeach
 
         </div>
         @endforeach
-
-        
-
-        {{-- @foreach ($seller as $s)
-        <div class="orders">
-            <div class="bottom-details">
-                <a href="#" class="seller-username"><p>Seller:<span class="username">{{$s -> display_name}}</span>
-            </div>
-            @foreach ($prodlike as $p)
-            <div class="product">
-                <div class="product">
-                    <div class="image">
-                        <a href="#" class="product-page"><img src="/img/products/Uniqlo Trousers.png" alt="product-name"> </a>
-                   </div>
-                    <div class="item-name">
-                        <p>Item</p>
-                        <p class="product-name">{{$p -> name}}</p>
-                    </div>
-                    <div class="item-price">
-                        <p>Price</p>
-                        <p class="product-price">{{$p -> price}}</p>
-                    </div>
-                    <button class="delete">
-                        <i class="ri-delete-bin-line"></i>
-                        <i class="ri-delete-bin-fill"></i>
-                    </button>
-                    <button class="icon-btn">
-                        <i class="ri-shopping-bag-line shopping-icon"></i>
-                        <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
-                    </button>
-                </div>
-            </div>
-            @foreach
-        </div>
-        @endforeach --}}
         
     </div>
     

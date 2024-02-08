@@ -28,7 +28,7 @@ class ProductController extends Controller
     }
 
     /////______SHOPPER PRODUCT FUNCTIONS________/////
-    /////______SHOPPER LIKES_____/////
+    /////______SHOPPER LIKES PAGE_____/////
     public function likes_view()
     {
         $seller = User::query()
@@ -40,12 +40,34 @@ class ProductController extends Controller
             ->get();
 
         $product = Product::query()
-            ->select('product.product_id', 'name', 'product_photo', 'price', 'product.seller_id')
+            ->select('product.product_id', 'name', 'product_photo', 'price', 'product.seller_id', 'like_id')
             ->join('like_products', 'like_products.product_id', '=', 'product.product_id')
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
         return view('like_page', compact('seller', 'product'));
+    }
+
+    /////______SHOPPER ADD LIKE_____/////
+    public function add_like(string $product_id, string $seller_id)
+    {
+        $like_product = new LikeProduct;
+        $like_product->shopper_id = Session::get('user_id');
+        $like_product->seller_id = $seller_id;
+        $like_product->product_id = $product_id;
+
+        $like_product->save();
+
+        return redirect('/shop');
+    }
+
+    /////______SHOPPER REMOVE LIKE_____/////
+    public function delete_like(string $id)
+    {
+        LikeProduct::where('like_id', '=', $id)->first()
+            ->delete();
+
+        return redirect('/shopper/products/likes');
     }
 
     /////______SELLER PRODUCT FUNCTIONS________/////
