@@ -20,8 +20,11 @@
     text-decoration: none;
     color: var(--color-two);
 }
+title {
+    display: none;
+}
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
 }

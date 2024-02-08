@@ -20,8 +20,11 @@
     text-decoration: none;
     color: var(--color-two);
 }
+title {
+    display: none;
+}
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
 }
@@ -495,17 +498,16 @@ header {
     font-size: 25px;
     margin-right: 10px;
 }
+
 /* Header: Media Query */
 @media (max-width: 900px) {
     .navbar,
     .login {
         display: none;
     }
-
     #login-nav {
         display: block;
     }
-
     .navbar.open {
         display: block;
         position: absolute;
@@ -515,23 +517,43 @@ header {
         margin-top: 20px;
         padding: 0;
     }
+    .navbar {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%; 
+        margin-top: 20px;
+        padding: 0;
+        background: var(--color-two);
+    }
 
+    .navbar a {
+        color: var(--color-one);
+    }
+    .navbar .active {
+        color: var(--color-one);
+        border-bottom: 1px solid var(--color-one);
+    }
     .navbar a,
     #login-nav {
         display: block;
     }
-
     #menu-icon {
         display: block;
         cursor: pointer;
     }
+    .navbar a {
+        font-size: 10px;
+    }
 }
-
 @media (max-width: 700px) {
     header {
         transform: scale(0.9);
         margin: 0 auto;
         top: -5px;
+    }
+    .navbar {
+        transform: scale(0.99) translateY(-1px);
     }
 }
 
@@ -553,3 +575,86 @@ header {
     }
 }
 /* Header: End */
+/* Footer: Start */
+footer {
+    background: var(--color-two);
+    bottom: -1800px;
+    right: 0;
+    width: 100%;
+    max-height: 300px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 200px 40px 200px;
+    position: absolute;
+}
+footer a, footer p {
+    color: var(--color-one);
+}
+.footer-brand {
+    justify-content: flex-start;
+    align-items: center;
+    margin: 50px 100px 20px 0px;
+}
+#footer-logo {
+    width: 45px;
+}
+#footer-brand {
+    font-family: Merriweather;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.footer-proper {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    margin: 0 auto;
+    font-size: 12px;
+}
+.subscription {
+    display: block;
+}
+.subscription input {
+    border: none;
+    outline: none;
+    background: var(--color-one);
+    border-radius: 20px;
+    color: var(--color-two);
+    padding: 10px 15px;
+    font-size: 12px;
+    width: 200px;
+}
+.ri-arrow-right-line {
+    position:absolute;
+    background: var(--color-two);
+    border-radius: 50%;
+    padding: 8px;
+    transform: translate(165px, -33px);
+    color: var(--color-one);
+    cursor: pointer;
+}
+.company, .support, .socials {
+    display: block;
+    margin-left: 40px;
+    text-align: left;
+}
+.company p, .company a, .support p, .support a, .socials p, .socials a {
+    display: block; 
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-decoration: none; 
+    margin: 5px; 
+
+}
+.wrapper p {
+    font-weight: 600;
+    margin-bottom: 15px;
+    
+}
+.wrapper a {
+    cursor: pointer;
+}
+/* Footer: End */

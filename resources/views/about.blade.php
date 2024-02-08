@@ -21,8 +21,14 @@
     <!-- Page Title -->
     <!-- <title>Halukay</title> -->
   <body>
-    <!-- header -->
-    @include('layouts/navbar_about_public')
+        <!-- header -->
+        @if (Session::get('role') == 'seller')
+        @include('layouts/seller/navbar_home_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/shopper/navbar_home_shopper')
+    @else
+        @include('layouts/navbar_home_public')
+    @endif
     <!-- about -->
     <div class="container">
         <h1>About Us</h1>

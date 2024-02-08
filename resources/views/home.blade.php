@@ -19,8 +19,7 @@
     <!-- Favicon -->
     <link rel="icon" href="../img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
-  </head>
+    <title>Halukay</title> 
   <body>
     <!-- header -->
     @if (Session::get('role') == 'seller')
@@ -30,25 +29,6 @@
     @else
         @include('layouts/navbar_home_public')
     @endif
-    {{-- <header>
-      <div class="brand">
-        <img src="../img/halukay-logo.png" alt="halukay-logo" id="logo">
-        <a href="#" id="brand">halukay.com</a>
-      </div>
-      <div class="navbar">
-        <a href="index.html" class="active" id="home">Home</a>
-        <a href="#synrgy" id="about">About</a>
-        <a href="#" id="shop">Shop</a>
-        <form class="search">
-          <input type="text" id="search-input" placeholder="Search here"/>
-          <button type="submit" id="search-button">
-            <i class="ri-search-line" id="search-icon"></i>
-          </button>
-        </form>        
-      </div>
-      <div><a href="/signup" id="register">Register</a></div>
-      <div class="bx bx-menu" id="menu-icon"></div>
-    </header> --}}
 
    <!-- landing -->
    <div class="container">
@@ -372,7 +352,7 @@
             <a href="contact.html" id="contact">Contact Us</a>
         </div>
     </div>
-    {{-- @include('layouts/footer') --}}
+    @include('layouts/footer')
     {{-- commented out as it affects other styles as of the moment --}}
   </body>
 </html>
