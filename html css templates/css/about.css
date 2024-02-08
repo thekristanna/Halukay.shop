@@ -31,7 +31,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 90px;
+    margin: 90px 0;
 }
 .about {
     display: block;
@@ -69,5 +69,45 @@ body {
     gap: 5px; 
     font-size: 20px;
     cursor: pointer;
+}
+#halukay {
+    margin: 0 5px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: 600;
+}
+img {
+    border: 1px solid var(--color-two);
+    padding: 5px;
+}
+a:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+/* About: Media Query */
+@media (max-width: 900px) {
+    /* .container {
+        margin-left: 100px;
+        margin-right: 100px;
+    } */
+    .about {
+        width: 600px;
+    }
+    .kristanna, .dante, .paul {
+        transform: scale(0.9);
+        margin: 0 10px;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        margin-top: 400px;
+        transform: scale(0.8);
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        margin-top: 0px;
+        transform: scale(0.45);
+    }
 }
 /* About: End */

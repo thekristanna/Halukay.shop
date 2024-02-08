@@ -42,7 +42,7 @@
                     <p id="phone">{{$profile -> phone_number}}</p>
                     <span id="span-phone">Phone Number</span>
                     <!-- role cannot be edited -->
-                    <p id="role">Seller</p>
+                    <p id="role">Shopper</p>
                     <span id="span-role">Role</span>
                 </div>
                 <div class="details">
@@ -62,7 +62,7 @@
                     <span id="span-address-province">Province</span>
                     <p id="address-zip">{{$profile -> address_zip}}</p>
                     <span id="span-address-zip">Zip</span>
-                    <a href="/seller/my_account/edit"><button>Edit Account</button></a>
+                    <a href="/shopper/my_account/edit"><button>Edit Account</button></a>
                 </div>
             </div>
         </div>

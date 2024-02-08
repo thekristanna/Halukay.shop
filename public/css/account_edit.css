@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
     /* Colors */
@@ -40,13 +39,18 @@ body {
 }
 .profile img {
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border: 2px solid var(--color-two);
     border-radius: 50%;
-
 }
-.profile button {
+.profile input {
+    margin: 10px auto;
+    outline: none;
+    background: transparent;
+    width: 200px;
+}
+button {
     margin: 10px auto;
     outline: none;
     background: transparent;
@@ -54,14 +58,13 @@ body {
     border-radius: 20px;
     padding: 5px 15px;
 }
-.profile button:hover {
+button:hover {
     color: var(--color-one);
     background: var(--color-two);
     cursor: pointer;
 }
 .account {
     display: block;
-
 }
 .details input {
     display: flex;
@@ -100,7 +103,7 @@ body {
 }
 #span-username {
     position: absolute;
-    transform: translate(190px, -21px);
+    transform: translate(200px, -21px);
     font-size: 10px;
     background: var(--color-one);
     padding: 0 5px;
@@ -117,14 +120,6 @@ body {
 #span-phone {
     position: absolute;
     transform: translate(-60px, -21px);
-    font-size: 10px;
-    background: var(--color-one);
-    padding: 0 5px;
-    color: var(--color-seven);
-}
-#span-password {
-    position: absolute;
-    transform: translate(190px, -21px);
     font-size: 10px;
     background: var(--color-one);
     padding: 0 5px;
@@ -188,6 +183,10 @@ body {
     }
     .profile img {
         margin: 0 auto;
+        justify-content: center;
+    }
+    .profile {
+        margin: 50px auto;
     }
 }
 @media (max-width: 700px) {
@@ -200,44 +199,45 @@ body {
     .details {
         display: block;
     }
-    .details input, .details p {
-        margin: 20px;
+    .details input,
+    .details p {
+        margin: 20px auto;
     }
     #span-first-name {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-last-name {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-username {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-email {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-phone {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-password {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-address-street {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-address-barangay {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-address-city {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-address-province {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-address-zip {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
     #span-role {
-        transform: translate(40px, -70px);
+        transform: translate(25px, -70px);
     }
 }
 /* Edit Account: End */

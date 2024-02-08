@@ -6,22 +6,23 @@
 
 namespace App\Models;
 
-use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Product
  * 
  * @property int $product_id
+ * @property string $name
  * @property int $price
  * @property string $category
  * @property string $nego_status
  * @property int $seller_id
+ * @property int $user_id
  * @property string $availability
  * @property string $product_photo
  * @property string $product_condition
  * @property string $brand
- * @property string $meterial
+ * @property string $material
  * @property string $color
  * @property string $size_fit
  * @property string $notes
@@ -30,22 +31,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
-	use Sortable;
 	protected $table = 'product';
 	protected $primaryKey = 'product_id';
 	public $timestamps = false;
-	public $sortable = ['name', 'price', 'nego_status', 'category', 'product_photo'];
 
 	protected $casts = [
 		'price' => 'int',
-		'seller_id' => 'int'
+		'seller_id' => 'int',
+		'user_id' => 'int'
 	];
 
 	protected $fillable = [
+		'name',
 		'price',
 		'category',
 		'nego_status',
 		'seller_id',
+		'user_id',
 		'availability',
 		'product_photo',
 		'product_condition',

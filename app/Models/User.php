@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $last_name
  * @property string $email_address
  * @property string $username
+ * @property string $display_name
  * @property string $password
  * @property string $phone_number
  * @property string $address_street
@@ -43,6 +44,7 @@ class User extends Model
 		'last_name',
 		'email_address',
 		'username',
+		'display_name',
 		'password',
 		'phone_number',
 		'address_street',
