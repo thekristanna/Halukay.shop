@@ -64,15 +64,16 @@
               <div class="icons">
 
                 @if (Session::get('role') == 'shopper')
-                    <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
-                      <button class="icon-btn">
-                        <i class="ri-heart-3-line heart-icon"></i>
-                        <i
-                            class="ri-heart-3-fill heart-icon-fill"
-                        ></i>
-                    </button>
+                    <form action="/shopper/products/likes/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
+                        @csrf
+                          <button class="icon-btn" type="submit">
+                            <i class="ri-heart-3-line heart-icon"></i>
+                            <i
+                                class="ri-heart-3-fill heart-icon-fill"
+                            ></i>
+                          </button>
                     </form>
-                    @else
+                @else
                     <form action="/redir_login/{{$p -> product_id}}" method="GET">
                         <button class="icon-btn">
                             <i class="ri-heart-3-line heart-icon"></i>
