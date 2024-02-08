@@ -33,10 +33,12 @@ Route::get('logout', [UserController::class, 'logout']);
 Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/profile', [UserController::class, 'view_profile_shopper']);
 
+
+    Route::post('/shopper/my_bag/{id}', [ProductController::class, 'add_to_bag']);
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
-    Route::post('/shopper/add_to_bag/{id}', [ProductController::class, 'add_to_bag']);
+
 
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
     Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);

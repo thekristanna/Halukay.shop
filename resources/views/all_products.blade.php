@@ -70,6 +70,7 @@
                             class="ri-heart-3-fill heart-icon-fill"
                         ></i>
                     </button>
+                    </form>
                     @else
                     <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn">
@@ -81,8 +82,9 @@
                 </form>
                 @endif
                 @if (Session::get('role') == 'shopper')
-                            <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
-                              <button class="icon-btn">
+                <form action="/shopper/my_bag/{{$p -> product_id}}" method="POST">
+                    @csrf
+                              <button class="icon-btn" type="submit">
                                 <i
                                     class="ri-shopping-bag-line shopping-icon"
                                 ></i>
@@ -90,6 +92,7 @@
                                     class="ri-shopping-bag-fill shopping-icon-fill"
                                 ></i>
                             </button>
+                            </form>
                             @else
                             <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn">
@@ -120,6 +123,7 @@
                                     id="filled-message"
                                 ></i>
                             </button>
+                            </form>
                             @else
                             <form action="/redir_login/{{$p -> product_id}}" method="GET">
                   <button class="icon-btn nego-icon-btn">

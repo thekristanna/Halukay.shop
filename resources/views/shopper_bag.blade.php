@@ -32,29 +32,35 @@
         </div>
         <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Your Bag</p>
         <div class="orders">
+          @if($info)
+          
             <div class="top">
-                <p class="order-id">Order ID:<span id="order-id">3124</span></p>
+             
+                <p class="order-id">Order ID:<span id="order-id">1</span></p>
             
                 <div class="top-details">
                 <button class="checkout">Checkout</button>
 
                 </div>
             </div>
+            @foreach($info as $i)
             <div class="bottom-details">
-                <a href="#" class="seller-username"><p>Seller:<span class="username">@daibenangelo</span></p></a>
-                <p>TOTAL: ₱<span class="price">200</span></p>
+           
+
+                <a href="#" class="seller-username"><p>Seller:<span class="username">{{$i -> email_address}}</span></p></a>
+                <p>TOTAL: ₱<span class="price">{{$i -> price}}</span></p>
             </div>
             <div class="product">
                 <div class="image">
-                    <a href="#" class="product-page"><img src="../img/products/Uniqlo Trousers.png" alt="product-name"> </a>
+                    <a href="#" class="product-page"><img src="/img/products/{{$i -> product_photo}}" alt="{{$i -> name}}"> </a>
                </div>
                 <div class="item-name">
                     <p>Item</p>
-                    <p class="product-name">Salvatore Ferragamo Dress</p>
+                    <p class="product-name">{{$i -> name}}</p>
                 </div>
                 <div class="item-price">
                     <p>Price</p>
-                    <p class="product-price">300</p>
+                    <p class="product-price">{{$i -> price}}</p>
                 </div>
                 <button class="delete">
                     <i class="ri-delete-bin-line"></i>
@@ -62,7 +68,10 @@
                 </button>
             </div>
 
-         
+         @endforeach
+         @else
+            <h1>NONE</h1>
+         @endif
             
         </div>
         

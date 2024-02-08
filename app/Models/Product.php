@@ -50,7 +50,7 @@ class Product extends Model
 		'product_photo',
 		'product_condition',
 		'brand',
-		'meterial',
+		'material',
 		'color',
 		'size_fit',
 		'notes'
