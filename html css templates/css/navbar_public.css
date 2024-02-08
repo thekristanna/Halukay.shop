@@ -11,6 +11,7 @@
 }
 
 * {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,51 +40,61 @@ header {
     border-bottom: 1px solid var(--color-six);
     background: var(--color-one);
     padding: 12px 0;
+    z-index: 9999;
 }
+
 #brand {
     font-family: Merriweather;
     font-weight: 700;
     font-style: italic;
     color: var(--color-two);
 }
+
 .navbar a {
     color: var(--color-seven);
     margin: 20px;
     font-weight: 400;
     font-size: 13px;
 }
+
 .navbar .active {
     color: var(--color-two);
     border-bottom: 2px solid var(--color-two);
     font-weight: 600;
 }
+
 #logo {
     width: 55px;
 }
+
 #search-input {
     outline: none;
     border: 1px solid var(--color-six);
     background: transparent;
     border-radius: 20px;
     padding: 8px 30px 8px 55px;
-    width: 200px;
-    margin-left: 40px;
+    width: 250px;
 }
+
 #search-button {
     background: none;
     border: none;
     cursor: pointer;
+    position: absolute;
 }
+
 #search-icon {
     font-weight: bold;
     color: var(--color-seven);
     padding-right: 12px;
     border-right: 1px solid var(--color-six);
-    transform: translate(-275px);
+    transform: translate(-90px);
+    position: absolute;
 }
-#register {
-    padding: 15px;
-    width: 130px;
+
+#login {
+    padding: 10px;
+    width: 100px;
     color: var(--color-one);
     background: var(--color-two);
     border-radius: 50px;
@@ -91,40 +102,75 @@ header {
     letter-spacing: 0.5px;
     margin-right: 10px;
 }
+
+#login-nav {
+    display: none;
+}
+
 #menu-icon {
     display: none;
-    font-size: 20px;
+    font-size: 25px;
+    margin-right: 10px;
 }
+
 /* Header: Media Query */
-@media (max-width: 1200px) {
-    header {
-        margin-right: 40px;
-        margin-left: 40px;
-    }
-}
 @media (max-width: 900px) {
-    header {
-        margin-right: 50px;
-        margin-left: 50px;
-    }
-    .navbar a {
+    .navbar,
+    .login {
         display: none;
     }
-    #register {
-        display: none;
+
+    #login-nav {
+        display: block;
     }
+
+    .navbar.open {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 80;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .navbar a,
+    #login-nav {
+        display: block;
+    }
+
     #menu-icon {
         display: block;
-        margin-right: 10px;
+        cursor: pointer;
     }
 }
-@media (max-width: 400px) {
-  header {
-    margin-right: 50px;
-    margin-left: 50px;
+
+@media (max-width: 700px) {
+    header {
+        transform: scale(0.9);
+        margin: 0 auto;
+        top: -5px;
+    }
 }
+
+@media (max-width: 500px) {
+    header {
+        transform: scale(0.9);
+        max-width: 500px;
+        width: 95%;
+        margin-left: (-100px);
+    }
     .search {
-        display: none;
+        margin: 0;
+        position: absolute;
+        transform: scale(0.6) translate(220px, 0px);
+    }
+    #search-input {
+        width: 180px;
+        padding: 8px 5px 8px 50px;
+    }
+    #search-button {
+        transform: translate(30px);
     }
 }
-/* Header:End */
+/* Header: End */
