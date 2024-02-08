@@ -22,12 +22,6 @@ class UsersTableSeeder extends Seeder
             0 => 
             array (
                 'user_id' => 0,
-        \DB::table('users')->delete();
-        
-        DB::table('users')->insert(array(
-            0 =>
-            array(
-                'user_id' => 1,
                 'first_name' => 'Daiben',
                 'last_name' => 'Sanchez',
                 'email_address' => 'daiben@gmail.com',
@@ -45,7 +39,7 @@ class UsersTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'user_id' => 2,
+                'user_id' => 1,
                 'first_name' => 'Queza',
                 'last_name' => 'Fabela',
                 'email_address' => 'queza@gmail.com',
@@ -63,7 +57,7 @@ class UsersTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'user_id' => 3,
+                'user_id' => 2,
                 'first_name' => 'Dante',
                 'last_name' => 'Magbuhos',
                 'email_address' => 'djmagbuhos@gmail.com',
@@ -81,7 +75,7 @@ class UsersTableSeeder extends Seeder
             ),
             3 => 
             array (
-                'user_id' => 4,
+                'user_id' => 3,
                 'first_name' => 'Paul',
                 'last_name' => 'Quiachon',
                 'email_address' => 'john@gmail.com',
@@ -118,7 +112,7 @@ class UsersTableSeeder extends Seeder
             5 => 
             array (
                 'user_id' => 6,
-                'first_name' => 'CJ',
+                'first_name' => 'Christian Jay',
                 'last_name' => 'Salvino',
                 'email_address' => 'cj@gmail.com',
                 'username' => 'cj',
@@ -348,6 +342,24 @@ class UsersTableSeeder extends Seeder
                 'address_zip' => '1104',
                 'role' => 'shopper',
                 'profile_photo' => '202402061214000000Fernando.jpeg',
+            ),
+            18 => 
+            array (
+                'user_id' => 19,
+                'first_name' => 'Michael',
+                'last_name' => 'John',
+                'email_address' => 'sample@gmail.com',
+                'username' => 'sample1',
+                'display_name' => '@sample1',
+                'password' => '$2y$12$vPBaym3JcIyoRueUStXHIe2unrFC6nEEdcs1MCeBX6IrZA1hp5uyW',
+                'phone_number' => '09995685688',
+                'address_street' => 'street',
+                'address_barangay' => '321',
+                'address_citytown' => 'sample',
+                'address_province' => 'sample',
+                'address_zip' => '3214',
+                'role' => 'seller',
+                'profile_photo' => '202402070651000000michael.jpg',
             ),
         ));
         

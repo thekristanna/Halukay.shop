@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use App\Models\LikeProduct;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -25,6 +25,27 @@ class ProductController extends Controller
     public function shopper_bag_view()
     {
         return view('shopper_bag');
+    }
+
+    /////______SHOPPER PRODUCT FUNCTIONS________/////
+    /////______SHOPPER LIKES_____/////
+    public function likes_view()
+    {
+        $seller = User::query()
+            ->select('display_name', 'product.seller_id')
+            ->join('product', 'users.user_id', '=', 'product.user_id')
+            ->join('like_products', 'like_products.product_id', '=', 'product.product_id')
+            ->where('like_products.shopper_id', '=', Session::get('user_id'))
+            ->groupBy('display_name', 'product.seller_id')
+            ->get();
+
+        $product = Product::query()
+            ->select('product.product_id', 'name', 'product_photo', 'price', 'product.seller_id')
+            ->join('like_products', 'like_products.product_id', '=', 'product.product_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
+
+        return view('like_page', compact('seller', 'product'));
     }
 
     /////______SELLER PRODUCT FUNCTIONS________/////

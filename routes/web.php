@@ -41,6 +41,9 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
     Route::post('/shopper/add_to_bag/{id}', [ProductController::class, 'add_to_bag']);
 
+    Route::get('/shopper/products/likes', [ProductController::class, 'likes_view']);
+
+
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
     Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);
     Route::put('shopper/notifications/seen/{id}', [UserController::class, 'seen_notification']);

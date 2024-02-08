@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    /* Colors */
+    --color-one: #ffffff;
+    --color-two: #774123;
+    --color-three: #8e583c;
+    --color-four: #a58a6a;
+    --color-five: #d1c8c1;
+    --color-six: #dddddd;
+    --color-seven: #949090;
+}
+
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    font-family: Poppins;
+    text-decoration: none;
+    color: var(--color-four);
+}
+body {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+/* Likes: Start */
+.container {
+    display: block;
+    /* width: 70%; */
+}
+.bag-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+}
+.bag-buttons a {
+    border: 1px solid var(--color-four);
+    border-radius: 20px;
+    color: var(--color-four);
+    padding: 5px 10px;
+    font-size: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.bag-buttons a:hover {
+    color: var(--color-one);
+    background: var(--color-four);
+}
+#active {
+   color: var(--color-one);
+   background: var(--color-four);
+}
+.orders-header {
+    font-size: 30px;
+    justify-content: flex-start;
+}
+.orders-header i {
+    margin-right: 5px;
+}
+.orders {
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 0;
+    justify-content: flex-start;
+    font-size: 13px;
+    border: 1px solid var(--color-four);
+    padding: 20px 30px 10px 30px;
+    border-radius: 20px;
+    width: 950px;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+.order-id {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+#order-id {
+    padding-left: 10px;
+    font-weight: 600;
+}
+.bottom-details {
+    display: flex;
+    justify-content: flex-start; 
+}
+.bottom-details p {
+    margin: 10px 150px 10px 0px;
+}
+.username, .price {
+    padding-left: 10px;
+    font-weight: 600;
+}
+.top-details {
+    justify-content: flex-start;
+}
+.order-status {
+    font-weight: 800;
+    font-style: italic;
+}
+.product {
+    display: flex;
+    justify-content: flex-start;
+}
+.product .image img {
+    width: 100px;
+    justify-content: flex-start;
+    margin: 15px 40px 15px 0px;
+    border: solid 1px var(--color-four);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.image img:hover {
+    transform: scale(1.01);
+}
+.product-name {
+    width: 200px;
+    display: block;
+}
+.product-price {
+    display: block;
+}
+.item-name, .item-price {
+    display: block;
+    margin-right: 100px;
+}
+.item-name p:first-child, .item-price p:first-child {
+    font-weight: 600;
+    display: block;
+}
+.delete {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+.icon-btn {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+.ri-shopping-bag-fill {
+    display: none;
+    border: none;
+}
+.icon-btn:hover .ri-shopping-bag-line {
+    display: none;
+    
+}
+.icon-btn:hover .ri-shopping-bag-fill {
+    display: inline;
+}
+.delete {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+.ri-delete-bin-fill {
+    display: none;
+    border: none;
+}
+.delete:hover .ri-delete-bin-line {
+    display: none;
+    
+}
+.delete:hover .ri-delete-bin-fill {
+    display: inline;
+}
+/* Likes: End */

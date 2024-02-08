@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $like_id
  * @property int $product_id
  * @property int $shopper_id
+ * @property int $seller_id
  *
  * @package App\Models
  */
@@ -25,11 +26,13 @@ class LikeProduct extends Model
 
 	protected $casts = [
 		'product_id' => 'int',
-		'shopper_id' => 'int'
+		'shopper_id' => 'int',
+		'seller_id' => 'int'
 	];
 
 	protected $fillable = [
 		'product_id',
-		'shopper_id'
+		'shopper_id',
+		'seller_id'
 	];
 }
