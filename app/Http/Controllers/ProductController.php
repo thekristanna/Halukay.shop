@@ -264,6 +264,13 @@ class ProductController extends Controller
             ->paginate(20);
         $products->appends($r->except('page'));
 
-        return view('all_products', compact('products'));
+        $liked = LikeProduct::query()
+            ->select('product_id', 'like_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
+
+        // return $liked;
+
+        return view('all_products', compact('products', 'liked'));
     }
 }

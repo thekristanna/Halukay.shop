@@ -175,6 +175,10 @@ body {
     }
 }
 
+#liked_heart {
+    display: inline;
+}
+
 a {
     text-decoration: none;
 }

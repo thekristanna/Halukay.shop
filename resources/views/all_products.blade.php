@@ -29,13 +29,13 @@
 <body>
   @if (Session::get('role') == 'seller')
         @include('layouts/seller/navbar_home_seller')
-        <link rel="stylesheet" href="../css/navbar_seller.css" />
+        <link rel="stylesheet" href="/css/navbar_seller.css" />
     @elseif (Session::get('role') == 'shopper')
         @include('layouts/shopper/navbar_home_shopper')
-        <link rel="stylesheet" href="../css/navbar_shopper.css" />
+        <link rel="stylesheet" href="/css/navbar_shopper.css" />
     @else
         @include('layouts/navbar_home_public')
-        <link rel="stylesheet" href="../css/navbar_public.css" />
+        <link rel="stylesheet" href="/css/navbar_public.css" />
     @endif
  
    {{-- Sorting --}}
@@ -62,26 +62,41 @@
           <div class="price-buttons">
               <div class="price"><p id="price">₱ {{ $p -> price }}</p></div>
               <div class="icons">
-
+                <span hidden>{{$found = false}}</span>
                 @if (Session::get('role') == 'shopper')
-                    <form action="/shopper/products/likes/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
-                        @csrf
-                          <button class="icon-btn" type="submit">
-                            <i class="ri-heart-3-line heart-icon"></i>
-                            <i
+                    @foreach ($liked as $l)
+                        @if ($p -> product_id == $l -> product_id)
+                        <span hidden>{{$found = true}}</span>
+                        @endif
+                    @endforeach
+                    @if ($found)
+                        <form action="/shopper/products/likes/delete/{{$l -> like_id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="icon-btn" type="submit">
+                                <i class="ri-heart-3-fill heart-icon-fill" id="liked_heart"></i>
+                            </button>
+                        </form>
+                    @else
+                        <form action="/shopper/products/likes/{{$p -> product_id}}/{{$p -> seller_id}}"         method="POST">
+                            @csrf
+                            <button class="icon-btn" type="submit">
+                                <i class="ri-heart-3-line heart-icon"></i>
+                                <i
                                 class="ri-heart-3-fill heart-icon-fill"
-                            ></i>
-                          </button>
-                    </form>
+                                ></i>
+                            </button>
+                        </form>
+                    @endif
                 @else
-                    <form action="/redir_login/{{$p -> product_id}}" method="GET">
-                        <button class="icon-btn">
-                            <i class="ri-heart-3-line heart-icon"></i>
-                            <i
-                                class="ri-heart-3-fill heart-icon-fill"
-                            ></i>
-                        </button>
-                    </form>
+                        <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                            <button class="icon-btn">
+                                <i class="ri-heart-3-line heart-icon"></i>
+                                <i
+                                    class="ri-heart-3-fill heart-icon-fill"
+                                ></i>
+                            </button>
+                        </form>
                 @endif
 
 
