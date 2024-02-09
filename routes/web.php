@@ -55,11 +55,12 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
+    Route::get('/shopper/checkout/{id}', [ProductController::class, 'checkout_bag']);
 
     //---SHOPPER NOTIFICATION---//
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
     Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);
-    Route::put('/shopper/notifications/seen/{id}', [UserController::class, 'seen_notification']);
+    Route::put('/shopper/notifications/seen/{seller_id}', [UserController::class, 'seen_notification']);
 });
 
 

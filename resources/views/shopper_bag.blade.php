@@ -35,11 +35,11 @@
         <div class="orders">
          
             <div class="top">
-             
-                <p class="order-id">Order ID:<span id="order-id">1</span></p>
+                {{-- Removed Order ID --}}
+                <p class="order-id"><span id="order-id"></span></p> 
             
                 <div class="top-details">
-                <button class="checkout">Checkout</button>
+                <a href="/shopper/checkout/{{$s -> seller_id}}"><button class="checkout">Checkout</button></a>
 
                 </div>
             </div>
