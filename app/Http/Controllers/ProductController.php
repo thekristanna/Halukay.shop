@@ -133,6 +133,32 @@ class ProductController extends Controller
         return redirect('/shop');
     }
 
+    ////____ADD LIKE IN PRODUCT PAGE___////
+    public function add_like_product(string $product_id, string $seller_id)
+    {
+        $like_product = new LikeProduct;
+        $like_product->shopper_id = Session::get('user_id');
+        $like_product->seller_id = $seller_id;
+        $like_product->product_id = $product_id;
+
+        $like_product->save();
+
+        return redirect('/shop/' . $product_id);
+    }
+
+    ////____DELETE LIKE IN PRODUCT PAGE___////
+    public function delete_like_product(string $id)
+    {
+        $product = LikeProduct::where('like_id', '=', $id)
+            ->first();
+
+        $like_product = LikeProduct::where('like_id', '=', $id)
+            // $product_id = $like_product->product_id;
+            ->delete();
+
+        return redirect('/shop/' . $product->product_id);
+    }
+
     /////______SELLER PRODUCT FUNCTIONS________/////
     /////______MY SHOP_____/////
     public function my_shop_view()
@@ -274,8 +300,12 @@ class ProductController extends Controller
             ->get()
             ->first();
 
+        $like = LikeProduct::query()
+            ->select('product_id', 'like_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
 
-        return view('show_product', compact('product', 'info'));
+        return view('show_product', compact('product', 'info', 'like'));
     }
 
     public function show_all_products(Request $r)
