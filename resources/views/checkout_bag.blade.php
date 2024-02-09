@@ -61,15 +61,15 @@
                 <div class="collection">
                   <p>Collection Options:</p>
                   <div class="delivery">
-                      <input type="radio" id="delivery" name="collection" value="delivery" />
+                      <input type="radio" id="delivery" name="collect_op" value="delivery" />
                       <label for="delivery">Delivery</label>
                   </div>
                   <div class="pickup">
-                      <input type="radio" id="pickup" name="collection" value="pickup" />
+                      <input type="radio" id="pickup" name="collect_op" value="pickup" />
                       <label for="pickup">Pick Up</label>
                   </div>
                   <div class="meetup">
-                      <input type="radio" id="meetup" name="collection" value="meetup" />
+                      <input type="radio" id="meetup" name="collect_op" value="meetup" />
                       <label for="meetup">Meet Up</label>
                   </div>
                 </div>       
@@ -98,7 +98,7 @@
                     </div>
                     <div class="item-price">
                         <p>Price</p>
-                        <p class="product-price co-price">{{$c -> price}}</p>
+                        <p class="product-price co-price" name="price">{{$c -> price}}</p>
                     </div>
                 </div>
                 @endforeach

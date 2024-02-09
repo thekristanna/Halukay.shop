@@ -23,7 +23,7 @@ Route::post('/contact', [UserController::class, 'contact_send_email']);
 Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
-Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///ongoing
+Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///PAUL - pa add ng function yung add to bag din dito. TY
 
 Route::get('/redir_login/{id}', [ProductController::class, 'redirect_heart']);
 
@@ -57,14 +57,17 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::post('/shopper/my_bag/{product_id}/{seller_id}', [ProductController::class, 'add_to_bag']);
     Route::delete('/shopper/my_bag/{product_id}', [ProductController::class, 'delete_from_bag']);
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
-    Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
-    Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
     Route::get('/shopper/checkout/{id}', [ProductController::class, 'checkout_bag']);
 
     //---SHOPPER NOTIFICATION---//
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
     Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);
     Route::put('/shopper/notifications/seen/{seller_id}', [UserController::class, 'seen_notification']);
+
+    //----ORDER SECTIION----//
+    Route::get('/shopper/order/', [OrderController::class, 'shopper_current_order']);
+    Route::get('/shopper/previous_orders', [OrderController::class, 'shopper_previous_order']);
+    Route::post('/shopper/add/order/{id}', [OrderController::class, 'shopper_add_order']);
 });
 
 

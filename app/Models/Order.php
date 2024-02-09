@@ -24,17 +24,15 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
 	protected $table = 'orders';
-	public $incrementing = false;
+	protected $primaryKey = 'order_id';
 	public $timestamps = false;
 
 	protected $casts = [
-		'order_id' => 'int',
 		'seller_id' => 'int',
 		'shopper_id' => 'int'
 	];
 
 	protected $fillable = [
-		'order_id',
 		'collect_op',
 		'payment',
 		'seller_id',
