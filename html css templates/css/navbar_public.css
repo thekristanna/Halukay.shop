@@ -169,7 +169,7 @@ header {
 }
 @media (max-width: 500px) {
     header div {
-        transform: scale(0.9);
+        transform: scale(0.89);
     }
     .search {
         margin: 0;

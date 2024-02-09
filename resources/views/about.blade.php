@@ -21,8 +21,8 @@
     <!-- Page Title -->
     <!-- <title>Halukay</title> -->
   <body>
-        <!-- header -->
-        @if (Session::get('role') == 'seller')
+    <!-- header -->
+    @if (Session::get('role') == 'seller')
         @include('layouts/seller/navbar_home_seller')
     @elseif (Session::get('role') == 'shopper')
         @include('layouts/shopper/navbar_home_shopper')
