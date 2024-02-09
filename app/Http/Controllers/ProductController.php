@@ -18,7 +18,7 @@ use Kyslik\ColumnSortable\Sortable;
 class ProductController extends Controller
 {
     use Sortable;
-    public function add_to_bag(string $id)
+    public function add_to_bag(string $seller_id, string $product_id)
     {
         $product = Product::query()
             ->select('*')
@@ -28,8 +28,8 @@ class ProductController extends Controller
 
         $cart = new Mybag();
         $cart->shopper_id = Session::get('user_id');
-        $cart->product_id = $id;
-        $cart->seller_id =  $id;
+        $cart->product_id = $product_id;
+        $cart->seller_id =  $seller_id;
         $cart->save();
 
         return redirect('/shop')->with('success', 'Item was added to cart');
