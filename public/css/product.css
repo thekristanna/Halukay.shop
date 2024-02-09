@@ -247,3 +247,7 @@ a:hover {
 }
 
 /* Product: End */
+
+#liked_heart {
+    display: inline;
+}

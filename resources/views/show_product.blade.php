@@ -69,14 +69,37 @@
                 <div class="upper-details">
                     <div class="price-and-icons">
                         <p class="price">₱ {{ $product -> price }}</p>
+
                         <div class="icons">
+
+                            {{-- LIKE --}}
+                            <span hidden>{{$found = false}}</span>
                             @if (Session::get('role') == 'shopper')
-                            <form action="/redir_shopper_like/{{$product -> product_id}}" method="GET">
-                                <button class="icon-btn" type="submit">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                   <i class="ri-heart-3-fill heart-icon-fill"></i>
-                                </button>
-                            </form>
+                                @foreach($like as $l)
+                                    @if ($product -> product_id == $l -> product_id)
+                                    <span hidden>{{$found = $l -> like_id}}</span>
+                                    @endif
+                                @endforeach 
+                                @if($found)
+                                <form action="/shopper/product/unlike/{{$found}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="icon-btn" type="submit">
+                                    <i class="ri-heart-3-fill heart-icon-fill" id="liked_heart"></i>
+                                    </button>
+                                </form>
+                                <span hidden>{{$found = false}}</span>
+                                @else
+                            {{-- ADD LIKE --}}
+                                <form action="/shopper/product/{{$product -> product_id}}/like/{{$product -> seller_id}}" method="POST">
+                                    @csrf
+                                    <button class="icon-btn" type="submit">
+                                        <i class="ri-heart-3-line heart-icon"></i>
+                                    <i class="ri-heart-3-fill heart-icon-fill"></i>
+                                    </button>
+                                </form>
+                                @endif
+
                             @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
                             <button class="icon-btn" type="submit">
@@ -85,8 +108,10 @@
                               </button>
                            </form>
                            @endif
+
+                           {{-- ADD TO BAG --}}
                            @if (Session::get('role') == 'shopper')
-                            <form action="/shopper/my_bag/{{$product -> product_id}}/{{$info -> seller_id}}" method="POST">
+                            <form action="/shopper/my_bag/{{$product -> product_id}}/{{seller_id}}" method="POST">
                                 @csrf
                                 <button class="icon-btn" type="submit">
                                     <i class="ri-shopping-bag-line shopping-icon"></i>
