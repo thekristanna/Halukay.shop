@@ -20,11 +20,9 @@ Route::get('/', function () {
 Route::get('/contact', [UserController::class, 'contact_form']);
 Route::post('/contact', [UserController::class, 'contact_send_email']);
 
-Route::get('/profile/{id}', [UserController::class, 'show_profile']); //to follow
 Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
-Route::get('/shop/seller/{id}', [UserController::class, 'seller_shop_view']); //namiss pala to blade plang(shop_by_seller)
 
 Route::get('/redir_login/{id}', [ProductController::class, 'redirect_heart']);
 
@@ -60,8 +58,8 @@ Route::middleware(['checkSessionShopper'])->group(function () {
 
     //---SHOPPER NOTIFICATION---//
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
-    Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification_shopper']);
-    Route::put('/shopper/notifications/seen/{id}', [UserController::class, 'seen_notification_shopper']);
+    Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);
+    Route::put('/shopper/notifications/seen/{id}', [UserController::class, 'seen_notification']);
 });
 
 
@@ -73,12 +71,13 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     Route::put('/seller/my_account/edit', [UserController::class, 'my_acct_seller_edit']);
 
     //---SELLER PRODUCT---//
-    Route::get('/seller/my_shop', [ProductController::class, 'my_shop_view']);
     Route::get('/seller/add_product', [ProductController::class, 'add_product_view']);
     Route::post('/seller/add_product', [ProductController::class, 'add_product']);
     Route::get('seller/edit/product/{id}', [ProductController::class, 'edit_product_form']);
     Route::put('seller/edit/product/{id}', [ProductController::class, 'edit_product']);
     Route::delete('/seller/delete/product/{id}', [ProductController::class, 'delete_product']);
+
+    Route::get('/seller/my_shop', [ProductController::class, 'my_shop_view']);
 
     //---SELLER NOTIFICATION---//
     Route::get('/seller/notifications', [UserController::class, 'view_notifications']);

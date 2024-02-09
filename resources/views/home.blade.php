@@ -28,7 +28,8 @@
         @include('layouts/shopper/navbar_home_shopper')
     @else
         @include('layouts/navbar_home_public')
-    @endif  <!-- landing -->
+    @endif  
+    <!-- landing -->
     <div class="container">
         <h1 id="main-heading">
             “Rediscover Style: Where<br />Preloved Becomes Reloved.”
@@ -80,7 +81,7 @@
             <h1 id="featured">FEATURED</h1>
             <div class="shop">
                 <!-- product -->
-                <a href="/shop/17" class="product">
+                <a href="#" class="product">
                     <div class="image">
                         <img
                             src="../img/products/Tommy Hilfiger Denim Jacket.png"
@@ -127,7 +128,7 @@
                     </div>
                 </a>
                 <!-- product -->
-                <a href="/shop/19" class="product">
+                <a href="#" class="product">
                     <div class="image">
                         <img
                             src="../img/products/American Eagle Outfitters Shorts.png"
@@ -174,7 +175,7 @@
                     </div>
                 </a>
                 <!-- product -->
-                <a href="/shop/39" class="product">
+                <a href="#" class="product">
                     <div class="image">
                         <img
                             src="../img/products/Under Armour Sports Shoes.png"
@@ -221,7 +222,7 @@
                     </div>
                 </a>
                 <!-- product -->
-                <a href="/shop/54" class="product">
+                <a href="#" class="product">
                     <div class="image">
                         <img
                             src="../img/products/Alexander Wang Bucket Bag.png"

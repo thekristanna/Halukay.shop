@@ -50,17 +50,6 @@ class UserController extends Controller
         return view('seller_notification', compact('notifications'));
     }
 
-    public function view_notifications_shopper()
-    {
-        $notifications = Notification::query()
-            ->select('*')
-            ->where('user_id', '=', Session::get('user_id'))
-            ->orderBy('date_sent', 'DESC')
-            ->get();
-
-        return view('shopper_notification', compact('notifications'));
-    }
-
     public function view_profile_shopper()
     {
         return view('shopper_profile');
