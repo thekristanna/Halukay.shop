@@ -72,7 +72,7 @@
         <div class="words">
             <p id="preloved">Preloved</p>
             <p id="fresh-finds">Fresh Finds</p>
-            <a href="shop.html" id="shop-now">Shop Now !</a>
+            <a href="/shop" id="shop-now">Shop Now !</a>
         </div>
     </div>
 
@@ -275,7 +275,7 @@
     <div class="shopsell">
         <div class="register">
             <h1 id="shopsell">SHOP or SELL</h1>
-            <button id="register-now">Register Now</button>
+            <a href="/signup" id="register-now">Register Now</a>
         </div>
         <div class="images">
             <div class="bags">
@@ -349,7 +349,7 @@
                 Got more questions? Feel free to contact us<br />for
                 more information
             </p>
-            <a href="contact.html" id="contact">Contact Us</a>
+            <a href="/contact" id="contact">Contact Us</a>
         </div>
     </div>
 </div>
@@ -374,10 +374,10 @@
         <div class="wrapper">
             <div class="company">
                 <p>Halukay</p>
-                <a href="home.html" id="home">Home</a>
-                <a href="about.html" id="about">About</a>
-                <a href="shop.html" id="shop">Shop</a>
-                <a href="contact.html" id="contact">Contact</a>
+                <a href="/" id="home">Home</a>
+                <a href="/about" id="about">About</a>
+                <a href="/shop" id="shop">Shop</a>
+                <a href="/contact" id="contact">Contact</a>
 
             </div>
             <div class="support">
