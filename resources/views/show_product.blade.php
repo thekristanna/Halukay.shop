@@ -129,14 +129,14 @@
                         </div>
                         @if (Session::get('role') == 'shopper')
                         <form action="/redir_shopper_checkout/{{$product -> product_id}}" method="GET">
-                            <button>
-                                <a class="checkout" >Checkout Now</a>
+                            <button class="checkout">
+                                <a>Checkout Now</a>
                             </button>
                         </form>
                         @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
-                            <button>
-                                <a class="checkout" >Checkout Now</a>
+                            <button class="checkout">
+                                <a>Checkout Now</a>
                             </button>
 
                         </form>
