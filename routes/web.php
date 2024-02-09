@@ -4,6 +4,8 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Mail;
+
 
 //--------PUBLIC SIDE--------//
 Route::get('/about', function () {
@@ -13,6 +15,10 @@ Route::get('/about', function () {
 Route::get('/', function () {
     return view('home');
 }); //still in process
+
+// CONTACT US PAGE//
+Route::get('/contact', [UserController::class, 'contact_form']);
+Route::post('/contact', [UserController::class, 'contact_send_email']);
 
 Route::get('/profile/{id}', [UserController::class, 'show_profile']); //to follow
 Route::get('/shop', [ProductController::class, 'show_all_products']);

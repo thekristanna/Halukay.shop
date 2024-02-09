@@ -9,9 +9,30 @@ use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+
 
 class UserController extends Controller
 {
+    public function contact_send_email(Request $r)
+    {
+        $content = [
+            'body' => $r->input('message')
+        ];
+        Mail::send('emails.to_developer', $content, function ($message) use ($r) {
+            $message->from($r->input('email'));
+            $message->to('contact@halukay.com', 'Developers of Halukay Ecommerce Website');
+            $message->subject($r->input('subject'));
+        });
+        return redirect('/contact')->with('success', 'Email sent!');
+    }
+
+    // Contact page
+    public function contact_form()
+    {
+        return view('contact_email_form');
+    }
+
     ////____PUBLIC SHOW SELLER SHOP___////
     public function seller_shop_view()
     {
