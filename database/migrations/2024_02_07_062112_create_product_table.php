@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('product_photo', 50);
             $table->string('product_condition', 50);
             $table->string('brand', 50);
-            $table->string('meterial', 50);
+            $table->string('material', 50);
             $table->string('color', 50);
             $table->string('size_fit', 50);
             $table->string('notes', 100);

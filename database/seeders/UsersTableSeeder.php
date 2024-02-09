@@ -93,7 +93,7 @@ class UsersTableSeeder extends Seeder
             ),
             4 =>
             array(
-                'user_id' => 5,
+                'user_id' => 4,
                 'first_name' => 'Tanna',
                 'last_name' => 'Slay',
                 'email_address' => 'tanna@gmail.com',
@@ -111,7 +111,7 @@ class UsersTableSeeder extends Seeder
             ),
             5 =>
             array(
-                'user_id' => 6,
+                'user_id' => 5,
                 'first_name' => 'Christian Jay',
                 'last_name' => 'Salvino',
                 'email_address' => 'cj@gmail.com',
@@ -129,7 +129,7 @@ class UsersTableSeeder extends Seeder
             ),
             6 =>
             array(
-                'user_id' => 7,
+                'user_id' => 6,
                 'first_name' => 'Kevin',
                 'last_name' => 'Daus',
                 'email_address' => 'kevin@gmail.com',
@@ -147,7 +147,7 @@ class UsersTableSeeder extends Seeder
             ),
             7 =>
             array(
-                'user_id' => 8,
+                'user_id' => 7,
                 'first_name' => 'Maynard',
                 'last_name' => 'Villalobos',
                 'email_address' => 'maynard@gmail.com',
@@ -165,7 +165,7 @@ class UsersTableSeeder extends Seeder
             ),
             8 =>
             array(
-                'user_id' => 9,
+                'user_id' => 8,
                 'first_name' => 'April',
                 'last_name' => 'Ipac',
                 'email_address' => 'april@gmail.com',
@@ -183,7 +183,7 @@ class UsersTableSeeder extends Seeder
             ),
             9 =>
             array(
-                'user_id' => 10,
+                'user_id' => 9,
                 'first_name' => 'Jehd',
                 'last_name' => 'Jandoc',
                 'email_address' => 'jehd@gmail.com',
@@ -201,7 +201,7 @@ class UsersTableSeeder extends Seeder
             ),
             10 =>
             array(
-                'user_id' => 11,
+                'user_id' => 10,
                 'first_name' => 'Christian Jeuel',
                 'last_name' => 'Venturina',
                 'email_address' => 'jeuel@gmail.com',
@@ -219,7 +219,7 @@ class UsersTableSeeder extends Seeder
             ),
             11 =>
             array(
-                'user_id' => 12,
+                'user_id' => 11,
                 'first_name' => 'Jeinin',
                 'last_name' => 'Arellano',
                 'email_address' => 'jeinin@gmail.com',
@@ -237,7 +237,7 @@ class UsersTableSeeder extends Seeder
             ),
             12 =>
             array(
-                'user_id' => 13,
+                'user_id' => 12,
                 'first_name' => 'Rafael',
                 'last_name' => 'Uchi',
                 'email_address' => 'rafael@gmail.com',
@@ -255,7 +255,7 @@ class UsersTableSeeder extends Seeder
             ),
             13 =>
             array(
-                'user_id' => 14,
+                'user_id' => 13,
                 'first_name' => 'Keith',
                 'last_name' => 'Aquino',
                 'email_address' => 'keith@gmail.com',
@@ -273,7 +273,7 @@ class UsersTableSeeder extends Seeder
             ),
             14 =>
             array(
-                'user_id' => 15,
+                'user_id' => 14,
                 'first_name' => 'Rendell',
                 'last_name' => 'Soberano',
                 'email_address' => 'rendell@gmail.com',
@@ -291,7 +291,7 @@ class UsersTableSeeder extends Seeder
             ),
             15 =>
             array(
-                'user_id' => 16,
+                'user_id' => 15,
                 'first_name' => 'Angelica',
                 'last_name' => 'Libang',
                 'email_address' => 'angelica@gmail.com',
@@ -309,7 +309,7 @@ class UsersTableSeeder extends Seeder
             ),
             16 =>
             array(
-                'user_id' => 17,
+                'user_id' => 16,
                 'first_name' => 'Vivien',
                 'last_name' => 'Caampued',
                 'email_address' => 'vivien@gmail.com',
@@ -327,7 +327,7 @@ class UsersTableSeeder extends Seeder
             ),
             17 =>
             array(
-                'user_id' => 18,
+                'user_id' => 17,
                 'first_name' => 'Fernando',
                 'last_name' => 'Valenzuela',
                 'email_address' => 'fernando@gmail.com',
@@ -345,7 +345,7 @@ class UsersTableSeeder extends Seeder
             ),
             18 =>
             array(
-                'user_id' => 19,
+                'user_id' => 18,
                 'first_name' => 'Michael',
                 'last_name' => 'John',
                 'email_address' => 'sample@gmail.com',
