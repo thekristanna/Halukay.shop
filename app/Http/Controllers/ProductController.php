@@ -20,13 +20,14 @@ class ProductController extends Controller
     use Sortable;
 
     // if this add didn't work properly please double check the database for product, double check the field for product id up to user id make sure that user id and seller id are same as product id
-    public function add_to_bag(string $seller_id, string $product_id)
+    public function add_to_bag(string $product_id, string $seller_id)
     {
-        $product = Product::query()
-            ->select('*')
-            ->join('users', 'users.user_id', '=', 'product.user_id')
-            ->get()
-            ->first();
+        // commented this out (not being used)
+        // $product = Product::query()
+        //     ->select('*')
+        //     ->join('users', 'users.user_id', '=', 'product.user_id')
+        //     ->get()
+        //     ->first();
 
         $cart = new Mybag();
         $cart->shopper_id = Session::get('user_id');
