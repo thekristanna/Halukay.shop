@@ -18,6 +18,8 @@ use Kyslik\ColumnSortable\Sortable;
 class ProductController extends Controller
 {
     use Sortable;
+
+    // if this add didn't work properly please double check the database for product, double check the field for product id up to user id make sure that user id and seller id are same as product id
     public function add_to_bag(string $seller_id, string $product_id)
     {
         $product = Product::query()
