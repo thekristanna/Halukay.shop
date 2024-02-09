@@ -123,6 +123,16 @@ class ProductController extends Controller
         return redirect('/shopper/products/likes');
     }
 
+    /////______SHOPPER REMOVE LIKE_____/////
+    public function shop_delete_like(string $id)
+    {
+        // return $id;
+        LikeProduct::where('like_id', '=', $id)
+            ->delete();
+
+        return redirect('/shop');
+    }
+
     /////______SELLER PRODUCT FUNCTIONS________/////
     /////______MY SHOP_____/////
     public function my_shop_view()

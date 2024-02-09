@@ -51,7 +51,7 @@
                 <form action="/shopper/products/likes/delete/{{$p -> like_id}}" method="POST">
                     @csrf
                     @method('DELETE')
-                <button class="delete" type="submit">
+                <button class="delete" type=>
                     <i class="ri-delete-bin-line"></i>
                     <i class="ri-delete-bin-fill"></i>
                 </button>

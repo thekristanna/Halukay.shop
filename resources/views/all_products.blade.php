@@ -66,17 +66,18 @@
                 @if (Session::get('role') == 'shopper')
                     @foreach ($liked as $l)
                         @if ($p -> product_id == $l -> product_id)
-                        <span hidden>{{$found = true}}</span>
+                        <span hidden>{{$found = $l -> like_id}}</span>
                         @endif
                     @endforeach
                     @if ($found)
-                        <form action="/shopper/products/likes/delete/{{$l -> like_id}}" method="POST">
+                        <form action="/shopper/products/unlike/{{$found}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="icon-btn" type="submit">
                                 <i class="ri-heart-3-fill heart-icon-fill" id="liked_heart"></i>
                             </button>
                         </form>
+                        <span hidden>{{$found = false}}</span>
                     @else
                         <form action="/shopper/products/likes/{{$p -> product_id}}/{{$p -> seller_id}}"         method="POST">
                             @csrf
