@@ -62,6 +62,7 @@
           <div class="price-buttons">
               <div class="price"><p id="price">₱ {{ $p -> price }}</p></div>
               <div class="icons">
+                
                 <span hidden>{{$found = false}}</span>
                 @if (Session::get('role') == 'shopper')
                     @foreach ($liked as $l)

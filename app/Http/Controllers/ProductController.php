@@ -19,6 +19,29 @@ class ProductController extends Controller
 {
     use Sortable;
 
+    ////____PUBLIC SHOW SELLER SHOP___////----->will consult (loophole)
+    public function seller_shop_view(string $id)
+    {
+        $product = Product::query()
+            ->select('product_id', 'product_photo', 'name', 'price', 'nego_status', 'seller_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('seller_id', '=', $id)
+            ->get();
+
+        $seller = User::query()
+            ->select('display_name', 'address_citytown')
+            ->where('user_id', '=', $id)
+            ->first();
+
+        $liked = LikeProduct::query()
+            ->select('product_id', 'like_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
+
+        return view('shop_by_seller', compact('product', 'seller', 'liked'));
+    }
+
+    ////____SHOPPER CHECKOUT____////
     public function checkout_bag(string $id)
     {
         $checkout = Mybag::query()
@@ -133,7 +156,21 @@ class ProductController extends Controller
         return redirect('/shop');
     }
 
-    /////______SHOPPER REMOVE LIKE_____/////
+    /////______SHOPPER ADD LIKE IN SHOPPER PAGE_____/////
+    public function seller_page_like(string $seller_id, string $product_id)
+    {
+        $like_product = new LikeProduct;
+        $like_product->shopper_id = Session::get('user_id');
+        $like_product->seller_id = $seller_id;
+        $like_product->product_id = $product_id;
+
+        $like_product->save();
+
+        return redirect('/shop/seller/' . $seller_id);
+    }
+
+
+    /////______SHOPPER REMOVE LIKE IN LIKE PAGE_____/////
     public function delete_like(string $id)
     {
         LikeProduct::where('like_id', '=', $id)->first()
@@ -142,7 +179,7 @@ class ProductController extends Controller
         return redirect('/shopper/products/likes');
     }
 
-    /////______SHOPPER REMOVE LIKE_____/////
+    /////______SHOPPER REMOVE LIKE IN SHOP PAGE_____/////
     public function shop_delete_like(string $id)
     {
         // return $id;
@@ -150,6 +187,18 @@ class ProductController extends Controller
             ->delete();
 
         return redirect('/shop');
+    }
+
+    /////____SHOPPER REMOVE LIKE IN SELLER SHOP____/////
+    public function delete_like_shop_product(string $id)
+    {
+        $seller = LikeProduct::where('like_id', '=', $id)
+            ->first();
+
+        LikeProduct::where('like_id', '=', $id)
+            ->delete();
+
+        return redirect('/shop/seller/' . $seller->seller_id);
     }
 
     ////____ADD LIKE IN PRODUCT PAGE___////

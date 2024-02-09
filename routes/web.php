@@ -23,6 +23,7 @@ Route::post('/contact', [UserController::class, 'contact_send_email']);
 Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
+Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///ongoing
 
 Route::get('/redir_login/{id}', [ProductController::class, 'redirect_heart']);
 
@@ -41,13 +42,16 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_form']);
     Route::put('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_edit']);
 
-    //---SHOPPER LIKE PAGE---//
+    //---SHOPPER LIKE---//
     Route::delete('/shopper/products/unlike/{id}', [ProductController::class, 'shop_delete_like']);
     Route::get('/shopper/products/likes', [ProductController::class, 'likes_view']);
     Route::post('/shopper/products/likes/{product_id}/{seller_id}', [ProductController::class, 'add_like']);
     Route::delete('/shopper/products/likes/delete/{id}', [ProductController::class, 'delete_like']);
     Route::post('/shopper/product/{product_id}/like/{like_id}', [ProductController::class, 'add_like_product']);
     Route::delete('/shopper/product/unlike/{id}', [ProductController::class, 'delete_like_product']);
+
+    Route::post('/shopper/shop/seller/{seller_id}/like/{product_id}', [ProductController::class, 'seller_page_like']);
+    Route::delete('/shopper/shop/seller/unlike/{id}', [ProductController::class, 'delete_like_shop_product']);
 
     //---SHOPPER BAG AND ORDER---//
     Route::post('/shopper/my_bag/{product_id}/{seller_id}', [ProductController::class, 'add_to_bag']);

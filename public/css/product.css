@@ -251,3 +251,7 @@ a:hover {
 #liked_heart {
     display: inline;
 }
+
+#like_id_hide {
+    display: none;
+}

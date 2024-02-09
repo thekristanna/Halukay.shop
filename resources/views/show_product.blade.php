@@ -13,11 +13,11 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/product.css" />
+        <link rel="stylesheet" href="/css/product.css" />
         <!-- Favicon -->
         <link
             rel="icon"
-            href="../img/halukay-favicon.png"
+            href="/img/halukay-favicon.png"
             type="image/x-icon"
         />
        
@@ -77,7 +77,7 @@
                             @if (Session::get('role') == 'shopper')
                                 @foreach($like as $l)
                                     @if ($product -> product_id == $l -> product_id)
-                                    <span hidden>{{$found = $l -> like_id}}</span>
+                                    <span hidden id="like_id_hide">{{$found = $l -> like_id}}</span>
                                     @endif
                                 @endforeach 
                                 @if($found)
