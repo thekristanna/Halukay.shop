@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-    ////____PUBLIC SHOW SELLER SHOP___////
-    public function seller_shop_view()
-    {
-        return view('shop_by_seller');
-    }
-
     public function view_notifications()
     {
         $notifications = Notification::query()
@@ -27,17 +21,6 @@ class UserController extends Controller
             ->get();
 
         return view('seller_notification', compact('notifications'));
-    }
-
-    public function view_notifications_shopper()
-    {
-        $notifications = Notification::query()
-            ->select('*')
-            ->where('user_id', '=', Session::get('user_id'))
-            ->orderBy('date_sent', 'DESC')
-            ->get();
-
-        return view('shopper_notification', compact('notifications'));
     }
 
     public function view_profile_shopper()
