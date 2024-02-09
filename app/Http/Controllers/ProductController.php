@@ -44,23 +44,40 @@ class ProductController extends Controller
 
     public function shopper_bag_view()
     {
-        $shopper_id = Session::get('user_id');
-
-        // Fetch product information for products in the shopper's bag
-        $info = Product::query()
-            ->select('product.*', 'users.email_address', 'users.address_citytown')
-            ->join('users', 'product.user_id', '=', 'users.user_id')
-            ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
-            ->where('mybag.shopper_id', '=', $shopper_id)
+        $seller = User::query()
+            ->select('display_name', 'product.seller_id')
+            ->join('mybag', 'mybag.seller_id', 'users.user_id')
+            ->join('product', 'product.seller_id', 'mybag.seller_id')
+            ->where('mybag.shopper_id', '=', Session::get('user_id'))
+            ->groupBy('display_name', 'product.seller_id')
             ->get();
 
-        $by_seller = $info
-            ->groupBy('seller_id');
+        $product = Product::query()
+            ->select('product.product_id', 'name', 'product_photo', 'price', 'mybag.seller_id')
+            ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
 
 
+        // ->select('display_name', 'product.seller_id')
+        // ->join('product', 'users.user_id', '=', 'product.user_id')
+        // ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
+        // ->where('mybag.shopper_id', '=', Session::get('user_id'))
+        // ->groupBy('display_name', 'product.seller_id')
+        // ->get();
 
 
-        return view('shopper_bag', compact('info', 'by_seller'));
+        return view('shopper_bag', compact('seller', 'product'));
+    }
+    // DELETE PRODUCTS FROM BAG
+
+    public function delete_from_bag(string $id)
+    {
+        $product = Mybag::where('product_id', '=', $id)
+            ->delete();
+
+
+        return redirect('/shopper/my_bag')->with('success', 'Successfully deleted.');
     }
 
     /////______SHOPPER PRODUCT FUNCTIONS________/////

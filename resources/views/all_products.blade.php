@@ -101,16 +101,12 @@
 
 
                 @if (Session::get('role') == 'shopper')
-                <form action="/shopper/my_bag/{{$p -> product_id}}" method="POST">
-                    @csrf
+                <form action="/shopper/my_bag/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
+                             @csrf
                               <button class="icon-btn" type="submit">
-                                <i
-                                    class="ri-shopping-bag-line shopping-icon"
-                                ></i>
-                                <i
-                                    class="ri-shopping-bag-fill shopping-icon-fill"
-                                ></i>
-                            </button>
+                                <i class="ri-shopping-bag-line shopping-icon"></i>
+                                    <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                                </button>
                             </form>
                             @else
                             <form action="/redir_login/{{$p -> product_id}}" method="GET">
@@ -124,9 +120,6 @@
                   </button>
                 </form>
                 @endif
-
-
-
               </div>
           </div>
           <div class="name">

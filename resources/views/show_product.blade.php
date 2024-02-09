@@ -86,7 +86,7 @@
                            </form>
                            @endif
                            @if (Session::get('role') == 'shopper')
-                            <form action="/shopper/my_bag/{{$product -> product_id}}" method="POST">
+                            <form action="/shopper/my_bag/{{$product -> product_id}}/{{seller_id}}" method="POST">
                                 @csrf
                                 <button class="icon-btn" type="submit">
                                     <i class="ri-shopping-bag-line shopping-icon"></i>
