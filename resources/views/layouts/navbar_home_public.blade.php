@@ -11,12 +11,7 @@
             <a href="/shop" id="shop">Shop</a>
             <a href="/login" id="login-nav">Login</a>
   </div>
-  <form class="search">
-      <input type="text" id="search-input" placeholder="Search here"/>
-      <button type="submit" id="search-button">
-        <i class="ri-search-line" id="search-icon"></i>
-      </button>
-    </form> 
+  @include('layouts/search')     
   <div class="login"><a href="/login" id="login">Login</a></div>
   <div class="bx bx-menu" id="menu-icon"></div>
 </header>
