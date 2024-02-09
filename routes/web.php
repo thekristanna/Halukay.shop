@@ -41,10 +41,11 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
 
-
+    Route::delete('/shopper/products/unlike/{id}', [ProductController::class, 'shop_delete_like']);
     Route::get('/shopper/products/likes', [ProductController::class, 'likes_view']);
     Route::post('/shopper/products/likes/{product_id}/{seller_id}', [ProductController::class, 'add_like']);
     Route::delete('/shopper/products/likes/delete/{id}', [ProductController::class, 'delete_like']);
+
 
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
     Route::delete('/shopper/notifications/{id}', [UserController::class, 'delete_notification']);

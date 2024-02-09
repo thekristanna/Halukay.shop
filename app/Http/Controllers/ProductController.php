@@ -57,9 +57,6 @@ class ProductController extends Controller
         $by_seller = $info
             ->groupBy('seller_id');
 
-
-
-
         return view('shopper_bag', compact('info', 'by_seller'));
     }
 
@@ -104,6 +101,16 @@ class ProductController extends Controller
             ->delete();
 
         return redirect('/shopper/products/likes');
+    }
+
+    /////______SHOPPER REMOVE LIKE_____/////
+    public function shop_delete_like(string $id)
+    {
+        // return $id;
+        LikeProduct::where('like_id', '=', $id)
+            ->delete();
+
+        return redirect('/shop');
     }
 
     /////______SELLER PRODUCT FUNCTIONS________/////
