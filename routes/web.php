@@ -31,6 +31,11 @@ Route::get('logout', [UserController::class, 'logout']);
 //--------SHOPPER SIDE--------//
 Route::middleware(['checkSessionShopper'])->group(function () {
     //---SHOPPER ACCOUNT---//
+    Route::get('/shopper/my_account', [UserController::class, 'my_acct_shopper_view']);
+    Route::get('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_form']);
+    Route::put('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_edit']);
+
+    //---SHOPPER LIKE PAGE---//
     Route::delete('/shopper/products/unlike/{id}', [ProductController::class, 'shop_delete_like']);
     Route::get('/shopper/products/likes', [ProductController::class, 'likes_view']);
     Route::post('/shopper/products/likes/{product_id}/{seller_id}', [ProductController::class, 'add_like']);
@@ -44,12 +49,6 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/my_bag', [ProductController::class, 'shopper_bag_view']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'previous_order_view']); //will relocate in Order
     Route::get('/shopper/current_orders', [OrderController::class, 'current_order_view']);
-
-    //---SHOPPER LIKE---//
-    Route::delete('/shopper/products/unlike/{id}', [ProductController::class, 'shop_delete_like']);
-    Route::get('/shopper/products/likes', [ProductController::class, 'likes_view']);
-    Route::post('/shopper/products/likes/{product_id}/{seller_id}', [ProductController::class, 'add_like']);
-    Route::delete('/shopper/products/likes/delete/{id}', [ProductController::class, 'delete_like']);
 
     //---SHOPPER NOTIFICATION---//
     Route::get('/shopper/notifications', [UserController::class, 'view_notifications_shopper']);
