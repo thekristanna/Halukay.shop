@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/contact', [UserController::class, 'contact_form']);
 Route::post('/contact', [UserController::class, 'contact_send_email']);
 
+Route::get('/show/profile/{id}', [UserController::class, 'view_profile']);
+
 Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
@@ -37,7 +39,7 @@ Route::get('logout', [UserController::class, 'logout']);
 
 //--------SHOPPER SIDE--------//
 Route::middleware(['checkSessionShopper'])->group(function () {
-    //---SHOPPER ACCOUNT---//
+    //---SHOPPER ACCOUNT---//   
     Route::get('/shopper/my_account', [UserController::class, 'my_acct_shopper_view']);
     Route::get('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_form']);
     Route::put('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_edit']);
@@ -93,7 +95,6 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     Route::put('/seller/notifications/seen/{id}', [UserController::class, 'seen_notification']);
 
     //---SELLER ORDER---//
-    Route::get('/seller/profile', [UserController::class, 'view_profile_seller']); //wala pa
     Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
     Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
 });

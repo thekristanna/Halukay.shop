@@ -94,12 +94,6 @@ class UserController extends Controller
         }
     }
 
-    ////____SHOW SHOPPER PROFILE____////
-    public function view_profile_shopper()
-    {
-        return view('shopper_profile');
-    }
-
     /////___MY ACCOUNT SHOPPER___/////
     public function my_acct_shopper_edit(Request $r)
     {
@@ -184,6 +178,17 @@ class UserController extends Controller
             ->first();
 
         return view('myacct_seller', compact('profile'));
+    }
+
+    ////___VIEW PROFILE PUBLIC___////
+    public function view_profile(string $id)
+    {
+        $profile = User::query()
+            ->select('*')
+            ->where('user_id', '=', $id)
+            ->first();
+
+        return view('profile', compact('profile'));
     }
 
     /////___LOGOUT___/////
@@ -281,7 +286,7 @@ class UserController extends Controller
         }
         $user->save();
 
-        return redirect("/signup")->with('success', 'Account has been created successfully.');
+        return redirect("/login")->with('success', 'Account has been created successfully.');
     }
 
     public function signup_show()

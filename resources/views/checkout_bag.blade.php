@@ -41,13 +41,17 @@
             <p class="orders-header">
                 <i class="ri-wallet-3-fill"></i>Order Summary
             </p>
+            <form action="/shopper/add/order/{{$name -> user_id}}" method="POST">
+            @csrf
             <div class="orders">
                 <div class="top">
                     <p class="order-id">
                         <span id="order-id"></span>
                     </p>
                     <div class="top-details">
-                        <button class="order">Place Order</button>
+                        
+                            <button class="order" type="submit">Place Order</button>
+                        
                     </div>
                 </div>
                 <div class="bottom-details">
@@ -122,6 +126,7 @@
                   </div>
               </div> --}}
             </div>
+            </form>
         </div>
     </body>
 </html>

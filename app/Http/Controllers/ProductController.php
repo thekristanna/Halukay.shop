@@ -52,7 +52,7 @@ class ProductController extends Controller
             ->get();
 
         $name = User::query()
-            ->select('display_name')
+            ->select('user_id', 'display_name')
             ->where('user_id', '=', $id)
             ->first();
 
@@ -99,14 +99,6 @@ class ProductController extends Controller
             ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
-
-
-        // ->select('display_name', 'product.seller_id')
-        // ->join('product', 'users.user_id', '=', 'product.user_id')
-        // ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
-        // ->where('mybag.shopper_id', '=', Session::get('user_id'))
-        // ->groupBy('display_name', 'product.seller_id')
-        // ->get();
 
 
         return view('shopper_bag', compact('seller', 'product'));

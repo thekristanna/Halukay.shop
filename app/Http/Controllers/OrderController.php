@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\OrdersProduct;
+use App\Models\Mybag;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +22,6 @@ class OrderController extends Controller
         $order = new Order;
         $order->collect_op = $r->input('collect_op');
         $order->payment = $r->input('payment');
-        $order->price = $r->input('price');
         $order->seller_id = $id;
         $order->shopper_id = Session::get('user_id');
         $order->status_seller = "Order Submitted";
@@ -28,11 +29,35 @@ class OrderController extends Controller
 
         $order->save();
 
-        return redirect('');
+        $avail = Product::query()
+            ->select('*')
+            ->join('mybag', 'product.product_id', '=', 'mybag.product_id')
+            ->where('mybag.seller_id', '=', $id)
+            ->where('availability', '=', 'available')
+            ->get();
+
+        $order_products = [];
+        for ($i = 0; $i < count($avail); $i++) {
+            $op = new OrdersProduct;
+            $op->order_id = $order->order_id;
+            $op->product_id = $avail[$i]->product_id;
+            $op->shopper_id = Session::get('user_id');
+            $op->save();
+            array_push($order_products, $op);
+        }
+
+        return redirect('/shop/');
     }
 
     public function shopper_current_order()
     {
+        $order = Order::query()
+            ->select('order_id', 'seller_id', 'status_shopper')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->first();
+
+        // $product = 
+
         return view('shopper_current_order');
     }
 
