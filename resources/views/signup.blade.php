@@ -130,10 +130,10 @@
         <div class="wrapper">
             <div class="company">
                 <p>Halukay</p>
-                <a href="home.html" id="home">Home</a>
-                <a href="about.html" id="about">About</a>
-                <a href="shop.html" id="shop">Shop</a>
-                <a href="contact.html" id="contact">Contact</a>
+                <a href="/home" id="home">Home</a>
+                <a href="/about" id="about">About</a>
+                <a href="/shop" id="shop">Shop</a>
+                <a href="/" id="contact">Contact</a>
 
             </div>
             <div class="support">

@@ -159,9 +159,6 @@ header {
         display: block;
         cursor: pointer;
     }
-    .profile button i {
-        display: none;
-    }
 }
 @media (max-width: 700px) {
     header {

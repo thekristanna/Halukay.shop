@@ -36,8 +36,8 @@ body {
 /* Signup: Start */
 .container {
     display: block;
-    margin-top: 120px;
-    margin-bottom: 50px;
+    margin-top: 170px;
+    margin-bottom: 110px;
 }
 .container * {
     box-sizing: content-box;
@@ -389,7 +389,6 @@ h1 {
 .signup:hover {
     transform: scale(1.02);
 }
-
 .login-signup {
     font-size: 12px;
 }
@@ -407,6 +406,12 @@ h1 {
     transform: translate(-50%, -50%);
 }
 /* Signup: Media Query */
+@media (max-width:1300px) {
+    .container {
+        margin-top: 120px;
+        margin-bottom: 100px;
+    }
+}
 @media (max-width:1200px) {
     .container {
         margin-top: 170px;
@@ -598,8 +603,91 @@ h1 {
     }
     .container {
         transform: scale(0.7);
-        margin-top: -50px;
+        margin-top: -70px;
         margin-bottom: 0px;
+    }
+    .row-three #email {
+        margin-right: 50px;
+    }
+    #address-barangay {
+        margin-left: 50px;
+    }
+    #span-email {
+        transform: translate(60px, -35px);
+    }
+    #email:is(:focus, :valid) ~ #span-email {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(80px, -59px);
+        color: var(--color-seven);
+    }
+    #span-address-barangay {
+        transform: translate(60px, 22px);
+    }
+    #address-barangay:is(:focus, :valid) ~ #span-address-barangay {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(80px, 0px);
+        color: var(--color-seven);
+    }
+  #span-address-city {
+        transform: translate(275px, 22px);
+    }
+    #address-city:is(:focus, :valid) ~ #span-address-city {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(290px, 0px);
+        color: var(--color-seven);
+    }
+    #span-confirm-password {
+        transform: translate(238px, -35px);
+    }
+    #confirm-password:is(:focus, :valid) ~ #span-confirm-password {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(258px, -57px);
+        color: var(--color-seven);
+    }
+    #span-password {
+        transform: translate(18px, -35px);
+    }
+    #password:is(:focus, :valid) ~ #span-password {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(40px, -57px);
+        color: var(--color-seven);
+    }
+    #span-address-province {
+        transform: translate(18px, 34px);
+    }
+    #address-province:is(:focus, :valid) ~ #span-address-province {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(40px, 12px);
+        color: var(--color-seven);
+    }
+    #span-address-zip {
+        transform: translate(238px, 34px);
+    }
+    #address-zip:is(:focus, :valid) ~ #span-address-zip {
+        padding: 0 5px;
+        background: var(--color-one);
+        border-radius: 2px;
+        font-size: 10px;
+        transform: translate(258px, 12px);
+        color: var(--color-seven);
     }
 }
 /* Signup: End */
@@ -767,32 +855,3 @@ footer p {
     }
 }
 /* Footer: End */
-/* Error modal */
-.modal {
-    border-radius: 25px;
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    z-index: 1;
-}
-
-.modal-content {
-    text-align: center;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: black;
-}
