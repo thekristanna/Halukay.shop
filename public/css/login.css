@@ -36,7 +36,7 @@ body {
 /* Login: Start */
 .container {
     display: block;
-    margin-top: 230px;
+    margin-top: 280px;
     margin-bottom: 260px;
 }
 .login-form {
@@ -97,7 +97,7 @@ h1 {
     position: absolute;
     z-index: -100;
     opacity: 0.1;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -109,6 +109,9 @@ h1 {
 @media (max-width:1300px) {
     #logo-background {
         top: 55%;
+    }
+    .container {
+        margin-top: 220px;
     }
 }
 @media (max-width: 1200px) {
