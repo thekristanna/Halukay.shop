@@ -62,6 +62,27 @@
                     >
                     <p>TOTAL: ₱<span class="price co_total"></span></p>
                 </div>
+
+                <p id="delivery-details">Delivery Details</p>
+                <div class="address">
+                        <span id="delivery-add">Address:</span>
+                        <span id="add-street">{{$name -> address_street}}</span>
+                        <span class="comma-space">,</span>
+                        <span id="add-barangay">{{$name -> address_barangay}}</span>
+                        <span class="comma-space">,</span>
+                        <span id="add-city">{{$name -> address_citytown}}</span>
+                        <span class="comma-space">,</span>
+                        <span id="add-province">{{$name -> province}}</span>
+                  </div>
+                  <div class="name">
+                        <span id="name">Name:</span>
+                        <span id="user-name">{{$name -> first_name}} {{$name -> last_name}}</span>
+                  </div>
+                  <div class="contact">
+                        <span id="contact">Contact:</span>
+                        <span id="phone">{{$name -> phone_number}}</span>
+                  </div>
+
                 <div class="collection">
                   <p>Collection Options:</p>
                   <div class="delivery">
@@ -88,7 +109,7 @@
                       <label for="gcash">Gcash</label>
                   </div>
                 </div>    
-                      {{-- Product --}}
+                {{-- Product --}}
                 @foreach ($checkout as $c)
                 <div class="product">
                     <div class="image">
@@ -106,27 +127,56 @@
                     </div>
                 </div>
                 @endforeach
-
-                {{-- <div class="product">
-                  <div class="image">
-                      <a href="#" class="product-page"
-                          ><img
-                              src="../img/products/Uniqlo Trousers.png"
-                              alt="product-name"
-                          />
-                      </a>
-                  </div>
-                  <div class="item-name">
-                      <p>Item</p>
-                      <p class="product-name">Salvatore Ferragamo Dress</p>
-                  </div>
-                  <div class="item-price">
-                      <p>Price</p>
-                      <p class="product-price">300</p>
-                  </div>
-              </div> --}}
+                {{-- End of Product --}}
             </div>
             </form>
         </div>
+
+        {{-- Footer --}}
+        <link rel="stylesheet" href="../css/footer.css" />
+        <footer>
+            <div class="footer-brand">
+                <img
+                    src="../img/halukay-favicon.png"
+                    alt="halukay-logo"
+                    id="footer-logo"
+                />
+                <a href="#" id="footer-brand">halukay.shop</a>
+            </div>
+            <div class="footer-proper">
+                <div class="subscription">
+                    <p>
+                        Stay in the loop and sign up for halukay<br />recommendations
+                        from featured items
+                    </p>
+                    <input type="text" placeholder="Enter Email" id="email" /><i class="ri-arrow-right-line"></i>
+                </div>
+                <div class="wrapper">
+                    <div class="company">
+                        <p>Halukay</p>
+                        <a href="home.html" id="home">Home</a>
+                        <a href="about.html" id="about">About</a>
+                        <a href="shop.html" id="shop">Shop</a>
+                        <a href="contact.html" id="contact">Contact</a>
+
+                    </div>
+                    <div class="support">
+                        <p>Support</p>
+                        <a href="../pdfs/community_guidelines.pdf" download="community_guidelines.pdf" target="_blank" id="community">Community Guidelines</a>
+                        <a href="../pdfs/terms_conditions.pdf" download="terms_conditions.pdf" target="_blank" id="terms">Terms & Conditions</a>
+                        <a href="../pdfs/privacy_policy.pdf" download="privacy_policy.pdf" target="_blank" id="privacy">Privacy Policy</a>
+                        <a href="../pdfs/faqs.pdf" download="faqs.pdf" target="_blank" id="faqs">FAQs</a>
+                    </div>
+                    <div class="socials">
+                        <p>Socials</p>
+                        <a href="https://www.facebook.com/" target="_blank" id="facebook">Facebook</a>
+                        <a href="https://www.instagram.com/" target="_blank" id="instagram">Instagram</a>
+                        <a href="https://www.tiktok.com/" target="_blank" id="tiktok">Tiktok</a>
+                        <a href="https://www.youtube.com/" target="_blank" id="youtube">Youtube</a>
+                    </div>
+                </div>
+            </div>    
+        </footer>
+        
     </body>
 </html>

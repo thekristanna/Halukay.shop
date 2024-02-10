@@ -70,6 +70,10 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/order/', [OrderController::class, 'shopper_current_order']);
     Route::get('/shopper/previous_orders', [OrderController::class, 'shopper_previous_order']);
     Route::post('/shopper/add/order/{id}', [OrderController::class, 'shopper_add_order']);
+
+    //----RATE SELLER----//
+    Route::get('/shopper/rate/seller/{seller_id}/{order_id}', [UserController::class, 'rate_shopper_to_seller_view']);
+    Route::post('/shopper/rate/seller/{seller_id}/{order_id}', [UserController::class, 'rate_shopper_to_seller']);
 });
 
 

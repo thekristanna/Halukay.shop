@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Notification;
+use App\Models\Order;
+use App\Models\SellerRating;
+use App\Models\ShopperRating;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -14,6 +17,41 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    ////_____RATING____////
+    ////_____SHOPPER TO SELLER RATE VIEW____////
+    public function rate_shopper_to_seller_view(string $seller_id, string $order_id)
+    {
+        $rate = Order::query()
+            ->select('seller_id', 'order_id')
+            ->where('order_id', '=', $order_id)
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->first();
+
+        return view('shopper_to_seller_rate', compact('rate'));
+    }
+
+    ////_____SHOPPER TO SELLER RATE____////
+    public function rate_shopper_to_seller(string $seller_id, string $order_id, Request $r)
+    {
+        $check_order = SellerRating::where('order_id', $order_id)
+            ->exists();
+
+        if ($check_order) {
+            return redirect('/login')->with('fail', 'Invalid rating.');
+        } else {
+            $rate = new SellerRating;
+            $rate->order_id = $order_id;
+            $rate->shopper_id = Session::get('user_id');
+            $rate->seller_id = $seller_id;
+            $rate->rate = $r->input('rate');
+            $rate->comment = $r->input('comment');
+
+            $rate->save();
+        }
+
+        return redirect('/shop/seller/' . $seller_id);
+    }
+
     public function contact_send_email(Request $r)
     {
         $content = [

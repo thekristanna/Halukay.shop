@@ -30,7 +30,7 @@ body {
 /* Shopper to Seller Rating: Start */
 .container {
     display: block;
-    align-items: flex-start; 
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     border: 1px solid var(--color-two);
@@ -42,15 +42,16 @@ h1 {
     margin: 20px 0 0 0;
 }
 .comment form textarea {
-    width: 200px; 
-    height: 100px; 
-    padding: 20px; 
-    margin: 0 auto; 
-    display: block; 
-    border: 1px solid var(--color-two); 
-    color: var(--color-two); 
-    border-radius: 10px; 
-    resize: none; 
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid var(--color-two);
+    color: var(--color-two);
+    border-radius: 10px;
+    resize: none;
+    outline: none;
 }
 
 button {
@@ -58,7 +59,8 @@ button {
     margin: 20px auto;
     outline: none;
     border: none;
-    background: var(--color-six);
+    background: transparent;
+    border: 1px solid var(--color-two);
     color: var(--color-two);
     font-size: 12px;
     padding: 8px 20px;
@@ -71,41 +73,40 @@ button:hover {
 }
 .rating {
     display: flex;
-    flex-direction: row-reverse; 
-    justify-content: center; 
+    flex-direction: row-reverse;
+    justify-content: center;
 }
 .rating:not(:checked) > input {
     position: absolute;
     appearance: none;
-  }
-  
-  .rating:not(:checked) > label {
+}
+
+.rating:not(:checked) > label {
     float: right;
     cursor: pointer;
     font-size: 20px;
     fill: var(--color-six);
     margin: 15px 2px 25px 2px;
-  }
-  
-  .rating:not(:checked) > label > svg {
+}
+
+.rating:not(:checked) > label > svg {
     fill: var(--color-six);
-    transition: fill 0.3s ease; 
-  }
-  
-  .rating > input:checked + label:hover,
-  .rating > input:checked + label:hover ~ label,
-  .rating > input:checked ~ label:hover,
-  .rating > input:checked ~ label:hover ~ label,
-  .rating > label:hover ~ input:checked ~ label {
+    transition: fill 0.3s ease;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
     fill: var(--color-six);
-  }
-  
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-    fill: var(--color-two)
-  }
-  
-  .rating > input:checked ~ label > svg {
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
     fill: var(--color-two);
-  }
-  
+}
+
+.rating > input:checked ~ label > svg {
+    fill: var(--color-two);
+}
