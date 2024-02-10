@@ -9,6 +9,8 @@
     <h1>Message from HALUKAY USERS</h1>
     
     <p>{{$body}}</p>
+
+    <p>{{$pic}}</p>
     
     <button class="btn btn-success">Accept</button>
 </body>

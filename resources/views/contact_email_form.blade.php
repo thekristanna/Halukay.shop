@@ -60,7 +60,7 @@
                 <!-- row5 -->
                 <div class="row-five">
                     <div class="send">
-                        <input type="file" id="upload" value="photo" name="upload"/>
+                        <input type="file" id="upload" value="photo" name="contact_upload"/>
                     </div>
                     <div class="send">
                         <button type="submit">Send</button>
