@@ -141,4 +141,57 @@ button:hover {
     font-weight: 600;
     display: block;
 }
+#delivery-details {
+    justify-content: flex-start;
+    margin: 10px 0 0 0;
+    font-weight: 600;
+}
+.address {
+    justify-content: flex-start;
+}
+#delivery-add {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+.comma-space {
+    margin-right: 5px;
+}
+.name {
+    justify-content: flex-start;
+}
+#name {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+#contact {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+.contact {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+.collection, .payment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+}
+.collection p, .payment p {
+    font-weight: 600;
+    width: 150px;
+    justify-content: start;
+}
+.delivery, .pickup, .meetup, .cash, .gcash {
+    display: flex;
+    align-items: center; 
+    width:  100px;
+    justify-content: flex-start;
+}
+label {
+    padding-top: 4px;
+}
 /* Orders: End */
