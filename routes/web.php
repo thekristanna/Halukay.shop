@@ -101,6 +101,10 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     //---SELLER ORDER---//
     Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
     Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
+
+    //----RATE SHOPPER----//
+    Route::get('/seller/rate/shopper/{shopper_id}/{order_id}', [UserController::class, 'rate_seller_to_shopper_view']);
+    Route::post('/seller/rate/shopper/{shopper_id}/{order_id}', [UserController::class, 'rate_seller_to_shopper']);
 });
 
 

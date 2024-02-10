@@ -52,6 +52,40 @@ class UserController extends Controller
         return redirect('/shop/seller/' . $seller_id);
     }
 
+    ////_____SELLER TO SHOPPER RATE VIEW____////
+    public function rate_seller_to_shopper_view(string $shopper_id, string $order_id)
+    {
+        $rate = Order::query()
+            ->select('seller_id', 'order_id')
+            ->where('order_id', '=', Session::get('user_id'))
+            ->where('shopper_id', '=', $shopper_id)
+            ->first();
+
+        return view('shopper_to_seller_rate', compact('rate'));
+    }
+
+    ////_____SELLER TO SHOPPER RATE____////
+    public function rate_seller_to_shopper(string $shopper_id, string $order_id, Request $r)
+    {
+        $check_order = SellerRating::where('order_id', $order_id)
+            ->exists();
+
+        if ($check_order) {
+            return redirect('/login')->with('fail', 'Invalid rating.');
+        } else {
+            $rate = new SellerRating;
+            $rate->order_id = $order_id;
+            $rate->shopper_id = $shopper_id;
+            $rate->seller_id = Session::get('user_id');
+            $rate->rate = $r->input('rate');
+            $rate->comment = $r->input('comment');
+
+            $rate->save();
+        }
+
+        return redirect('/show/profile/' . $shopper_id);
+    }
+
     public function contact_send_email(Request $r)
     {
         $content = [
