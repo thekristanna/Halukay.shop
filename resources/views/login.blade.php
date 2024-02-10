@@ -23,7 +23,7 @@
             type="image/x-icon"
         />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>Login | Halukay</title>
         <!-- JavaScript -->
         <script src="/js/failmessage.js"></script>
     </head>
