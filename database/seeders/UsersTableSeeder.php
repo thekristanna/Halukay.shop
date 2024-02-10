@@ -19,24 +19,7 @@ class UsersTableSeeder extends Seeder
         \DB::table('users')->delete();
 
         \DB::table('users')->insert(array(
-            0 =>
-            array(
-                'user_id' => 0,
-                'first_name' => 'Daiben',
-                'last_name' => 'Sanchez',
-                'email_address' => 'daiben@gmail.com',
-                'username' => 'daiben',
-                'display_name' => '@daiben',
-                'password' => '$2y$12$kIgeE2kGcB1wwyS5NU8DiO0vjoaGQeQ.Dy/p21XAoWrCiCSUau476',
-                'phone_number' => '09123456789',
-                'address_street' => '123 Angelo St.',
-                'address_barangay' => 'San Isidro',
-                'address_citytown' => 'Quezon City',
-                'address_province' => 'Metro Manila',
-                'address_zip' => '1100',
-                'role' => 'seller',
-                'profile_photo' => '202402061154000000daiben.png',
-            ),
+
             1 =>
             array(
                 'user_id' => 1,
@@ -360,6 +343,24 @@ class UsersTableSeeder extends Seeder
                 'address_zip' => '3214',
                 'role' => 'seller',
                 'profile_photo' => '202402070651000000michael.jpg',
+            ),
+            19 =>
+            array(
+                'user_id' => 19,
+                'first_name' => 'Daiben',
+                'last_name' => 'Sanchez',
+                'email_address' => 'daiben@gmail.com',
+                'username' => 'daiben',
+                'display_name' => '@daiben',
+                'password' => '$2y$12$kIgeE2kGcB1wwyS5NU8DiO0vjoaGQeQ.Dy/p21XAoWrCiCSUau476',
+                'phone_number' => '09123456789',
+                'address_street' => '123 Angelo St.',
+                'address_barangay' => 'San Isidro',
+                'address_citytown' => 'Quezon City',
+                'address_province' => 'Metro Manila',
+                'address_zip' => '1100',
+                'role' => 'seller',
+                'profile_photo' => '202402061154000000daiben.png',
             ),
         ));
     }

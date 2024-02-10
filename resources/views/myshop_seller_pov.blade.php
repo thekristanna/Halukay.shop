@@ -29,7 +29,7 @@
     <body>
         <!-- seller shop pov -->
         <div class="container">
-            <p class="orders-header"><i class="ri-store-3-fill"></i>Your Shop | <span id="username">@daibenangelo</span></p>
+            <p class="orders-header"><i class="ri-store-3-fill"></i>Your Shop | <span id="username">{{$seller -> last_name}}, {{$seller -> first_name}}</span></p>
             <div class="shop">
                 <!-- product  -->
                 @foreach ($products as $p)

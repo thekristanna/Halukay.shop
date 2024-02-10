@@ -228,6 +228,13 @@ class ProductController extends Controller
             ->where('seller_id', '=', Session::get('user_id'))
             ->get();
 
+        $seller = User::query()
+            ->select('first_name', 'last_name', 'product.seller_id')
+            ->join('product', 'product.seller_id', 'users.user_id')
+            ->where('seller_id', '=', Session::get('user_id'))
+            ->first();
+
+
         return view('myshop_seller_pov', compact('products'));
     }
 
