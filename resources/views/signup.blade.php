@@ -97,7 +97,7 @@
                 <!-- row6 -->
                 <div class="row-six">
                     <input type="checkbox" id="terms" name="accept_tc" value="accept_tc">
-                    <label for="terms">I agree to the<a href="../pdfs/terms_conditions.pdf" download="terms_conditions.pdf" target="_blank" id="terms">Terms & Conditions</a></label>
+                    <label for="terms">I agree to the<a href="../pdfs/terms_conditions.pdf" download="terms_conditions.pdf" target="_blank" id="terms-signup">Terms & Conditions</a></label>
                 </div>
                 <!-- signup -->
                 <input type="submit" class="signup" value="Sign Up"/>
