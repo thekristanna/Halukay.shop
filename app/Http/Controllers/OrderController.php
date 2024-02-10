@@ -51,15 +51,31 @@ class OrderController extends Controller
 
     public function shopper_current_order()
     {
-        $order = Order::query()
-            ->select('order_id', 'seller_id', 'status_shopper')
-            ->where('shopper_id', '=', Session::get('user_id'))
-            ->first();
+        $orders = Order::query()
+            ->select('orders.order_id', 'status_shopper', 'display_name')
+            ->join('orders_product', 'orders.order_id', '=', 'orders_product.order_id')
+            ->join('product', 'product.product_id', '=', 'orders_product.product_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->groupBy('orders.order_id', 'status_shopper', 'display_name')
+            ->get();
 
-        // $product = 
+        foreach ($orders as $order) {
+            $products = OrdersProduct::query()
+                ->select('name', 'price', 'product_photo', 'order_id')
+                ->join('product', 'orders_product.product_id', '=', 'product.product_id')
+                ->where('order_id', '=', $order->order_id)
+                ->get();
 
-        return view('shopper_current_order');
+            $totalPrice = $products->sum('price'); // Calculate total order price
+
+            $order->products = $products;
+            $order->totalPrice = $totalPrice; // Add total price to the order object
+        }
+
+        return view('shopper_current_order', compact('orders'));
     }
+
 
     public function shopper_previous_order()
     {

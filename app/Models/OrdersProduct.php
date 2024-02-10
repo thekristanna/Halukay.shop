@@ -20,19 +20,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class OrdersProduct extends Model
 {
-    protected $table = 'orders_product';
-    protected $primaryKey = 'op_id';
-    public $timestamps = false;
+	protected $table = 'orders_product';
+	protected $primaryKey = 'op_id';
+	public $timestamps = false;
 
-    protected $casts = [
-        'order_id' => 'int',
-        'product_id' => 'int',
-        'shopper_id' => 'int'
-    ];
+	protected $casts = [
+		'order_id' => 'int',
+		'product_id' => 'int',
+		'shopper_id' => 'int'
+	];
 
-    protected $fillable = [
-        'order_id',
-        'product_id',
-        'shopper_id'
-    ];
+	protected $fillable = [
+		'order_id',
+		'product_id',
+		'shopper_id'
+	];
 }
