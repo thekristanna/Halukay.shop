@@ -149,6 +149,39 @@ body {
     font-weight: 600;
     display: block;
 }
+#delivery-details {
+    justify-content: flex-start;
+    margin: 10px 0 0 0;
+    font-weight: 600;
+}
+.address {
+    justify-content: flex-start;
+}
+#delivery-add {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+.comma-space {
+    margin-right: 5px;
+}
+.name {
+    justify-content: flex-start;
+}
+#name {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+#contact {
+    font-weight: 600;
+    width: 80px;
+    justify-content: flex-start;
+}
+.contact {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
 .collection, .payment {
     display: flex;
     justify-content: flex-start;

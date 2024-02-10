@@ -24,6 +24,8 @@
         />
         <!-- Page Title -->
         <!-- <title>Halukay</title> -->
+        <!-- JavaScript -->
+        <script src="../js/navbar_public.js"></script>
     </head>
     <body>
         <!-- header -->
@@ -34,7 +36,7 @@
                     alt="halukay-logo"
                     id="logo"
                 />
-                <a href="#" id="brand">halukay.com</a>
+                <a href="#" id="brand">halukay.shop</a>
             </div>
             <div class="navbar">
                 <a href="home.html" class="active" id="home">Home</a>
@@ -70,11 +72,24 @@
                 </div>
 
                 <div class="profile-name-role">
-                    <p class="name">
-                        <button id="dropdown">
-                            <i class="ri-arrow-down-s-fill"></i></button
-                        >Daiben Sanchez
-                    </p>
+                    <!-- <p class="name">
+                       @daibenangelo
+                    </p> -->
+                    <select name="name-dropdown" id="name-dropdown">
+                        <option value="username" disabled selected id="username-nav">@daibenangelo</option>
+                        <option value="account">Account</option>
+                        <option value="switch">Switch to Seller</option>
+                        <option value="logout">Logout</option>
+                        <option value="filler">-</option>
+                        <option value="home" id="home-opt">Home</option>
+                        <option value="about" id="about">About</option>
+                        <option value="shop" id="shop-opt">Shop</option>
+                        <option value="filler">-</option>
+
+                        <option value="home" id="home-opt">N</option>
+                        <option value="about" id="about">Messages</option>
+                        <option value="shop" id="shop-opt">Shop</option>
+                    </select>
                     <span class="role">Shopper</span>
                 </div>
                 <img src="../img/users/daiben.png" id="profile-pic" />
