@@ -5,15 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 
 //--------PUBLIC SIDE--------//
-Route::get('/about', function () {
-    return view('about');
+Route::middleware('checkNotifications')->get('/about', function (Request $request) {
+    return view('about', compact('request'));
 }); //will create about page ye
 
-Route::get('/', function () {
-    return view('home');
+Route::middleware('checkNotifications')->get('/', function (Request $request) {
+    return view('home', compact('request'));
 }); //still in process
 
 // CONTACT US PAGE//
@@ -22,9 +23,9 @@ Route::post('/contact', [UserController::class, 'contact_send_email']);
 
 Route::get('/show/profile/{id}', [UserController::class, 'view_profile']);
 
-Route::get('/shop', [ProductController::class, 'show_all_products']);
+Route::middleware('checkNotifications')->get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
-Route::get('/shop/{id}', [ProductController::class, 'show_product']);
+Route::middleware('checkNotifications')->get('/shop/{id}', [ProductController::class, 'show_product']);
 Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///PAUL - pa add ng function yung add to bag din dito. TY
 Route::post('/shop/seller/{product_id}/{seller_id}', [ProductController::class, 'seller_shop_view_add']);
 
@@ -40,7 +41,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
 
 //--------SHOPPER SIDE--------//
-Route::middleware(['checkSessionShopper'])->group(function () {
+Route::middleware(['checkSessionShopper', 'checkNotifications'])->group(function () {
     //---SHOPPER ACCOUNT---//   
     Route::get('/shopper/my_account', [UserController::class, 'my_acct_shopper_view']);
     Route::get('/shopper/my_account/edit', [UserController::class, 'my_acct_shopper_form']);
@@ -83,7 +84,7 @@ Route::middleware(['checkSessionShopper'])->group(function () {
 
 
 //--------SELLER SIDE--------//
-Route::middleware(['checkSessionSeller'])->group(function () {
+Route::middleware(['checkSessionSeller', 'checkNotifications'])->group(function () {
     //---SELLER ACCOUNT---//
     Route::get('/seller/my_account', [UserController::class, 'my_acct_seller_view']);
     Route::get('/seller/my_account/edit', [UserController::class, 'my_acct_seller_form']);

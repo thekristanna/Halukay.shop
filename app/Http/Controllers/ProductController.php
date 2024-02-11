@@ -97,7 +97,7 @@ class ProductController extends Controller
         return redirect("/login");
     }
 
-    public function shopper_bag_view()
+    public function shopper_bag_view(Request $request)
     {
         $seller = User::query()
             ->select('display_name', 'product.seller_id')
@@ -127,7 +127,7 @@ class ProductController extends Controller
             $bag->totalPrice = $totalPrice;
         }
 
-        return view('shopper_bag', compact('seller', 'product', 'bag'));
+        return view('shopper_bag', compact('seller', 'product', 'bag', 'request'));
     }
     // DELETE PRODUCTS FROM BAG
 
@@ -142,7 +142,7 @@ class ProductController extends Controller
 
     /////______SHOPPER PRODUCT FUNCTIONS________/////
     /////______SHOPPER LIKES PAGE_____/////
-    public function likes_view()
+    public function likes_view(Request $request)
     {
         $seller = User::query()
             ->select('display_name', 'product.seller_id')
@@ -158,7 +158,7 @@ class ProductController extends Controller
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
-        return view('like_page', compact('seller', 'product'));
+        return view('like_page', compact('seller', 'product', 'request'));
     }
 
     /////______SHOPPER ADD LIKE_____/////
@@ -386,7 +386,7 @@ class ProductController extends Controller
 
     /////______PUBLIC SIDE FUNCTIONS________/////
     /////______PUBLIC SHOP PAGE________/////
-    public function show_product(string $id)
+    public function show_product(string $id, Request $request)
     {
         $info = Product::query()
             ->select('*')
@@ -404,16 +404,16 @@ class ProductController extends Controller
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
-        return view('show_product', compact('product', 'info', 'like'));
+        return view('show_product', compact('product', 'info', 'like', 'request'));
     }
 
-    public function show_all_products(Request $r)
+    public function show_all_products(Request $request)
     {
         $products = Product::query()
             ->select('*')
             ->where('availability', '=', 'available'); //added show available products only
-        if ($r->filled('category')) {
-            $category = $r->input('category');
+        if ($request->filled('category')) {
+            $category = $request->input('category');
             if ($category == 'All') {
                 $products->whereIn('category', ['Clothes', 'Bags', 'Shoes']);
             } else {
@@ -422,8 +422,8 @@ class ProductController extends Controller
         }
 
 
-        if ($r->filled('sortOptions')) {
-            $sortOption = $r->input('sortOptions');
+        if ($request->filled('sortOptions')) {
+            $sortOption = $request->input('sortOptions');
             switch ($sortOption) {
                 case 'highToLow':
                     $products->orderBy('price', 'DESC');
@@ -444,7 +444,7 @@ class ProductController extends Controller
 
         $products = $products
             ->paginate(8);
-        $products->appends($r->except('page'));
+        $products->appends($request->except('page'));
 
         $liked = LikeProduct::query()
             ->select('product_id', 'like_id')
@@ -453,6 +453,6 @@ class ProductController extends Controller
 
 
 
-        return view('all_products', compact('products', 'liked'));
+        return view('all_products', compact('products', 'liked', 'request'));
     }
 }

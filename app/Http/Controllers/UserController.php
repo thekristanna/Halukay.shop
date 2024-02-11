@@ -122,7 +122,7 @@ class UserController extends Controller
     }
 
     ////_____NOTIFICATIONS______////
-    public function view_notifications_shopper()
+    public function view_notifications_shopper(Request $request)
     {
         $notifications = Notification::query()
             ->select('*')
@@ -130,10 +130,10 @@ class UserController extends Controller
             ->orderBy('date_sent', 'DESC')
             ->get();
 
-        return view('shopper_notification', compact('notifications'));
+        return view('shopper_notification', compact('notifications', 'request'));
     }
 
-    public function view_notifications()
+    public function view_notifications(Request $request)
     {
         $notifications = Notification::query()
             ->select('*')
@@ -141,7 +141,7 @@ class UserController extends Controller
             ->orderBy('date_sent', 'DESC')
             ->get();
 
-        return view('seller_notification', compact('notifications'));
+        return view('seller_notification', compact('notifications', 'request'));
     }
 
     public function seen_notification(string $id)
