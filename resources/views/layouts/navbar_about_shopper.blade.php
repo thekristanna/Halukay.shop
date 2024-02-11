@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="../css/navbar_shopper.css" />
+<link rel="stylesheet" href="/css/navbar_shopper.css" />
 <script src="/js/navbar_shopper_seller.js"></script>
 <script src="/js/navbar_public.js"></script>
 <header>
     <div class="brand">
-      <img src="../img/halukay-logo.png" alt="halukay-logo" id="logo">
+      <img src="/img/halukay-logo.png" alt="halukay-logo" id="logo">
       <a href="#" id="brand">halukay.shop</a>
     </div>
     <div class="navbar">
@@ -20,23 +20,23 @@
              
     </div>
     @include('layouts/search')    
-      <div class="profile">
-        <div class="header-icons">
-            <button>
-                <a href="/shopper/notifications"><i class="ri-notification-3-fill"></i></a>
-            </button>
-            <button>
-                <a href="#"><i class="ri-discuss-fill"></i></a>
-            </button>
+    <div class="profile">
+      <div class="header-icons">
+          <button>
+              <a href="/shopper/notifications"><i class="ri-notification-3-fill"></i></a>
+          </button>
+          <button>
+              <a href="#"><i class="ri-discuss-fill"></i></a>
+          </button>
 
-            <button>
-                <a href="/shopper/products/likes"><i class="ri-heart-3-fill"></i></a>
-            </button>
+          <button>
+              <a href="/shopper/products/likes"><i class="ri-heart-3-fill"></i></a>
+          </button>
 
-            <button>
-                <a href="/shopper/my_bag"><i class="ri-shopping-bag-fill"></i></a>
-            </button>
-        </div>
+          <button>
+              <a href="/shopper/my_bag"><i class="ri-shopping-bag-fill"></i></a>
+          </button>
+      </div>
 
         <div class="profile-name-role">
          

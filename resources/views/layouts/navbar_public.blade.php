@@ -2,7 +2,7 @@
 <script src="/js/navbar_public.js"></script>
 <header>
   <div class="brand">
-    <img src="../img/halukay-logo.png" alt="halukay-logo" id="logo">
+    <img src="/img/halukay-logo.png" alt="halukay-logo" id="logo">
     <a href="#" id="brand">halukay.shop</a>
   </div>
   <div class="navbar">

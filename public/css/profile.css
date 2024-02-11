@@ -41,6 +41,7 @@ body {
     margin-top: 120px;
     text-align: center;
     z-index: -10;
+    color: var(--color-four);
 }
 
 .shopper-profile {
@@ -72,12 +73,14 @@ body {
     margin: 20px 0px 0px 0px;
     font-size: 25px;
     padding: 0;
+    color: var(--color-four);
 }
 
 #username {
     margin: -5px;
     font-size: 20px;
     padding: 0;
+    color: var(--color-four);
 }
 .numbers-bought-transactions {
     text-align: center;
@@ -85,6 +88,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: -10px 0px 10px;
+    color: var(--color-four);
 }
 
 .bought,
@@ -94,6 +98,7 @@ body {
     align-items: center;
     margin: 35px 20px 30px 20px;
     padding: 0;
+    color: var(--color-four);
 }
 
 .numbers {
@@ -101,11 +106,13 @@ body {
     font-weight: 700;
     margin: 0px;
     padding: 0;
+    color: var(--color-four);
 }
 .description {
     margin: 0px;
     font-size: 12px;
     padding: 0;
+    color: var(--color-four);
 }
 
 .review {
@@ -124,9 +131,11 @@ body {
 
 #shopper-review {
  margin: 5px 0px;
+ color: var(--color-four);
 }
 .shopper-ratings {
     display: block;
+    color: var(--color-four);
 }
 .card {
     max-width: 600px;
@@ -137,9 +146,11 @@ body {
     padding: 3px 25px;
     margin-bottom: 15px;
     justify-content: flex-start;
+    color: var(--color-four);
 }
 #shopper-rating {
     margin-left: 15px;
+    color: var(--color-four);
 }
 /* Profile: Media Query */
 @media (max-width: 1200px) {
@@ -221,7 +232,7 @@ header {
     font-family: Merriweather;
     font-weight: 700;
     font-style: italic;
-    color: var(--color-two);
+     color: var(--color-four);
 }
 
 .navbar a {
