@@ -26,6 +26,8 @@ Route::get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
 Route::get('/shop/{id}', [ProductController::class, 'show_product']);
 Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///PAUL - pa add ng function yung add to bag din dito. TY
+Route::post('/shop/seller/{product_id}/{seller_id}', [ProductController::class, 'seller_shop_view_add']);
+
 
 Route::get('/redir_login/{id}', [ProductController::class, 'redirect_heart']);
 

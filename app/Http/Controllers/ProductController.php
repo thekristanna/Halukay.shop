@@ -19,6 +19,19 @@ class ProductController extends Controller
 {
     use Sortable;
 
+
+    public function seller_shop_view_add(string $product_id, $seller_id)
+    {
+
+        $cart = new Mybag();
+        $cart->shopper_id = Session::get('user_id');
+        $cart->product_id = $product_id;
+        $cart->seller_id =  $seller_id;
+        $cart->save();
+
+        return redirect('/shop/seller/' . $seller_id)->with('success', 'Item was added to cart');
+    }
+
     ////____PUBLIC SHOW SELLER SHOP___////----->will consult (loophole)
     public function seller_shop_view(string $id)
     {

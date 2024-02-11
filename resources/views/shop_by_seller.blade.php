@@ -85,14 +85,22 @@
                                 </form>
                             @endif
                                 {{-- ADD TO BAG --}}
+                                @if (Session::get('role') == 'shopper')
+                                <form action="/shop/seller/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
+                                    @csrf
+                                    <button class="icon-btn" type="submit">
+                                        <i class="ri-shopping-bag-line shopping-icon"></i>
+                                        <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                                    </button>
+                                </form>
+                                @else
+                                <form action="/redir_login/{{$p-> product_id}}" method="GET">
                                 <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
+                                    <i class="ri-shopping-bag-line shopping-icon"></i>
+                                    <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
                                 </button>
+                            </form>
+                            @endif
 
                             </div>
                         </div>
