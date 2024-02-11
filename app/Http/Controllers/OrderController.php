@@ -118,6 +118,48 @@ class OrderController extends Controller
         return view('shopper_previous_order', compact('orders'));
     }
 
+    ////_____SHOPPER ORDER STATUS_____/////
+    public function shopper_order_status(string $id)
+    {
+        $order = Order::query()
+            ->select('order_id', 'collect_op', 'display_name')
+            ->join('product', 'orders.seller_id', '=', 'product.seller_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('order_id', '=', $id)
+            ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        $status = OrderStatus::query()
+            ->select('status', 'date_time')
+            ->where('order_status.order_id', '=', $id)
+            ->orderBy('order_id')
+            ->get();
+
+        return view('shopper_order_status', compact('order', 'status'));
+    }
+
+    ////_____SELLER ORDER STATUS_____/////
+    public function seller_order_status(string $id)
+    {
+        $order = Order::query()
+            ->select('order_id', 'collect_op', 'display_name')
+            ->join('product', 'orders.seller_id', '=', 'product.seller_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('order_id', '=', $id)
+            ->where('orders.seller_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        $status = OrderStatus::query()
+            ->select('status', 'date_time')
+            ->where('order_status.order_id', '=', $id)
+            ->orderBy('order_id')
+            ->get();
+
+        return view('seller_order_status', compact('order', 'status'));
+    }
+
     ////_____SELLER ORDER SECTION_____////
     public function seller_current_order_view()
     {
