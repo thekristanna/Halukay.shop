@@ -17,6 +17,16 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    public function show_dashboard()
+    {
+        $data = [
+            'labels' => ['Admin', 'Seller', 'Shopper'],
+            'data' => [1, 5, 14],
+        ];
+
+        return view('admin_dashboard', compact('data'));
+    }
+
     ////_____RATING____////
     ////_____SHOPPER TO SELLER RATE VIEW____////
     public function rate_shopper_to_seller_view(string $seller_id, string $order_id)

@@ -72,10 +72,10 @@ class OrderController extends Controller
                 ->where('order_id', '=', $order->order_id)
                 ->get();
 
-            $totalPrice = $products->sum('price'); // Calculate total order price
+            $totalPrice = $products->sum('price');
 
             $order->products = $products;
-            $order->totalPrice = $totalPrice; // Add total price to the order object
+            $order->totalPrice = $totalPrice;
         }
 
         return view('shopper_current_order', compact('orders'));
