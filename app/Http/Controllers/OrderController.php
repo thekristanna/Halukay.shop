@@ -84,6 +84,28 @@ class OrderController extends Controller
 
     public function shopper_previous_order()
     {
+        $orders = Order::query()
+            ->select('orders.order_id', 'status_shopper', 'display_name')
+            ->join('orders_product', 'orders.order_id', '=', 'orders_product.order_id')
+            ->join('product', 'product.product_id', '=', 'orders_product.product_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->groupBy('orders.order_id', 'status_shopper', 'display_name')
+            ->get();
+
+        foreach ($orders as $order) {
+            $products = OrdersProduct::query()
+                ->select('name', 'price', 'product_photo', 'order_id')
+                ->join('product', 'orders_product.product_id', '=', 'product.product_id')
+                ->where('order_id', '=', $order->order_id)
+                ->get();
+
+            $totalPrice = $products->sum('price');
+
+            $order->products = $products;
+            $order->totalPrice = $totalPrice;
+        }
+        
         return view('shopper_previous_order');
     }
 
