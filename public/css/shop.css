@@ -37,6 +37,7 @@ body {
 .container {
     display: block;
     margin-top: 100px;
+    margin-bottom:-100px;
 }
 .shop {
     display: grid;
@@ -185,20 +186,20 @@ body {
 @media (max-width: 1200px) {
     .container {
         transform: scale(0.95);
-        margin-top: 80px;
+        margin-top: 60px;
     }
 }
 @media (max-width: 900px) {
     .container {
         transform: scale(0.98);
-        margin-top: 80px;
+        margin-top: 70px;
         width: 100%;
     }
     .shop {
         grid-template-columns: repeat(3, 1fr);
         transform: scale(0.8);
-        margin-top: -110px;
-        margin-bottom: -50px;
+        margin-top: -250px;
+        margin-bottom: -270px;
     }
     .filter-buttons {
         transform: scale(0.8);
@@ -207,11 +208,11 @@ body {
 @media (max-width: 700px) {
     .container {
         transform: scale(0.95);
-        margin-top: 50px;
+        margin-top: 20px;
     }
     .shop {
-        margin-top: -120px;
-        margin-bottom: -100px;
+        margin-top: -250px;
+        margin-bottom: -310px;
     }
     .filter-buttons {
         width: 100%;
@@ -227,7 +228,8 @@ body {
 }
 @media (max-width: 500px) {
     .container {
-        margin-top: 50px;
+        margin-top: -15px;
+        margin-bottom: -750px;
     }
     .shop {
         grid-template-columns: repeat(2, 1fr);
@@ -235,8 +237,26 @@ body {
         margin-top: -350px;
         margin-bottom: -320px;
     }
-    .filter-buttons {
-        transform: scale(0.6);
+    .right, .left{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 10px;
+        align-items: center;
+        text-align: center;
+    }
+    .right button, .left button {
+        margin: 7px;
+        text-align: center;
+        justify-content: center;
+    }
+    .left {
+        transform: translateX(75px);
+    }
+    .right {
+        transform: translateX(-60px);
+    }
+    .shop {
+        margin-top: -730px;
     }
 }
 /* Shop: End */
@@ -270,6 +290,7 @@ footer p {
     font-weight: 600;
     font-style: italic;
     font-size: 15px;
+    justify-content: flex-start;
 }
 
 .footer-proper {
@@ -380,7 +401,7 @@ footer p {
 
     #email {
         justify-content: center;
-        margin: 0 auto;
+        margin: 0 auto; 
         margin-left: 50px;
     }
     .ri-arrow-right-line {
@@ -403,15 +424,3 @@ footer p {
     }
 }
 /* Footer: End */
-
-/* DANTE */
-
-#shop_liked {
-    display: inline;
-}
-
-#hide_like_id {
-    display: none;
-}
-
-/* ----------------- */
