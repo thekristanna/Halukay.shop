@@ -46,7 +46,12 @@ class OrderController extends Controller
             array_push($order_products, $op);
         }
 
-        return redirect('/shop/');
+        $delete_bag = Mybag::query()
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->where('seller_id', '=', $id)
+            ->delete();
+
+        return redirect('/shopper/order');
     }
 
     public function shopper_current_order()
