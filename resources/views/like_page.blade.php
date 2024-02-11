@@ -19,7 +19,7 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+  <title>Likes | Halukay</title>
   </head>
   <body>
       <!-- header -->

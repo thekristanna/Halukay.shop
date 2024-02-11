@@ -32,10 +32,16 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-}/* Bag: Start */
+}
+/* Bag: Start */
 .container {
     display: block;
     /* width: 70%; */
+    margin-top: 70px;
+}
+.line {
+    display: flex;
+    justify-content: space-between;
 }
 .bag-buttons {
     display: flex;
@@ -43,9 +49,9 @@ body {
     margin: 0;
 }
 .bag-buttons a {
-    border: 1px solid var(--color-four);
+    border: 1px solid var(--color-two);
     border-radius: 20px;
-    color: var(--color-four);
+    color: var(--color-two);
     padding: 5px 10px;
     font-size: 10px;
     margin-right: 10px;
@@ -53,11 +59,11 @@ body {
 }
 .bag-buttons a:hover {
     color: var(--color-one);
-    background: var(--color-four);
+    background: var(--color-two);
 }
 #active {
    color: var(--color-one);
-   background: var(--color-four);
+   background: var(--color-two);
 }
 .orders-header {
     font-size: 30px;
@@ -72,7 +78,7 @@ body {
     padding: 0;
     justify-content: flex-start;
     font-size: 13px;
-    border: 1px solid var(--color-four);
+    border: 1px solid var(--color-two);
     padding: 20px 30px 10px 30px;
     border-radius: 20px;
     width: 950px;
@@ -91,8 +97,8 @@ body {
 .checkout {
     outline: none;
     background: transparent;
-    border: 1px solid var(--color-four);
-    color: var(--color-four);
+    border: 1px solid var(--color-two);
+    color: var(--color-two);
     padding: 7px 15px;
     font-size: 10px;
     border-radius: 20px;
@@ -100,7 +106,7 @@ body {
     margin-right: 10px;
 }
 .checkout:hover {
-    background: var(--color-four);
+    background: var(--color-two);
     color: var(--color-one);
 }
 .order-status {
@@ -116,7 +122,7 @@ body {
     width: 100px;
     justify-content: flex-start;
     margin: 15px 40px 15px 0px;
-    border: solid 1px var(--color-four);
+    border: solid 1px var(--color-two);
     border-radius: 10px;
     transition: transform 0.3s;
 }

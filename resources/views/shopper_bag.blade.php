@@ -19,18 +19,24 @@
     <!-- Favicon -->
     <link rel="icon" href="../img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+ <title>Bag | Halukay</title>
   </head>
   <body>
-  <!-- header -->
+      <!-- header -->
+  
+      @include('layouts/navbar_shopper') 
     <!-- your bag -->
     <div class="container">
+
+      <div class="line">
+        <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Your Bag</p>
         <div class="bag-buttons">
             <a href="#" id="active">Bag</a>
             <a href="#">Previous Orders</a>
             <a href="#">Current Orders</a>
         </div>
-        <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Your Bag</p>
+      </div>
+        
         <div class="orders">
             <div class="top">
               <a href="#" class="seller-username"><p>Seller:<span class="username">@daibenangelo</span></p></a>

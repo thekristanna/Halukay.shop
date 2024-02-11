@@ -23,7 +23,7 @@
             type="image/x-icon"
         />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>Notifications | Halukay</title>
     </head>
     <body>
             <!-- header -->
