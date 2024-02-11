@@ -113,8 +113,21 @@ class ProductController extends Controller
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
+        foreach ($product as $bag) {
+            $products = Product::query()
+                ->select('product.product_id', 'name', 'product_photo', 'price', 'mybag.seller_id')
+                ->join('mybag', 'mybag.product_id', '=', 'product.product_id')
+                ->where('shopper_id', '=', Session::get('user_id'))
+                ->get();
 
-        return view('shopper_bag', compact('seller', 'product'));
+
+            $totalPrice = $product->sum('price');
+
+            $bag->product = $product;
+            $bag->totalPrice = $totalPrice;
+        }
+
+        return view('shopper_bag', compact('seller', 'product', 'bag'));
     }
     // DELETE PRODUCTS FROM BAG
 
