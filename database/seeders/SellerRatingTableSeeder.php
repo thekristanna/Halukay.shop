@@ -28,6 +28,15 @@ class SellerRatingTableSeeder extends Seeder
                 'rate' => 3,
                 'comment' => 'This is sample with rate of 3',
             ),
+            1 => 
+            array (
+                'rating_id' => 3,
+                'order_id' => 13,
+                'seller_id' => 0,
+                'shopper_id' => 7,
+                'rate' => 1,
+                'comment' => 'Did not give an extension',
+            ),
         ));
         
         
