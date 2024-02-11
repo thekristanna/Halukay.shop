@@ -65,7 +65,7 @@
         });
     </script>
 @endif --}}
-
+{{-- 
 @if (Session::has('success'))
 <p class="notif bg bg-success text-light text-center">{{Session::get('success')}}</p>
 @elseif (Session::has('fail'))
@@ -73,4 +73,7 @@
 @endif
 @foreach ($errors -> all() as $error)
     <p id="notif" class="notif bg bg-danger text-light">{{$error}}</p>
-@endforeach
+@endforeach --}}
+
+
+{{-- use messages2 --}}

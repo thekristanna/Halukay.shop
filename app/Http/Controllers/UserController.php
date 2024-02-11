@@ -284,6 +284,8 @@ class UserController extends Controller
                 Session::put('user_id', $user->user_id);
                 Session::put('first_name', $user->first_name);
                 Session::put('last_name', $user->last_name);
+                Session::put('display_name', $user->display_name);
+                Session::put('profile_photo', $user->profile_photo);
                 Session::put('email', $user->email);
                 Session::put('role', $user->role);
                 if (Session::get('role') == 'seller') {
