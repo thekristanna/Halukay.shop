@@ -19,12 +19,26 @@ class UserController extends Controller
 {
     public function show_dashboard()
     {
+        $population = User::query()
+            ->select(DB::raw('COUNT(*) AS roles'))
+            ->groupBy('role')
+            ->get();
+
+        $entries = [];
+        foreach ($population as $p) {
+            array_push($entries, $p->roles);
+        }
+
         $data = [
             'labels' => ['Admin', 'Seller', 'Shopper'],
-            'data' => [1, 5, 14],
+            'data' => $entries,
         ];
 
-        return view('admin_dashboard', compact('data'));
+        $totals = User::query()
+            ->select(DB::raw('COUNT(*) AS total'))
+            ->first();
+
+        return view('admin_dashboard', compact('data', 'totals'));
     }
 
     ////_____RATING____////
@@ -330,6 +344,8 @@ class UserController extends Controller
                     } else {
                         return redirect('/'); // will still update redirect once profile is ready
                     }
+                } else if (Session::get('role') == 'admin') {
+                    return redirect('/admin/dashboard'); //will edit
                 }
             } else {
                 return redirect('login')->with('fail', 'Incorrect password');

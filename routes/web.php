@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\checkSessionAdmin;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -114,6 +115,11 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     //----RATE SHOPPER----//
     Route::get('/seller/rate/shopper/{shopper_id}/{order_id}', [UserController::class, 'rate_seller_to_shopper_view']);
     Route::post('/seller/rate/shopper/{shopper_id}/{order_id}', [UserController::class, 'rate_seller_to_shopper']);
+});
+
+
+Route::middleware([checkSessionAdmin::class])->group(function () {
+    Route::get('/admin/dashboard', [UserController::class, 'show_dashboard']);
 });
 
 

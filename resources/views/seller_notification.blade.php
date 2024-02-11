@@ -41,7 +41,7 @@
                @foreach($notifications as $n)
                <span class="current-notif"><span class="date">{{$n -> date_sent->format('Y-m-d')}}</span><span class="time">{{($n->date_sent)->format('h:i A') }}</span><span class="details">{{$n -> content}}</span>
                 @if($n->marked_seen == 0)
-                    <form action="/shopper/notifications/seen/{{$n -> notif_id}}" method="POST">
+                    <form action="/seller/notifications/seen/{{$n -> notif_id}}" method="POST">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="check">
