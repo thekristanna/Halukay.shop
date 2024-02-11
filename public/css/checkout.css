@@ -42,7 +42,7 @@ body {
 .bag-buttons a {
     border: 1px solid var(--color-two);
     border-radius: 20px;
-    color: var(--color-four);
+    color: var(--color-two);
     padding: 5px 10px;
     font-size: 10px;
     margin-right: 10px;

@@ -43,7 +43,7 @@
                     <i class="ri-wallet-3-fill"></i>Order Summary
                 </p>
                 <div class="bag-buttons">
-                    <a href="/shopper/my_bag" id="active">Bag</a>
+                    <a href="/shopper/my_bag">Bag</a>
                     <a href="/shopper/previous_orders">Previous Orders</a>
                     <a href="/shopper/order">Current Orders</a>
                 </div>
