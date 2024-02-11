@@ -7,9 +7,9 @@
       <a href="#" id="brand">halukay.shop</a>
     </div>
     <div class="navbar">
-      <a href="/" class="active" id="home">Home</a>
-      <a href="/about"id="about">About</a>
-      <a href="/shop"id="shop">Shop</a>
+      <a href="/" id="home">Home</a>
+      <a href="/about" id="about">About</a>
+      <a href="/shop" id="shop">Shop</a>
       <a href="/bag" class="shopper-icons" id="bag-nav">Bag</a>
       <a href="/likes" class="shopper-icons" id="likes-nav">Likes</a>
       <a href="/messages" class="shopper-icons" id="messages-nav">Messages</a>

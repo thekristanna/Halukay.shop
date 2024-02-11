@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/navbar_shopper.css" />
+<link rel="stylesheet" href="../css/navbar_seller.css" />
 <script src="/js/navbar_shopper_seller.js"></script>
 <script src="/js/navbar_public.js"></script>
 <header>
@@ -7,15 +7,15 @@
       <a href="#" id="brand">halukay.shop</a>
     </div>
     <div class="navbar">
-      <a href="/" class="active" id="home">Home</a>
-      <a href="/about"id="about">About</a>
+      <a href="/" id="home">Home</a>
+      <a href="/about" class="active" id="about">About</a>
       <a href="/shop"id="shop">Shop</a>
       <a href="/bag" class="shopper-icons" id="bag-nav">Bag</a>
-      <a href="/likes" class="shopper-icons" id="likes-nav">Likes</a>
+      <a href="/add" class="shopper-icons" id="add-nav">Add Product</a>
       <a href="/messages" class="shopper-icons" id="messages-nav">Messages</a>
       <a href="/notifications" class="shopper-icons" id="notifications-nav">Notifications</a>
       <a href="/account" class="shopper-icons" id="account-nav">Account</a>
-      <a href="/switch" class="shopper-icons" id="switch-nav">Switch to Seller</a>
+      <a href="/switch" class="shopper-icons" id="switch-nav">Switch to Shopper</a>
       <a href="/logout" class="shopper-icons" id="logout-nav">Logout</a>
              
     </div>
@@ -30,11 +30,11 @@
             </button>
 
             <button>
-                <i class="ri-heart-3-fill"></i>
+              <i class="ri-add-circle-fill"></i>
             </button>
 
             <button>
-                <i class="ri-shopping-bag-fill"></i>
+              <i class="ri-store-3-fill"></i>
             </button>
         </div>
 
@@ -54,22 +54,20 @@
             <option value="switch" disabled data-url="/">Switch to Seller</option>
             <option value="about" data-url="/logout">Logout</option>
         </select>
-       {{-- script for select:start --}}
-       <script>
-        document.getElementById("name-dropdown").addEventListener("change", function() {
-            var selectedOption = this.options[this.selectedIndex];
-            var url = selectedOption.getAttribute("data-url");
-            if (url) {
-                window.location.href = url;
-            }
-        });
-      </script>
-       {{-- script for select:end --}}
-            <span class="role">Shopper</span>
+        {{-- script for select:start --}}
+        <script>
+          document.getElementById("name-dropdown").addEventListener("change", function() {
+              var selectedOption = this.options[this.selectedIndex];
+              var url = selectedOption.getAttribute("data-url");
+              if (url) {
+                  window.location.href = url;
+              }
+          });
+        </script>
+         {{-- script for select:end --}}
+            <span class="role">Seller</span>
         </div>
         <img src="../img/users/daiben.png" id="profile-pic" />
     </div>
     <div class="bx bx-menu" id="menu-icon"></div>
   </header>
-</body>
-</html>

@@ -1,21 +1,22 @@
 <link rel="stylesheet" href="../css/navbar_seller.css" />
 <script src="/js/navbar_shopper_seller.js"></script>
+<script src="/js/navbar_public.js"></script>
 <header>
     <div class="brand">
       <img src="../img/halukay-logo.png" alt="halukay-logo" id="logo">
       <a href="#" id="brand">halukay.shop</a>
     </div>
     <div class="navbar">
-      <a href="home.html" class="active" id="home">Home</a>
-      <a href="#"id="about">About</a>
-      <a href="#"id="shop">Shop</a>
-      <a href="#" class="shopper-icons" id="bag-nav">Bag</a>
-      <a href="#" class="shopper-icons" id="add-nav">Add Product</a>
-      <a href="#" class="shopper-icons" id="messages-nav">Messages</a>
-      <a href="#" class="shopper-icons" id="notifications-nav">Notifications</a>
-      <a href="#" class="shopper-icons" id="account-nav">Account</a>
-      <a href="#" class="shopper-icons" id="switch-nav">Switch to Shopper</a>
-      <a href="#" class="shopper-icons" id="logout-nav">Logout</a>
+      <a href="/" class="active" id="home">Home</a>
+      <a href="/about"id="about">About</a>
+      <a href="/shop"id="shop">Shop</a>
+      <a href="/bag" class="shopper-icons" id="bag-nav">Bag</a>
+      <a href="/add" class="shopper-icons" id="add-nav">Add Product</a>
+      <a href="/messages" class="shopper-icons" id="messages-nav">Messages</a>
+      <a href="/notifications" class="shopper-icons" id="notifications-nav">Notifications</a>
+      <a href="/account" class="shopper-icons" id="account-nav">Account</a>
+      <a href="/switch" class="shopper-icons" id="switch-nav">Switch to Shopper</a>
+      <a href="/logout" class="shopper-icons" id="logout-nav">Logout</a>
              
     </div>
     @include('layouts/search')    
