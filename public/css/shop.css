@@ -37,7 +37,7 @@ body {
 .container {
     display: block;
     margin-top: 100px;
-    margin-bottom:-100px;
+    margin-bottom: -100px;
 }
 .shop {
     display: grid;
@@ -237,14 +237,16 @@ body {
         margin-top: -350px;
         margin-bottom: -320px;
     }
-    .right, .left{
+    .right,
+    .left {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         margin: 10px;
         align-items: center;
         text-align: center;
     }
-    .right button, .left button {
+    .right button,
+    .left button {
         margin: 7px;
         text-align: center;
         justify-content: center;
@@ -401,7 +403,7 @@ footer p {
 
     #email {
         justify-content: center;
-        margin: 0 auto; 
+        margin: 0 auto;
         margin-left: 50px;
     }
     .ri-arrow-right-line {
@@ -424,3 +426,11 @@ footer p {
     }
 }
 /* Footer: End */
+
+#shop_liked {
+    display: inline;
+}
+
+#hide_like_id {
+    display: none;
+}
