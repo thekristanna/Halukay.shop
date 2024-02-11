@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 
 //--------PUBLIC SIDE--------//
-Route::middleware('checkNotifications')->get('/about', function (Request $request) {
+Route::middleware(['checkNotifications', 'checkSellerNotifications'])->get('/about', function (Request $request) {
     return view('about', compact('request'));
 }); //will create about page ye
 
-Route::middleware('checkNotifications')->get('/', function (Request $request) {
+Route::middleware(['checkNotifications', 'checkSellerNotifications'])->get('/', function (Request $request) {
     return view('home', compact('request'));
 }); //still in process
 
@@ -24,9 +24,9 @@ Route::post('/contact', [UserController::class, 'contact_send_email']);
 
 Route::get('/show/profile/{id}', [UserController::class, 'view_profile']);
 
-Route::middleware('checkNotifications')->get('/shop', [ProductController::class, 'show_all_products']);
+Route::middleware(['checkNotifications', 'checkSellerNotifications'])->get('/shop', [ProductController::class, 'show_all_products']);
 Route::get('/shop/search', [ProductController::class, 'search_product']);
-Route::middleware('checkNotifications')->get('/shop/{id}', [ProductController::class, 'show_product']);
+Route::middleware(['checkNotifications', 'checkSellerNotifications'])->get('/shop/{id}', [ProductController::class, 'show_product']);
 Route::get('/shop/seller/{id}', [ProductController::class, 'seller_shop_view']); ///PAUL - pa add ng function yung add to bag din dito. TY
 Route::post('/shop/seller/{product_id}/{seller_id}', [ProductController::class, 'seller_shop_view_add']);
 
