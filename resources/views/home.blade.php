@@ -110,7 +110,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>Tommy Hilfiger Denim Jacket</p>
                         </div>
                         <div class="nego">
@@ -157,7 +157,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>American Eagle Outfitters Shorts</p>
                         </div>
                         <div class="nego">
@@ -204,7 +204,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>Under Armour Sports Shoes</p>
                         </div>
                         <div class="nego">
@@ -251,7 +251,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>Alexander Wang Bucket Bag</p>
                         </div>
                         <div class="nego">
