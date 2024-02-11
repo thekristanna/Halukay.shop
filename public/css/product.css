@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 :root {
     /* Colors */
     --color-one: #ffffff;
@@ -12,25 +11,33 @@
 }
 
 * {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     font-family: Poppins;
     text-decoration: none;
-    color: var(--color-four);
+    color: var(--color-two);
 }
-
+title {
+    display: none;
+}
+script {
+    display: none;
+}
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 /* Product: Start */
 .container {
     display: flex;
     flex-direction: row;
-    margin-top: 150px;
+    margin-top: 230px;
     text-align: center;
     max-width: 1200px;
     width: 100%;
@@ -68,19 +75,20 @@ body {
     justify-content: start;
     align-items: start;
     box-sizing: border-box;
-    border: 1px solid var(--color-four);
+    /* border: 1px solid var(--color-four); */
     border-radius: 20px;
     box-sizing: border-box;
     width: 700px;
     height: 450px;
-    padding: 10px 25px;
+    padding: 0px 25px;
 }
 .upper-details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0px;
     width: 97%;
+    margin-top: -10px
 }
 
 .price-and-icons {
@@ -135,14 +143,14 @@ body {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    color: var(--color-four);
+    color: var(--color-one);
     background: transparent;
-    border: 1px solid var(--color-four);
+    border: 1px solid var(--color-two);
 }
 
 .checkout:hover {
+    background: var(--color-two);
     color: var(--color-one);
-    background: var(--color-four);
 }
 
 .product-name {
@@ -164,8 +172,9 @@ body {
     cursor: pointer;
     padding: 0;
     display: inline-flex;
-    font-size: 13px;
+    font-size: 15px;
     margin: 0;
+
 }
 
 .nego-icon-btn i {
@@ -182,9 +191,9 @@ body {
     display: inline;
 }
 
-hr {
+/* hr {
     border: 0.5px solid;
-}
+} */
 .lower-details {
     display: flex;
     flex-direction: column;
@@ -240,12 +249,49 @@ hr {
 }
 a {
     text-decoration: none;
-    color: var(--color-four);
+    color: var(--color-two);
 }
 a:hover {
-    color: var(--color-three);
+    color: var(--color-one);
 }
-
+/* Product: Media Query */
+@media (max-width: 1300px) {
+    .container {
+        transform: scale(0.9);
+        margin-top: 150px;
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.85);
+        margin-top: 200px;
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        margin-top: 70px;
+        display: block;
+    }
+    .product-image img {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto 10px;
+    }
+    .product-image {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        transform: scale(0.55);
+        margin-top: -50px;
+    }
+}
+@media (max-width: 500px) {
+    .container {
+       
+    }
+}
 /* Product: End */
 
 #liked_heart {

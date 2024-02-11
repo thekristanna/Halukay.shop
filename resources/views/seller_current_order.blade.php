@@ -15,23 +15,34 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/seller_current_orders.css" />
+    <link rel="stylesheet" href="/css/seller_current_orders.css" />
     <!-- Favicon -->
-    <link rel="icon" href="../img/halukay-favicon.png" type="image/x-icon" />
+    <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
+    <!-- JS -->
+    {{-- <script src="/js/current_orders.js"></script> --}}
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+ <title>Current Orders | Halukay</title>
   </head>
   <body>
 
-    <!-- current orders -->
+ <!-- header -->
+ @if (Session::get('role') == 'seller')
+ @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+ @include('layouts/navbar_shopper')
+@else
+ @include('layouts/navbar_public')
+@endif  
+    <!-- previous orders -->
     <div class="container">
-        <div class="bag-buttons">
-            <a href="#">Bag</a>
-            <a href="#">Previous Orders</a>
-            <a href="#" id="active">Current Orders</a>
-        </div>
-        <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current Orders</p>
-
+        <div class="line">
+            <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current</p>
+            <div class="bag-buttons">
+                <a href="/shopper/my_bag">Bag</a>
+                <a href="/shopper/previous_orders">Previous Orders</a>
+                <a href="/shopper/order" id="active">Current Orders</a>
+            </div>
+          </div>
     {{-- For each seller --}}
         @foreach ($orders as $o)
             <div class="orders">
@@ -65,7 +76,9 @@
                 @endforeach
             </div>
         @endforeach
+
         
+            
     </div>
   </body>
 </html>

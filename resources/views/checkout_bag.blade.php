@@ -25,7 +25,7 @@
         {{-- JS --}}
         <script src="/js/checkout.js"></script>
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+       <title>Checkout | Halukay</title>
   
           
     </head>
@@ -38,15 +38,19 @@
   @endif 
         <!-- checkout -->
         <div class="container">
-            <div class="bag-buttons">
-                <a href="#">Bag</a>
-                <a href="#">Previous Orders</a>
-                <a href="#">Current Orders</a>
-            </div>
+            <div class="line">
+                <p class="orders-header">
+                    <i class="ri-wallet-3-fill"></i>Order Summary
+                </p>
+                <div class="bag-buttons">
+                    <a href="/shopper/my_bag" id="active">Bag</a>
+                    <a href="/shopper/previous_orders">Previous Orders</a>
+                    <a href="/shopper/order">Current Orders</a>
+                </div>
+              </div>
+              
             {{-- Removed Order ID    --}}
-            <p class="orders-header">
-                <i class="ri-wallet-3-fill"></i>Order Summary
-            </p>
+    
             <form action="/shopper/add/order/{{$name -> user_id}}" method="POST">
             @csrf
             <div class="orders">
@@ -80,7 +84,7 @@
                         <span class="comma-space">,</span>
                         <span id="add-province">{{$name -> province}}</span>
                   </div>
-                  <div class="name">
+                  <div class="name-role">
                         <span id="name">Name:</span>
                         <span id="user-name">{{$name -> first_name}} {{$name -> last_name}}</span>
                   </div>

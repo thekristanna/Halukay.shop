@@ -24,12 +24,20 @@
         />
         <script src="/js/deleteproduct.js"></script>
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+      <title>My Shop | Halukay</title>
     </head>
     <body>
+            <!-- header -->
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@else
+    @include('layouts/navbar_public')
+@endif  
         <!-- seller shop pov -->
         <div class="container">
-            <p class="orders-header"><i class="ri-store-3-fill"></i>Your Shop | <span id="username">{{$seller -> last_name}}, {{$seller -> first_name}}</span></p>
+            <p class="orders-header"><i class="ri-store-3-fill"></i>My Shop | <span id="username">{{$seller -> first_name}} {{$seller -> last_name}}</span></p>
             <div class="shop">
                 <!-- product  -->
                 @foreach ($products as $p)
@@ -60,7 +68,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>{{$p -> name}}</p>
                         </div>
                         <div class="nego">

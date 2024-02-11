@@ -22,14 +22,14 @@
   <title>Contact | Halukay</title>
   </head>
   <body>
-        <!-- header -->
-        @if (Session::get('role') == 'seller')
-        @include('layouts/seller/navbar_seller')
-    @elseif (Session::get('role') == 'shopper')
-        @include('layouts/shopper/navbar_shopper')
-    @else
-        @include('layouts/navbar_public')
-    @endif  
+           <!-- header -->
+           @if (Session::get('role') == 'seller')
+           @include('layouts/navbar_seller')
+       @elseif (Session::get('role') == 'shopper')
+           @include('layouts/navbar_shopper')
+       @else
+           @include('layouts/navbar_public')
+       @endif  
      
     <!-- contact -->
         <div class="container">

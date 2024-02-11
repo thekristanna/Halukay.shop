@@ -11,23 +11,37 @@
 }
 
 * {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     font-family: Poppins;
     text-decoration: none;
     color: var(--color-four);
 }
+title {
+    display: none;
+}
+script {
+    display: none;
+}
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 /* Orders: Start */
 .container {
     display: block;
     /* width: 70%; */
+    margin-top: 70px;
+}
+.line {
+    display: flex;
+    justify-content: space-between;
 }
 .bag-buttons {
     display: flex;
@@ -93,10 +107,15 @@ body {
     padding-left: 10px;
     font-weight: 600;
 }
+.name-role #user-name {
+    width: 500px;
+    text-align: left;
+    justify-content: flex-start;
+}
 .top-details {
     justify-content: flex-start;
 }
-button {
+.collection-status {
     outline: none;
     background: transparent;
     border: 1px solid var(--color-four);
@@ -157,7 +176,7 @@ button:hover {
 .comma-space {
     margin-right: 5px;
 }
-.name {
+.name-role {
     justify-content: flex-start;
 }
 #name {
@@ -194,4 +213,281 @@ button:hover {
 label {
     padding-top: 4px;
 }
+/* Orders: Media Query */
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.98);
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        transform: scale(0.94);
+        margin-top: 70px;
+    }
+    .orders {
+        width: 600px;
+    }
+    .item-name, .item-price {
+        margin-right: 50px;
+    }
+}
+@media (max-width: 700px)  {
+    .container {
+        transform: scale(0.92);
+        margin-top: 30px;
+    }
+}
+@media (max-width: 500px)  {
+    .container {
+        transform: scale(0.48);
+        margin-top: -110px;
+        margin-left: -75px;
+    }
+}
 /* Orders: End */
+
+/* Header: Start */
+header {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid var(--color-six);
+    background: var(--color-one);
+    padding: 12px 0;
+    z-index: 9999;
+}
+
+#brand {
+    font-family: Merriweather;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-two);
+}
+
+.navbar a {
+    color: var(--color-seven);
+    margin: 20px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.navbar .active {
+    color: var(--color-two);
+    border-bottom: 2px solid var(--color-two);
+    font-weight: 600;
+}
+
+#logo {
+    width: 55px;
+}
+
+#search-input {
+    outline: none;
+    border: 1px solid var(--color-six);
+    background: transparent;
+    border-radius: 20px;
+    padding: 8px 30px 8px 55px;
+    width: 250px;
+}
+
+#search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+#search-icon {
+    font-weight: bold;
+    color: var(--color-seven);
+    padding-right: 12px;
+    border-right: 1px solid var(--color-six);
+    transform: translate(-90px);
+    position: absolute;
+}
+
+#login {
+    padding: 10px;
+    width: 100px;
+    color: var(--color-one);
+    background: var(--color-two);
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-right: 10px;
+}
+
+#login-nav {
+    display: none;
+}
+
+#menu-icon {
+    display: none;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#dropdown {
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.profile-name-role {
+    display: block;
+}
+
+.name {
+    margin-right: 15px;
+    transform: translate(0px, 5px);
+    font-size: 13px;
+    color: var(--color-two);
+    width: 120px;
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.role {
+    transform: translate(-30px, 3px);
+    font-size: 10px;
+    color: var(--color-two);
+    width: 100%;
+    text-align: right;
+    justify-content: flex-end;
+    margin: 0;
+}
+.header-icons button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.header-icons i {
+    font-size: 20px;
+}
+.header-icons button:hover {
+    transform: scale(1.1);
+}
+select {
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 15px;
+    transform: translate(0px, 5px);
+    font-size: 13px;
+    color: var(--color-two);
+    width: 150px;
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+.shopper-icons {
+    display: none;
+}
+/* Header: Media Query */
+@media (max-width: 900px) {
+    .navbar,
+    .login {
+        display: none;
+    }
+    #login-nav {
+        display: block;
+    }
+    .navbar.open {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 80;
+        margin-top: 20px;
+        padding: 0;
+    }
+    .navbar {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%; 
+        margin-top: 20px;
+        padding: 0;
+        background: var(--color-two);
+    }
+
+    .navbar a {
+        color: var(--color-one);
+    }
+    .navbar .active {
+        color: var(--color-one);
+        border-bottom: 1px solid var(--color-one);
+    }
+    .navbar a,
+    #login-nav {
+        display: block;
+    }
+    #menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+    .unclickable {
+        pointer-events: none;
+      }
+    #profile-pic {
+        display: none;
+    }
+    #name-dropdown {
+       display: none;
+    }
+    .role {
+       display: none;
+    }
+    .profile button i {
+        display: none;
+    }
+}
+@media (max-width: 700px) {
+    header {
+        transform: scale(0.9);
+        margin: 0 auto;
+        top: -5px;
+    }
+    .navbar {
+        transform: scale(0.99) translateY(-2px);
+    }
+}
+@media (max-width: 500px) {
+    header div {
+        transform: scale(0.89);
+    }
+    .search {
+        margin: 0;
+        position: absolute;
+        transform: scale(0.6) translate(220px, 0px);
+    }
+    #search-input {
+        width: 180px;
+        padding: 8px 5px 8px 50px;
+    }
+    #search-button {
+        transform: translate(30px);
+    }
+    .navbar {
+        transform: scale(0.99) translateY(-10px);
+   }
+}
+/* Header: End */
