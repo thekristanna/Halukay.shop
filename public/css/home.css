@@ -38,6 +38,8 @@ body {
     display: block;
     margin: 0;
     padding: 0;
+    margin-top: 160px;
+    margin-bottom: 200px;
 }
 #main-heading {
     color: var(--color-two);
@@ -344,6 +346,8 @@ body {
 @media (max-width: 1300px) {
     .container {
         transform: scale(0.85);
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
 @media (max-width: 900px) {
