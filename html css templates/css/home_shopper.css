@@ -717,7 +717,76 @@ header {
     font-size: 25px;
     margin-right: 10px;
 }
+/*  */
 
+
+#profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#dropdown {
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.profile-name-role {
+    display: block;
+}
+
+.name {
+    margin-right: 15px;
+    transform: translate(0px, 5px);
+    font-size: 13px;
+    color: var(--color-two);
+    width: 120px;
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.role {
+    transform: translate(-30px, 3px);
+    font-size: 10px;
+    color: var(--color-two);
+    width: 100%;
+    text-align: right;
+    justify-content: flex-end;
+    margin: 0;
+}
+.header-icons button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.header-icons i {
+    font-size: 20px;
+}
+.header-icons button:hover {
+    transform: scale(1.1);
+}
+select {
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 15px;
+    transform: translate(0px, 5px);
+    font-size: 13px;
+    color: var(--color-two);
+    width: 150px;
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+.shopper-icons {
+    display: none;
+}
 /* Header: Media Query */
 @media (max-width: 900px) {
     .navbar,
@@ -740,7 +809,7 @@ header {
         position: absolute;
         top: 60px;
         right: 0;
-        width: 100%;
+        width: 100%; 
         margin-top: 20px;
         padding: 0;
         background: var(--color-two);
@@ -761,24 +830,35 @@ header {
         display: block;
         cursor: pointer;
     }
-    .navbar a {
-        font-size: 10px;
+    .unclickable {
+        pointer-events: none;
+      }
+    #profile-pic {
+        display: none;
+    }
+    #name-dropdown {
+       display: none;
+    }
+    .role {
+       display: none;
+    }
+    .profile button i {
+        display: none;
     }
 }
 @media (max-width: 700px) {
     header {
-        transform: scale(0.89);
+        transform: scale(0.9);
         margin: 0 auto;
         top: -5px;
     }
     .navbar {
-        transform: scale(0.99) translateY(-1px);
+        transform: scale(0.99) translateY(-2px);
     }
 }
-
 @media (max-width: 500px) {
     header div {
-        transform: scale(0.9);
+        transform: scale(0.89);
     }
     .search {
         margin: 0;
@@ -792,5 +872,8 @@ header {
     #search-button {
         transform: translate(30px);
     }
+    .navbar {
+        transform: scale(0.99) translateY(-10px);
+   }
 }
 /* Header: End */
