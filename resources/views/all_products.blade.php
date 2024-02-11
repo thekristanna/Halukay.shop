@@ -38,341 +38,146 @@
         <!-- shop -->
         <div class="container">
             <div class="filter-buttons">
+                <form action="/shop" method="GET">
                 <div class="left">
-                    <button>All</button>
-                    <button>Clothes</button>
-                    <button>Shoes</button>
-                    <button>Bags</button>
+                    <button name="category" value="All">All</button>
+                    <button name="category" value="Clothes">Clothes</button>
+                    <button name="category" value="Shoes">Shoes</button>
+                    <button name="category" value="Bags">Bags</button>
                 </div>
+            </form>
+            <form action="/shop" method="GET">
                 <div class="right">
-                    <label for="sortOptions">Sort by:</label>
-                    <select name="sortOptions" id="sortOptions">
-                        <option value="highToLow">Price: High to Low</option>
-                        <option value="lowToHigh">Price: Low to High</option>
-                        <option value="aToZ">A to Z</option>
-                        <option value="zToA">Z to A</option>
-                    </select>
-                    
+                    <button type="submit" name="sortOptions" value="highToLow">Price: High to Low</button>
+                    <button type="submit" name="sortOptions" value="lowToHigh">Price: Low to High</button>
+                    <button type="submit" name="sortOptions" value="aToZ">A to Z</button>
+                    <button type="submit" name="sortOptions" value="zToA">Z to A</button>
                 </div>
+            </form>
             </div>
             <div class="shop">
                 <!-- product  -->
+                @foreach ($products as $p)
+                <a href="/shop/{{$p -> product_id}}" id="product_name">
                 <div class="product">
                     <div class="image">
                         <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
+                            src="../img/products/{{$p -> product_photo}}"
+                            alt="{{$p -> name}}"
                         />
                     </div>
                     <div class="info">
                         <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
+                            <div class="price"><p id="price">₱ {{ $p -> price }}</p></div>
                             <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
+
+                                {{-- HEART ICON FUNCTION --}}
+
+                                <span hidden>{{$found = false}}</span>
+                                @if (Session::get('role') == 'shopper')
+                                    @foreach ($liked as $l)
+                                        @if ($p -> product_id == $l -> product_id)
+                                        <span hidden>{{$found = $l -> like_id}}</span>
+                                        @endif
+                                    @endforeach
+
+                                    @if ($found)
+                                     <form action="/shopper/products/unlike/{{$found}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="icon-btn" type="submit">
+                                            <i class="ri-heart-3-fill heart-icon-fill"></i>
+                                        </button>
+                                    </form>
+                                    <span hidden>{{$found = false}}</span>
+
+                                @else
+                                     <form action="/shopper/products/likes/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
+                                         @csrf
+                                             <button class="icon-btn" type="submit">
+                                              <i class="ri-heart-3-line heart-icon"></i>
+                                              <i
+                                             class="ri-heart-3-fill heart-icon-fill"
+                                             ></i>
+                                         </button>
+                                        </form>
+                                    @endif
+
+                                @else
+                                    <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                                        <button class="icon-btn">
+                                            <i class="ri-heart-3-line heart-icon"></i>
+                                            <i
+                                                class="ri-heart-3-fill heart-icon-fill"
+                                            ></i>
+                                        </button>
+                                    </form>
+                                 @endif
+
+                               
+
+                                {{-- SHOPPING ICON FUNCTION --}}
+
+                                @if (Session::get('role') == 'shopper')
+                                <form action="/shopper/my_bag/{{$p -> product_id}}/{{$p -> seller_id}}" method="POST">
+                                             @csrf
+                                              <button class="icon-btn" type="submit">
+                                                <i class="ri-shopping-bag-line shopping-icon"></i>
+                                                    <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                                                </button>
+                                            </form>
+                                            @else
+                                            <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                                  <button class="icon-btn">
+                                      <i
+                                          class="ri-shopping-bag-line shopping-icon"
+                                      ></i>
+                                      <i
+                                          class="ri-shopping-bag-fill shopping-icon-fill"
+                                      ></i>
+                                  </button>
+                                </form>
+                                @endif
+
                             </div>
                         </div>
                         <div class="name">
-                            <p>Salvat</p>
+                            <p>{{$p -> name}}</p>
                         </div>
                         <div class="nego">
                             <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
+                                {{$p -> nego_status}}
+                                @if (Session::get('role') == 'shopper')
+                                            <form action="/redir_shopper_bag/{{$p -> product_id}}" method="GET">
+                                              <button class="icon-btn nego-icon-btn">
+                                                <i class="ri-discuss-line"></i>
+                                                <i
+                                                    class="ri-discuss-fill"
+                                                    id="filled-message"
+                                                ></i>
+                                            </button>
+                                            </form>
+                                            @else
+                                            <form action="/redir_login/{{$p -> product_id}}" method="GET">
+                                  <button class="icon-btn nego-icon-btn">
+                                      <i class="ri-discuss-line"></i>
+                                      <i
+                                          class="ri-discuss-fill"
+                                          id="filled-message"
+                                      ></i>
+                                  </button>
+                                </form>
+                                @endif
                         </div>
                     </div>
                 </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- product  -->
-                <div class="product">
-                    <div class="image">
-                        <img
-                            src="../img/products/Adidas Running Shoes.png"
-                            alt="product-id"
-                        />
-                    </div>
-                    <div class="info">
-                        <div class="price-buttons">
-                            <div class="price"><p id="price">₱ 100</p></div>
-                            <div class="icons">
-                                <button class="icon-btn">
-                                    <i class="ri-heart-3-line heart-icon"></i>
-                                    <i
-                                        class="ri-heart-3-fill heart-icon-fill"
-                                    ></i>
-                                </button>
-                                <button class="icon-btn">
-                                    <i
-                                        class="ri-shopping-bag-line shopping-icon"
-                                    ></i>
-                                    <i
-                                        class="ri-shopping-bag-fill shopping-icon-fill"
-                                    ></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="name">
-                            <p>Salvat</p>
-                        </div>
-                        <div class="nego">
-                            <p class="nego-status">
-                                Negotiable
-                                <button class="icon-btn nego-icon-btn">
-                                    <i class="ri-discuss-line"></i>
-                                    <i
-                                        class="ri-discuss-fill"
-                                        id="filled-message"
-                                    ></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+               </a>
+             @endforeach
+             
             </div>
+          
         </div>
+        {{$products -> links('pagination::default')}}
     <!-- footer -->
     <footer>
         <div class="footer-brand">

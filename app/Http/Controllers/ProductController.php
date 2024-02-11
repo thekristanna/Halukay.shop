@@ -17,6 +17,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class ProductController extends Controller
 {
+
     use Sortable;
 
 
@@ -350,6 +351,7 @@ class ProductController extends Controller
         $products = Product::query()
             ->select('name', 'price', 'nego_status', 'category', 'product_photo');
 
+
         if ($r->filled("search")) {
             $products->where(function ($query) use ($r) {
                 $query->where('name', 'LIKE', '%' . $r->input('search') . '%')
@@ -357,11 +359,19 @@ class ProductController extends Controller
             });
         }
 
+
+
+
+        $liked = LikeProduct::query()
+            ->select('product_id', 'like_id')
+            ->where('shopper_id', '=', Session::get('user_id'))
+            ->get();
+
         $products = $products
             ->sortable()->paginate(20);
         $products->appends($r->except('page'));
 
-        return view('all_products', compact('products'));
+        return view('all_products', compact('products', 'liked'));
     }
 
     /////______PUBLIC SIDE FUNCTIONS________/////
@@ -393,11 +403,37 @@ class ProductController extends Controller
             ->select('*')
             ->where('availability', '=', 'available'); //added show available products only
         if ($r->filled('category')) {
-            $products->where('category', '=', $r->input('category'));
+            $category = $r->input('category');
+            if ($category == 'All') {
+                $products->whereIn('category', ['Clothes', 'Bags', 'Shoes']);
+            } else {
+                $products->where('category', $category);
+            }
+        }
+
+
+        if ($r->filled('sortOptions')) {
+            $sortOption = $r->input('sortOptions');
+            switch ($sortOption) {
+                case 'highToLow':
+                    $products->orderBy('price', 'DESC');
+                    break;
+                case 'lowToHigh':
+                    $products->orderBy('price', 'ASC');
+                    break;
+                case 'aToZ':
+                    $products->orderBy('name', 'ASC');
+                    break;
+                case 'zToA':
+                    $products->orderBy('name', 'DESC');
+                    break;
+                default:
+                    break;
+            }
         }
 
         $products = $products
-            ->paginate(20);
+            ->paginate(8);
         $products->appends($r->except('page'));
 
         $liked = LikeProduct::query()
@@ -405,7 +441,7 @@ class ProductController extends Controller
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
-        // return $liked;
+
 
         return view('all_products', compact('products', 'liked'));
     }
