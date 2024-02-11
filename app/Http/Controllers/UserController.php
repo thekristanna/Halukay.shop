@@ -266,11 +266,35 @@ class UserController extends Controller
     public function view_profile(string $id)
     {
         $profile = User::query()
-            ->select('*')
-            ->where('user_id', '=', $id)
+            ->select('first_name', 'last_name', 'display_name', 'role', 'profile_photo')
+            ->where('users.user_id', '=', $id)
             ->first();
 
-        return view('profile', compact('profile'));
+        if ($profile->role == "seller") {
+            $rate = SellerRating::query()
+                ->select('seller_id', 'rate', 'comment')
+                ->where('seller_id', '=', $id)
+                ->get();
+
+            $average = SellerRating::query()
+                ->select(DB::raw('FORMAT(AVG(rate), 2) AS ratings'))
+                ->where('seller_id', '=', $id)
+                ->first();
+        } else {
+            $rate = ShopperRating::query()
+                ->select('shopper_id', 'rate', 'comment')
+                ->where('shopper_id', '=', $id)
+                ->get();
+
+            $average = ShopperRating::query()
+                ->select(DB::raw('FORMAT(AVG(rate), 2) AS ratings'))
+                ->where('shopper_id', '=', $id)
+                ->first();
+        }
+
+
+
+        return view('profile', compact('profile', 'rate', 'average'));
     }
 
     /////___LOGOUT___/////
