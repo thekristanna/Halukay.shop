@@ -29,11 +29,14 @@
         <!-- collection status -->
         <div class="container">
             <div class="top-line">
-                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for delivery</span></p>
+                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for pickup</span></p>
                 <select name="name-dropdown" id="name-dropdown" class="unclickable">
                     <option value="select" disabled selected id="select">Select Status</option>
-                    <option value="order-received" id="order-received">Order Received</option>
-                    <option value="rate-seller" id="rate-seller">Rate Seller</option>
+                    <option value="confirm-order" id="confirm-order">Confirm Order</option>
+                    <option value="preparing" id="preparing">Preparing Order</option>
+                    <option value="ready" id="ready">Ready for Shopper Pickup</option>
+                    <option value="delivered" id="delivered">Order has been Collected by Shopper</option>
+                    <option value="rate-shopper" id="rate-shopper">Rate Shopper</option>
                 
                 </select>
             </div>

@@ -15,7 +15,7 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/seller_collection_status.css" />
+        <link rel="stylesheet" href="../css/shopper_collection_status.css" />
         <!-- Favicon -->
         <link
             rel="icon"
@@ -23,14 +23,22 @@
             type="image/x-icon"
         />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>Status | Halukay</title>
     </head>
     <body>
         <!-- collection status -->
         <div class="container">
             <div class="top-line">
-                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for delivery</span></p>
-                <button class="status-button">Status Button</button>
+                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for meetup</span></p>
+                <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                    <option value="select" disabled selected id="select">Select Status</option>
+                    <option value="confirm-order" id="confirm-order">Confirm Order</option>
+                    <option value="preparing" id="preparing">Preparing Order</option>
+                    <option value="ready" id="ready">Ready for Meetup with Shopper</option>
+                    <option value="delivered" id="delivered">Order has been Collected by Shopper</option>
+                    <option value="rate-shopper" id="rate-shopper">Rate Shopper</option>
+                
+                </select>
             </div>
             <button class="order-id">Order ID: <span id="order-id">1234</span></button>
             <div class="status">
