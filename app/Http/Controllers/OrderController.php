@@ -118,6 +118,30 @@ class OrderController extends Controller
         return view('shopper_previous_order', compact('orders'));
     }
 
+    ////_____UPDATE ORDER STATUS SHOPPER_____////
+    public function edit_shopper_order_status(string $id, Request $r)
+    {
+        $status = new OrderStatus;
+        $status->order_id = $id;
+        $status->status = $r->input('name-dropdown');
+
+        $status->save();
+
+        return redirect('/shopper/order/status/' . $id);
+    }
+
+    ////_____UPDATE ORDER STATUS SELLER_____////
+    public function edit_seller_order_status(string $id, Request $r)
+    {
+        $status = new OrderStatus;
+        $status->order_id = $id;
+        $status->status = $r->input('name-dropdown');
+
+        $status->save();
+
+        return redirect('/seller/order/status/' . $id);
+    }
+
     ////_____SHOPPER ORDER STATUS_____/////
     public function shopper_order_status(string $id)
     {
@@ -131,7 +155,7 @@ class OrderController extends Controller
             ->first();
 
         $status = OrderStatus::query()
-            ->select('status', 'date_time')
+            ->select('status', 'date_time', 'order_id')
             ->where('order_status.order_id', '=', $id)
             ->orderBy('order_id')
             ->get();
@@ -154,10 +178,22 @@ class OrderController extends Controller
         $status = OrderStatus::query()
             ->select('status', 'date_time')
             ->where('order_status.order_id', '=', $id)
-            ->orderBy('order_id')
+            ->orderBy('date_time')
             ->get();
 
-        return view('seller_order_status', compact('order', 'status'));
+        $rate = OrderStatus::query()
+            ->select('status')
+            ->where('order_id', '=', $id)
+            ->where('status', '=', 'Rate shopper experience')
+            ->get()
+            ->first();
+
+        $shopper = Order::query()
+            ->select('shopper_id', 'order_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        return view('seller_order_status', compact('order', 'status', 'rate', 'shopper'));
     }
 
     ////_____SELLER ORDER SECTION_____////

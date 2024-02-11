@@ -107,12 +107,13 @@
             <div class="top-line">
                 <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">{{$order -> collect_op}}</span></p>
 
-                <form action="">
+                <form action="/shopper/order/status/{{$order -> order_id}}" method="POST">
+                    @csrf
                     <div class="send-status">
-                        <select name="dropdown" id="status-dropdown">
+                        <select name="name-dropdown" id="status-dropdown">
                             <option value="select" disabled selected id="select">Select Status</option>
-                            <option value="order-received" id="order-received">Order Received</option>
-                            <option value="rate-seller" id="rate-seller">Rate Seller</option>
+                            <option value="Order Received." id="order-received">Order Received</option>
+                            <option value="Rate your experience with the seller." id="rate-seller">Rate Seller</option>
                         </select>
                     <button class="submit">
                         <i class="ri-send-plane-line"></i>

@@ -67,7 +67,8 @@ class UserController extends Controller
     {
         $rate = Order::query()
             ->select('seller_id', 'order_id')
-            ->where('order_id', '=', Session::get('user_id'))
+            ->where('order_id', '=', $order_id)
+            ->where('seller_id', '=', Session::get('user_id'))
             ->where('shopper_id', '=', $shopper_id)
             ->first();
 

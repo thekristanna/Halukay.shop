@@ -95,35 +95,36 @@
 
                 
                 <div class="send-status">
-                    <form action="">
-                    <select name="name-dropdown" id="name-dropdown" class="unclickable">
-                        @if($order->collect_op == "delivery")
-                            <option value="select" disabled selected id="select">Select Status</option>
-                            <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
-                            <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
-                            <option value="Order is ready to be shipped" id="ready">Ready to ship</option>
-                            <option value="Order is currently is now on delivery" id="delivered">Order in delivery</option>
-                            <option value="Seller({{$order->display_name}}) confirmed order is delivered." id="delivered">Order is received</option>
-                            <option value="Rate shopper experience" id="rate-shopper">Rate Shopper</option>
+                    <form action="/seller/order/status/{{$order -> order_id}}" method="POST">
+                        @csrf
+                        <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                            @if($order->collect_op == "delivery")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
+                                <option value="Order is ready to be shipped" id="ready">Ready to ship</option>
+                                <option value="Order is currently is now on delivery" id="delivered">Order in delivery</option>
+                                <option value="Seller({{$order->display_name}}) confirmed order is delivered." id="delivered">Order is received</option>
+                                <option value="Rate shopper experience" id="rate-shopper">Rate Shopper</option>
 
-                        @elseif($order->collect->op == "pickup")
-                            <option value="select" disabled selected id="select">Select Status</option>
-                            <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
-                            <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
-                            <option value="Order is ready for pickup." id="ready">Ready for Meetup with Shopper</option>
-                            <option value="Order is delivered." id="delivered">Order has been Collected</option>
-                            <option value="Rate shopper experience." id="rate-shopper">Rate Shopper</option>
+                            @elseif($order->collect->op == "pickup")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
+                                <option value="Order is ready for pickup." id="ready">Ready for Meetup with Shopper</option>
+                                <option value="Order is delivered." id="delivered">Order has been Collected</option>
+                                <option value="Rate shopper experience." id="rate-shopper">Rate Shopper</option>
 
-                        @elseif($order->collect->op == "meetup")
-                            <option value="select" disabled selected id="select">Select Status</option>
-                            <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
-                            <option value="Seller({{$order->display_name}}) is preparing your order" id="preparing">Preparing Order</option>
-                            <option value="Seller({{$order->display_name}}) is now ready for meetup" id="ready">Ready for Meetup with Shopper</option>
-                            <option value="Order is delivered." id="delivered">Order has been Collected</option>
-                            <option value="Rate shopper experience." id="rate-shopper">Rate Shopper</option>
-                        @endif
+                            @elseif($order->collect->op == "meetup")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order" id="preparing">Preparing Order</option>
+                                <option value="Seller({{$order->display_name}}) is now ready for meetup" id="ready">Ready for Meetup with Shopper</option>
+                                <option value="Order is delivered." id="delivered">Order has been Collected</option>
+                                <option value="Rate shopper experience" id="rate-shopper">Rate Shopper</option>
+                            @endif
 
-                    </select>
+                        </select>
                         <button class="submit">
                             <i class="ri-send-plane-line"></i>
                             <i class="ri-send-plane-fill"></i>
@@ -137,8 +138,11 @@
                     @foreach($status as $s)
                         <p class="current-status"><span class="date">{{$s -> date_time->format('Y-m-d')}}</span><span class="time">{{($s->date_time)->format('h:i A') }}</span><span class="details">{{$s -> status}}</span></p>
                     @endforeach
-                </div>
 
+                    @if($rate && $rate->status == "Rate shopper experience")
+                         <a href="/seller/rate/shopper/{{$shopper->shopper_id}}/{{$shopper->order_id}}"><button class="order-id">Rate</button></a>
+                    @endif
+                </div> 
             </div>
         </body>
     </html>

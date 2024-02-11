@@ -40,7 +40,7 @@
                 <div class="top">
                     <p class="order-id">Order ID:<span id="order-id">{{$o->order_id}}</span></p>
                     <div class="top-details">
-                        <button class="collection-status">View Status Details</button>
+                        <a href="/shopper/order/status/{{$o->order_id}}"><button class="collection-status">View Status Details</button></a>
                         <p class="order-status">{{$o->status_shopper}}</p>
                     </div>
                 </div>
