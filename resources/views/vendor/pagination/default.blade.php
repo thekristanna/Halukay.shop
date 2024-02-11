@@ -1,3 +1,21 @@
+<style>
+    li {
+        margin: 10px;
+        border: 1px solid white;
+        height: 20px;
+        width: 20px;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    li:hover {
+           border: 1px solid #774123;
+        
+    }
+    style {
+        display: none
+    }
+</style>
 @if ($paginator->hasPages())
     <nav>
         <ul class="pagination">

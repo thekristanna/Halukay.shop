@@ -141,7 +141,7 @@
 
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>{{$p -> name}}</p>
                         </div>
                         <div class="nego">
