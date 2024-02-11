@@ -56,7 +56,7 @@
                     </button>
 
                 @endif
-                    <form action="/shopper/notifications/{{$n -> notif_id}}" method="POST">
+                    <form action="/seller/notifications/{{$n -> notif_id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="delete" type="submit">
