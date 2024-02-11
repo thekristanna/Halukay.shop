@@ -144,6 +144,32 @@ select {
 .delete:hover .ri-delete-bin-fill {
     display: inline;
 }
+.submit {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px;
+    background: var(--color-one);
+    z-index: 100;
+    transform: translateX(-15px);
+font-size: 16px;
+}
+.ri-send-plane-fill {
+    display: none;
+    border: none;
+}
+.submit:hover .ri-send-plane-line {
+    display: none;
+    
+}
+.submit:hover .ri-send-plane-fill {
+    display: inline;
+}
+#status-dropdown{
+    margin-right: 0;
+}
 /* Collection: End */
 
 /* Footer: Start */

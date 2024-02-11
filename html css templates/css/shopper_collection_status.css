@@ -38,7 +38,7 @@ body {
     display: block;
     justify-content: flex-start;
     margin-top: 70px;
-    /* width: 70%; */
+    width: 100%
 }
 .top-line {
     justify-content: space-between;
@@ -143,6 +143,43 @@ select {
 }
 .delete:hover .ri-delete-bin-fill {
     display: inline;
+}
+.submit {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px;
+    background: var(--color-one);
+    z-index: 100;
+    transform: translateX(-15px);
+font-size: 16px;
+}
+.ri-send-plane-fill {
+    display: none;
+    border: none;
+}
+.submit:hover .ri-send-plane-line {
+    display: none;
+    
+}
+.submit:hover .ri-send-plane-fill {
+    display: inline;
+}
+#status-dropdown{
+    margin-right: 0;
+}
+/* Collection: Media Query */
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.92);
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        transform: scale(0.92);
+    }
 }
 /* Collection: End */
 

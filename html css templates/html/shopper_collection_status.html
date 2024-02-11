@@ -85,6 +85,7 @@
                   <option value="switch" disabled data-url="seller.html">Switch to Seller</option>
                   <option value="about" data-url="about.html">Logout</option>
               </select>
+              
               <script>
                 document.getElementById("name-dropdown").addEventListener("change", function() {
                     var selectedOption = this.options[this.selectedIndex];
@@ -105,12 +106,19 @@
         <div class="container">
             <div class="top-line">
                 <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for delivery</span></p>
-                <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                <div class="send-status">
+                    <select name="dropdown" id="status-dropdown">
                     <option value="select" disabled selected id="select">Select Status</option>
                     <option value="order-received" id="order-received">Order Received</option>
                     <option value="rate-seller" id="rate-seller">Rate Seller</option>
-                
+                    
                 </select>
+                <button class="submit">
+                    <i class="ri-send-plane-line"></i>
+                    <i class="ri-send-plane-fill"></i>
+                  </button>
+                </div>
+                
             </div>
             <button class="order-id">Order ID: <span id="order-id">1234</span></button>
             <div class="status">
