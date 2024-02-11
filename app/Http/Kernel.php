@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'checkSessionSeller' => \App\Http\Middleware\CheckSessionSeller::class,
         'checkSessionShopper' => \App\Http\Middleware\CheckSessionShopper::class,
         'checkNotifications' => \App\Http\Middleware\UpdateNotifications::class,
+        'checkSellerNotifications' => \App\Http\Middleware\CheckSellerNotifications::class,
     ];
 }
