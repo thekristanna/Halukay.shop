@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\OrdersProduct;
 use App\Models\Mybag;
+use App\Models\OrderStatus;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +17,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class OrderController extends Controller
 {
-    ////_____SHOPPER ORDER SECTION____////-------------will need to consult
+    ////_____SHOPPER ORDER SECTION____////
     public function shopper_add_order(string $id, request $r)
     {
         $order = new Order;
@@ -45,6 +46,12 @@ class OrderController extends Controller
             $op->save();
             array_push($order_products, $op);
         }
+
+        $orderstatus = new OrderStatus;
+        $orderstatus->order_id = $order->order_id;
+        $orderstatus->status = "Order is submitted. Awaiting for seller's response.";
+
+        $orderstatus->save();
 
         $delete_bag = Mybag::query()
             ->where('shopper_id', '=', Session::get('user_id'))

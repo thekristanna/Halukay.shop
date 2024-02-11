@@ -73,6 +73,9 @@ Route::middleware(['checkSessionShopper'])->group(function () {
     Route::get('/shopper/previous_orders', [OrderController::class, 'shopper_previous_order']);
     Route::post('/shopper/add/order/{id}', [OrderController::class, 'shopper_add_order']);
 
+    Route::get('/shopper/order/status/{id}', [OrderController::class, 'shopper_order_status']);
+    Route::post('/shopper/order/status/{id}', [OrderController::class, 'edit_shopper_order_status']);
+
     //----RATE SELLER----//
     Route::get('/shopper/rate/seller/{seller_id}/{order_id}', [UserController::class, 'rate_shopper_to_seller_view']);
     Route::post('/shopper/rate/seller/{seller_id}/{order_id}', [UserController::class, 'rate_shopper_to_seller']);
@@ -103,6 +106,9 @@ Route::middleware(['checkSessionSeller'])->group(function () {
     //---SELLER ORDER---//
     Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
     Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
+
+    Route::get('/seller/current_orders/status/{id}', [OrderController::class, 'seller_order_status']);
+    Route::post('/seller/order/status/{id}', [OrderController::class, 'edit_seller_order_status']);
 
     //----RATE SHOPPER----//
     Route::get('/seller/rate/shopper/{shopper_id}/{order_id}', [UserController::class, 'rate_seller_to_shopper_view']);
