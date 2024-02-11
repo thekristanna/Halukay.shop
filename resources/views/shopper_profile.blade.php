@@ -25,6 +25,13 @@
     <!-- shopper profile -->
     <div class="container">
       <!-- profile -->
+      @if (Session::get('role') == 'seller')
+      @include('layouts/navbar_seller')
+  @elseif (Session::get('role') == 'shopper')
+      @include('layouts/navbar_shopper')
+  @else
+      @include('layouts/navbar_public')
+  @endif  
       <div class="shopper-profile">
         <img src="/img/users/daiben.png" />
         <h1 id="name">Daiben Sanchez</h1>

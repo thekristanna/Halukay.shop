@@ -27,64 +27,13 @@
     </head>
     <body>
          <!-- header -->
-    <header>
-        <div class="brand">
-          <img src="/img/halukay-logo.png" alt="halukay-logo" id="logo">
-          <a href="#" id="brand">halukay.shop</a>
-        </div>
-        <div class="navbar">
-          <a href="home.html" class="active" id="home">Home</a>
-          <a href="#"id="about">About</a>
-          <a href="#"id="shop">Shop</a>
-          <a href="#" class="shopper-icons" id="bag-nav">Bag</a>
-          <a href="#" class="shopper-icons" id="add-nav">Add Product</a>
-          <a href="#" class="shopper-icons" id="messages-nav">Messages</a>
-          <a href="#" class="shopper-icons" id="notifications-nav">Notifications</a>
-          <a href="#" class="shopper-icons" id="account-nav">Account</a>
-          <a href="#" class="shopper-icons" id="switch-nav">Switch to Shopper</a>
-          <a href="#" class="shopper-icons" id="logout-nav">Logout</a>
-                 
-        </div>
-        <form class="search">
-            <input type="text" id="search-input" placeholder="Search here"/>
-            <button type="submit" id="search-button">
-              <i class="ri-search-line" id="search-icon"></i>
-            </button>
-          </form> 
-          <div class="profile">
-            <div class="header-icons">
-                <button>
-                    <i class="ri-notification-3-fill"></i>
-                </button>
-                <button>
-                    <i class="ri-discuss-fill"></i>
-                </button>
-  
-                <button>
-                  <i class="ri-add-circle-fill"></i>
-                </button>
-  
-                <button>
-                  <i class="ri-store-3-fill"></i>
-                </button>
-            </div>
-  
-            <div class="profile-name-role">
-                <!-- <p class="name">
-                   @daibenangelo
-                </p> -->
-                <select name="name-dropdown" id="name-dropdown" class="unclickable">
-                    <option value="username" disabled selected id="username-nav">@daibenangelo</option>
-                    <option value="account">Account</option>
-                    <option value="switch">Switch to Shopper</option>
-                    <option value="logout">Logout</option>
-                </select>
-                <span class="role">Seller</span>
-            </div>
-            <img src="../img/users/daiben.png" id="profile-pic" />
-        </div>
-        <div class="bx bx-menu" id="menu-icon"></div>
-      </header>
+         @if (Session::get('role') == 'seller')
+         @include('layouts/navbar_seller')
+     @elseif (Session::get('role') == 'shopper')
+         @include('layouts/navbar_shopper')
+     @else
+         @include('layouts/navbar_public')
+     @endif  
 
 
 

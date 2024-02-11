@@ -27,6 +27,13 @@
     </head>
     <body>
         <!-- shopper to seller rating -->
+        @if (Session::get('role') == 'seller')
+        @include('layouts/navbar_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/navbar_shopper')
+    @else
+        @include('layouts/navbar_public')
+    @endif  
         
         <div class="container">
             <h1>Rate Seller</h1>

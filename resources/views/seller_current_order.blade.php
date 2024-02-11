@@ -39,8 +39,8 @@
             <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current</p>
             <div class="bag-buttons">
                 <a href="/shopper/my_bag">Bag</a>
-                <a href="/shopper/previous_orders">Previous Orders</a>
-                <a href="/shopper/order" id="active">Current Orders</a>
+                <a href="/seller/previous_orders">Previous Orders</a>
+                <a href="/seller/current_orders" id="active">Current Orders</a>
             </div>
           </div>
     {{-- For each seller --}}

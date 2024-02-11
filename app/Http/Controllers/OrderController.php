@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\OrdersProduct;
 use App\Models\Mybag;
 use App\Models\OrderStatus;
+use App\Models\Notification;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -52,6 +53,12 @@ class OrderController extends Controller
         $orderstatus->status = "Order is submitted. Awaiting for seller's response.";
 
         $orderstatus->save();
+
+        $notif_seller = new Notification;
+        $notif_seller->content = "An order has been made. Kindly check your current order status for more info.";
+        $notif_seller->user_id = $id;
+        $notif_seller->marked_seen = 0;
+        $notif_seller->save();
 
         $delete_bag = Mybag::query()
             ->where('shopper_id', '=', Session::get('user_id'))
@@ -128,6 +135,17 @@ class OrderController extends Controller
 
         $status->save();
 
+        $seller = Order::query()
+            ->select('seller_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        $notif_seller = new Notification;
+        $notif_seller->content = "Order ID:" . $id . " has been updated. Please check your order status for more information.";
+        $notif_seller->user_id = $seller->seller_id;
+        $notif_seller->marked_seen = 0;
+        $notif_seller->save();
+
         return redirect('/shopper/order/status/' . $id);
     }
 
@@ -139,6 +157,17 @@ class OrderController extends Controller
         $status->status = $r->input('name-dropdown');
 
         $status->save();
+
+        $shopper = Order::query()
+            ->select('shopper_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        $notif_seller = new Notification;
+        $notif_seller->content = "Order ID:" . $id . " has been updated. Please check your order status for more information.";
+        $notif_seller->user_id = $shopper->shopper_id;
+        $notif_seller->marked_seen = 0;
+        $notif_seller->save();
 
         return redirect('/seller/order/status/' . $id);
     }

@@ -73,7 +73,14 @@ class UserController extends Controller
             $rate->save();
         }
 
-        return redirect('/shop/profile/' . $seller_id);
+        $status = Order::where('order_id', '=', $order_id)
+            ->update(
+                [
+                    'status_shopper' => "Order Complete",
+                ]
+            );
+
+        return redirect('/show/profile/' . $seller_id);
     }
 
     ////_____SELLER TO SHOPPER RATE VIEW____////
@@ -106,6 +113,13 @@ class UserController extends Controller
 
             $rate->save();
         }
+
+        $status = Order::where('order_id', '=', $order_id)
+            ->update(
+                [
+                    'status_seller' => "Order Complete",
+                ]
+            );
 
         return redirect('/show/profile/' . $shopper_id);
     }

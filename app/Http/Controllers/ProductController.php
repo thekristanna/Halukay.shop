@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\LikeProduct;
 use App\Models\User;
 use App\Models\Mybag;
+use App\Models\Notification;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;

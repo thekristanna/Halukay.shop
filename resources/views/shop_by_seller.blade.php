@@ -26,6 +26,13 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
+        @if (Session::get('role') == 'seller')
+        @include('layouts/navbar_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/navbar_shopper')
+    @else
+        @include('layouts/navbar_public')
+    @endif  
         <!-- shop by seller -->
         <div class="container">
             <p class="orders-header"><i class="ri-store-3-fill"></i><a href="" id="username">{{$seller -> display_name}}</a>|<span>{{$seller -> address_citytown}}</span></p>

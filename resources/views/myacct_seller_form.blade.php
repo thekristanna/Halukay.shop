@@ -27,6 +27,13 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
+        @if (Session::get('role') == 'seller')
+        @include('layouts/navbar_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/navbar_shopper')
+    @else
+        @include('layouts/navbar_public')
+    @endif  
         <!-- edit account -->
         <div class="container">
             <form
