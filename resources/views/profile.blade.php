@@ -22,6 +22,7 @@
     <!-- <title>Halukay</title> -->
   </head>
   <body>
+
     <!-- shopper profile -->
     <div class="container">
       <!-- profile -->
