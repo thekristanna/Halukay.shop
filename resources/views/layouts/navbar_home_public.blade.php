@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../css/navbar_public.css" />
 <script src="/js/navbar_public.js"></script>
+<script src="/js/navbar_shopper_seller.js"></script>
 <header>
   <div class="brand">
     <img src="../img/halukay-logo.png" alt="halukay-logo" id="logo">

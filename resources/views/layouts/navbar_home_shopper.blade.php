@@ -38,15 +38,32 @@
         </div>
 
         <div class="profile-name-role">
-            <!-- <p class="name">
-               @daibenangelo
-            </p> -->
-            <select name="name-dropdown" id="name-dropdown" class="unclickable">
-                <option value="/username" disabled selected id="username-nav">@daibenangelo</option>
-                <option value="/account">Account</option>
-                <option value="/switch">Switch to Seller</option>
-                <option value="/logout">Logout</option>
-            </select>
+          <!-- <p class="name">
+             @daibenangelo
+          </p> -->
+          <!-- <select name="name-dropdown" id="name-dropdown" class="unclickable">
+              <option value="username" disabled selected id="username-nav">@daibenangelo</option>
+              <option value="account">Account</option>
+              <option value="switch">Switch to Seller</option>
+              <option value="about.html">Logout</option>
+          </select> -->
+          <select name="name-dropdown" id="name-dropdown" class="unclickable">
+            <option value="username" disabled selected id="username-nav">@daibenangelo</option>
+            <option value="account" data-url="account.html">Account</option>
+            <option value="switch" disabled data-url="/">Switch to Seller</option>
+            <option value="about" data-url="/logout">Logout</option>
+        </select>
+       {{-- script for select:start --}}
+       <script>
+        document.getElementById("name-dropdown").addEventListener("change", function() {
+            var selectedOption = this.options[this.selectedIndex];
+            var url = selectedOption.getAttribute("data-url");
+            if (url) {
+                window.location.href = url;
+            }
+        });
+      </script>
+       {{-- script for select:end --}}
             <span class="role">Shopper</span>
         </div>
         <img src="../img/users/daiben.png" id="profile-pic" />
