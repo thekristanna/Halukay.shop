@@ -29,6 +29,8 @@
         <!-- add item -->
         <div class="container">
             <h1>Add Item</h1>
+            <form action="/seller/add_product" id="add_product_form" method="POST" enctype="multipart/form-data">
+                @csrf
             <div class="add-form" id="add-item">
                 <!-- row1 -->
                 <div class="row-one">
@@ -93,6 +95,7 @@
                 <!-- add -->
                 <button class="add">Add Item</button>
             </div>
+        </form>
         </div>
     </body>
 </html>

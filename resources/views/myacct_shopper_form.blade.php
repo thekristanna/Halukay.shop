@@ -24,9 +24,17 @@
         />
         <script src="/js/displayname.js"></script>
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+       <title>My Account | Halukay</title>
     </head>
     <body>
+           <!-- header -->
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@else
+    @include('layouts/navbar_public')
+@endif  
         <!-- edit account -->
         <div class="container">
             <form
@@ -36,12 +44,8 @@
             >
                 @csrf
                 @method('PUT')
-                <div class="profile">
-                    <img
-                        src="/img/user_profiles/{{$profile -> profile_photo}}"
-                        alt="{{$profile -> first_name}}'s photo"
-                    />
-                    <input type="file" id="upload" />
+                <div class="profile-user">
+                    <img src="/img/user_profiles/{{$profile -> profile_photo}}" alt="{{$profile -> first_name}}'s photo"  id="user-photo"/>
                 </div>
                 <div class="account">
                     <div class="details">
@@ -114,8 +118,8 @@
                             name="address_zip"
                             value="{{$profile -> address_zip}}"
                         /><span id="span-address-zip">Zip</span>
-                        <button>Change Password</button>
-                        <button type="submit">Save</button>
+                        <button class="change-save">Change Password</button>
+                        <button class="change-save" type="submit">Save</button>
                     </div>
                 </div>
             </form>

@@ -30,8 +30,11 @@ body {
 /* Edit Item: Start */
 .container {
     display: block;
+    margin-top: 200px;
 }
-
+.container * {
+    box-sizing: content-box;
+}
 .edit-form {
     display: flex;
     flex-direction: column;
@@ -105,7 +108,11 @@ h1 {
     transform: translate(165px, -23px);
     color: var(--color-seven);
 }
-
+#category-select{
+    transform: translate(-10px, 0px);
+    justify-content: flex-start;
+    text-align: left;
+}
 .edit-form .row-two input {
     padding: 12px 22px;
     outline: none;
@@ -174,7 +181,7 @@ h1 {
     transform: translate(169px, -1px);
 }
 
-#brand:is(:focus, :valid) ~ #span-brand {
+#product-brand:is(:focus, :valid) ~ #span-brand {
     padding: 0 5px;
     background: var(--color-one);
     border-radius: 2px;
@@ -327,19 +334,32 @@ h1 {
     cursor: pointer;
 }
 /* Edit Item: Media Query */
+@media (max-width: 1300px) {
+    .container {
+        margin-top: 150px;
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        margin-top: 190px;
+    }
+}
 @media (max-width: 900px){
     .container {
-        transform: scale(0.9);
+        transform: scale(0.85);
+        margin-top: 300px;
     }
 }
 @media (max-width: 700px){
     .container {
         transform: scale(0.7);
+        margin-top: 20px;
     }
 }
 @media (max-width: 500px){
     .container {
         transform: scale(0.45);
+        margin-top: 70px;
     }
 }
-/*  Item: End */
+/* Add Item: End */

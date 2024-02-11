@@ -15,24 +15,31 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/seller_previous_orders.css" />
+    <link rel="stylesheet" href="/css/seller_previous_orders.css" />
     <!-- Favicon -->
-    <link rel="icon" href="../img/halukay-favicon.png" type="image/x-icon" />
+    <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+<title>Previous Orders | Halukay</title>
   </head>
   <body>
-
+ <!-- header -->
+ @if (Session::get('role') == 'seller')
+ @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+ @include('layouts/navbar_shopper')
+@else
+ @include('layouts/navbar_public')
+@endif  
     <!-- previous orders -->
     <div class="container">
-        <div class="bag-buttons">
-            <a href="#">Bag</a>
-            <a href="#" id="active">Previous Orders</a>
-            <a href="#">Current Orders</a>
-        </div>
-
-
-        
+        <div class="line">
+            <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Previous</p>
+            <div class="bag-buttons">
+                <a href="/shopper/my_bag">Bag</a>
+                <a href="/shopper/previous_orders" id="active">Previous Orders</a>
+                <a href="/shopper/order">Current Orders</a>
+            </div>
+          </div>
 
         {{-- For each seller --}}
         @foreach ($orders as $o)

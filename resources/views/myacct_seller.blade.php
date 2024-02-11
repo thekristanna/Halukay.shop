@@ -19,13 +19,21 @@
         <!-- Favicon -->
         <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>My Account | Halukay</title>
     </head>
     <body>
+           <!-- header -->
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@else
+    @include('layouts/navbar_public')
+@endif  
         <!-- account -->
         <div class="container">
-            <div class="profile">
-                <img src="/img/user_profiles/{{$profile -> profile_photo}}" alt="{{$profile -> first_name}}'s photo" />
+            <div class="profile-user">
+                <img src="/img/user_profiles/{{$profile -> profile_photo}}" alt="{{$profile -> first_name}}'s photo"  id="user-photo"/>
             </div>
             <div class="account">
                 <div class="details">
@@ -42,7 +50,7 @@
                     <p id="phone">{{$profile -> phone_number}}</p>
                     <span id="span-phone">Phone Number</span>
                     <!-- role cannot be edited -->
-                    <p id="role">Seller</p>
+                    <p id="role-account">Seller</p>
                     <span id="span-role">Role</span>
                 </div>
                 <div class="details">
@@ -62,7 +70,7 @@
                     <span id="span-address-province">Province</span>
                     <p id="address-zip">{{$profile -> address_zip}}</p>
                     <span id="span-address-zip">Zip</span>
-                    <a href="/seller/my_account/edit"><button>Edit Account</button></a>
+                    <a href="/shopper/my_account/edit" class="edit"><button id="edit-btn">Edit Account</button></a>
                 </div>
             </div>
         </div>

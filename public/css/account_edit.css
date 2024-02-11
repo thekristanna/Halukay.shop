@@ -11,46 +11,58 @@
 }
 
 * {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     font-family: Poppins;
     text-decoration: none;
     color: var(--color-two);
 }
+title {
+    display: none;
+}
+script {
+    display: none;
+}
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
-
 /* Edit Account: Start */
 .container {
     display: flex;
-    margin-top: 120px;
+    margin-top: 230px;
     align-items: center;
     font-size: 13px;
 }
-.profile {
+.container * {
+    box-sizing: content-box;
+    }
+.profile-user {
     display: block;
     justify-content: center;
     margin-right: 10px;
 }
-.profile img {
+.profile-user #user-photo {
     display: flex;
     width: 250px;
     height: 250px;
     border: 2px solid var(--color-two);
     border-radius: 50%;
+
 }
-.profile input {
+.profile-user input {
     margin: 10px auto;
     outline: none;
     background: transparent;
     width: 200px;
 }
-button {
+.change-save {
     margin: 10px auto;
     outline: none;
     background: transparent;
@@ -58,13 +70,14 @@ button {
     border-radius: 20px;
     padding: 5px 15px;
 }
-button:hover {
+.change-save:hover {
     color: var(--color-one);
     background: var(--color-two);
     cursor: pointer;
 }
 .account {
     display: block;
+
 }
 .details input {
     display: flex;
@@ -174,18 +187,18 @@ button:hover {
     padding: 0 5px;
     color: var(--color-seven);
 }
-/* Edit Account: Media Query */
+ /* Edit Account: Media Query */
 
 @media (max-width: 900px) {
     .container {
         display: block;
         transform: scale(0.85);
     }
-    .profile img {
+    .profile-user #user-photo {
         margin: 0 auto;
         justify-content: center;
     }
-    .profile {
+    .profile-user {
         margin: 50px auto;
     }
 }
@@ -199,8 +212,7 @@ button:hover {
     .details {
         display: block;
     }
-    .details input,
-    .details p {
+    .details input, .details p {
         margin: 20px auto;
     }
     #span-first-name {

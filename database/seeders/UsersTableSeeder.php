@@ -14,14 +14,31 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('users')->delete();
-
-        \DB::table('users')->insert(array(
-
-            1 =>
-            array(
+        
+        \DB::table('users')->insert(array (
+            0 => 
+            array (
+                'user_id' => 0,
+                'first_name' => 'Daiben',
+                'last_name' => 'Sanchez',
+                'email_address' => 'daiben@gmail.com',
+                'username' => 'daiben',
+                'display_name' => '@daiben',
+                'password' => '$2y$12$kIgeE2kGcB1wwyS5NU8DiO0vjoaGQeQ.Dy/p21XAoWrCiCSUau476',
+                'phone_number' => '09123456789',
+                'address_street' => '123 Angelo St.',
+                'address_barangay' => 'San Isidro',
+                'address_citytown' => 'Quezon City',
+                'address_province' => 'Metro Manila',
+                'address_zip' => '1100',
+                'role' => 'seller',
+                'profile_photo' => '202402061154000000daiben.png',
+            ),
+            1 => 
+            array (
                 'user_id' => 1,
                 'first_name' => 'Queza',
                 'last_name' => 'Fabela',
@@ -38,8 +55,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => '202402061155000000Queza.jpeg',
             ),
-            2 =>
-            array(
+            2 => 
+            array (
                 'user_id' => 2,
                 'first_name' => 'Dante',
                 'last_name' => 'Magbuhos',
@@ -56,8 +73,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => '202402061157000000Dante.jpg',
             ),
-            3 =>
-            array(
+            3 => 
+            array (
                 'user_id' => 3,
                 'first_name' => 'Paul',
                 'last_name' => 'Quiachon',
@@ -74,8 +91,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => '202402061158000000Paul.jpeg',
             ),
-            4 =>
-            array(
+            4 => 
+            array (
                 'user_id' => 5,
                 'first_name' => 'Tanna',
                 'last_name' => 'Slay',
@@ -92,8 +109,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => '202402061159000000Tanna.png',
             ),
-            5 =>
-            array(
+            5 => 
+            array (
                 'user_id' => 6,
                 'first_name' => 'Christian Jay',
                 'last_name' => 'Salvino',
@@ -110,8 +127,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061200000000CJ.jpg',
             ),
-            6 =>
-            array(
+            6 => 
+            array (
                 'user_id' => 7,
                 'first_name' => 'Kevin',
                 'last_name' => 'Daus',
@@ -128,8 +145,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061201000000Kevin.jpeg',
             ),
-            7 =>
-            array(
+            7 => 
+            array (
                 'user_id' => 8,
                 'first_name' => 'Maynard',
                 'last_name' => 'Villalobos',
@@ -146,8 +163,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061201000000Maynard.jpeg',
             ),
-            8 =>
-            array(
+            8 => 
+            array (
                 'user_id' => 9,
                 'first_name' => 'April',
                 'last_name' => 'Ipac',
@@ -164,8 +181,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061202000000April.jpg',
             ),
-            9 =>
-            array(
+            9 => 
+            array (
                 'user_id' => 10,
                 'first_name' => 'Jehd',
                 'last_name' => 'Jandoc',
@@ -182,8 +199,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061203000000Jehd.jpg',
             ),
-            10 =>
-            array(
+            10 => 
+            array (
                 'user_id' => 11,
                 'first_name' => 'Christian Jeuel',
                 'last_name' => 'Venturina',
@@ -200,8 +217,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061204000000Jueul.jpg',
             ),
-            11 =>
-            array(
+            11 => 
+            array (
                 'user_id' => 12,
                 'first_name' => 'Jeinin',
                 'last_name' => 'Arellano',
@@ -218,8 +235,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061207000000jeinin.jpg',
             ),
-            12 =>
-            array(
+            12 => 
+            array (
                 'user_id' => 13,
                 'first_name' => 'Rafael',
                 'last_name' => 'Uchi',
@@ -236,8 +253,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061208000000Rafael.jpeg',
             ),
-            13 =>
-            array(
+            13 => 
+            array (
                 'user_id' => 14,
                 'first_name' => 'Keith',
                 'last_name' => 'Aquino',
@@ -254,8 +271,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061210000000keith.jpg',
             ),
-            14 =>
-            array(
+            14 => 
+            array (
                 'user_id' => 15,
                 'first_name' => 'Rendell',
                 'last_name' => 'Soberano',
@@ -272,8 +289,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061211000000Rendell.png',
             ),
-            15 =>
-            array(
+            15 => 
+            array (
                 'user_id' => 16,
                 'first_name' => 'Angelica',
                 'last_name' => 'Libang',
@@ -290,8 +307,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061213000000angelica.jpg',
             ),
-            16 =>
-            array(
+            16 => 
+            array (
                 'user_id' => 17,
                 'first_name' => 'Vivien',
                 'last_name' => 'Caampued',
@@ -308,8 +325,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061214000000Vivien.jpeg',
             ),
-            17 =>
-            array(
+            17 => 
+            array (
                 'user_id' => 18,
                 'first_name' => 'Fernando',
                 'last_name' => 'Valenzuela',
@@ -326,8 +343,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'shopper',
                 'profile_photo' => '202402061214000000Fernando.jpeg',
             ),
-            18 =>
-            array(
+            18 => 
+            array (
                 'user_id' => 19,
                 'first_name' => 'Michael',
                 'last_name' => 'John',
@@ -344,24 +361,8 @@ class UsersTableSeeder extends Seeder
                 'role' => 'seller',
                 'profile_photo' => '202402070651000000michael.jpg',
             ),
-            19 =>
-            array(
-                'user_id' => 0,
-                'first_name' => 'Daiben',
-                'last_name' => 'Sanchez',
-                'email_address' => 'daiben@gmail.com',
-                'username' => 'daiben',
-                'display_name' => '@daiben',
-                'password' => '$2y$12$kIgeE2kGcB1wwyS5NU8DiO0vjoaGQeQ.Dy/p21XAoWrCiCSUau476',
-                'phone_number' => '09123456789',
-                'address_street' => '123 Angelo St.',
-                'address_barangay' => 'San Isidro',
-                'address_citytown' => 'Quezon City',
-                'address_province' => 'Metro Manila',
-                'address_zip' => '1100',
-                'role' => 'seller',
-                'profile_photo' => '202402061154000000daiben.png',
-            )
         ));
+        
+        
     }
 }

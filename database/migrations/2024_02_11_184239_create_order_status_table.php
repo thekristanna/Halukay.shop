@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('order_status', function (Blueprint $table) {
             $table->integer('os_id', true);
             $table->integer('order_id');
+            $table->dateTime('date_time')->useCurrent();
             $table->string('status', 200);
         });
     }

@@ -21,26 +21,35 @@
     <!-- JS -->
     {{-- <script src="/js/current_orders.js"></script> --}}
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+ <title>Current Orders | Halukay</title>
   </head>
   <body>
 
-    <!-- current orders -->
-<div class="container">
-    <div class="bag-buttons">
-        <a href="/shopper/my_bag">Bag</a>
-        <a href="/shopper/previous_orders">Previous Orders</a>
-        <a href="/shopper/order" id="active">Current Orders</a>
-    </div>
-    <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current Orders</p>
-
+ <!-- header -->
+ @if (Session::get('role') == 'seller')
+ @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+ @include('layouts/navbar_shopper')
+@else
+ @include('layouts/navbar_public')
+@endif  
+    <!-- previous orders -->
+    <div class="container">
+        <div class="line">
+            <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current</p>
+            <div class="bag-buttons">
+                <a href="/shopper/my_bag">Bag</a>
+                <a href="/shopper/previous_orders">Previous Orders</a>
+                <a href="/shopper/order" id="active">Current Orders</a>
+            </div>
+          </div>
     {{-- For each seller --}}
         @foreach ($orders as $o)
             <div class="orders">
                 <div class="top">
                     <p class="order-id">Order ID:<span id="order-id">{{$o->order_id}}</span></p>
                     <div class="top-details">
-                        <button class="collection-status">View Status Details</button>
+                        <a href="/shopper/order/status/{{$o->order_id}}"><button class="collection-status">View Status Details</button></a>
                         <p class="order-status">{{$o->status_shopper}}</p>
                     </div>
                 </div>

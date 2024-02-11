@@ -118,6 +118,96 @@ class OrderController extends Controller
         return view('shopper_previous_order', compact('orders'));
     }
 
+    ////_____UPDATE ORDER STATUS SHOPPER_____////
+    public function edit_shopper_order_status(string $id, Request $r)
+    {
+        $status = new OrderStatus;
+        $status->order_id = $id;
+        $status->status = $r->input('name-dropdown');
+
+        $status->save();
+
+        return redirect('/shopper/order/status/' . $id);
+    }
+
+    ////_____UPDATE ORDER STATUS SELLER_____////
+    public function edit_seller_order_status(string $id, Request $r)
+    {
+        $status = new OrderStatus;
+        $status->order_id = $id;
+        $status->status = $r->input('name-dropdown');
+
+        $status->save();
+
+        return redirect('/seller/order/status/' . $id);
+    }
+
+    ////_____SHOPPER ORDER STATUS_____/////
+    public function shopper_order_status(string $id)
+    {
+        $order = Order::query()
+            ->select('order_id', 'collect_op', 'display_name')
+            ->join('product', 'orders.seller_id', '=', 'product.seller_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('order_id', '=', $id)
+            ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        $status = OrderStatus::query()
+            ->select('status', 'date_time', 'order_id')
+            ->where('order_status.order_id', '=', $id)
+            ->orderBy('order_id')
+            ->get();
+
+        $rate = OrderStatus::query()
+            ->select('status')
+            ->where('order_id', '=', $id)
+            ->where('status', '=', 'Rate seller experience')
+            ->get()
+            ->first();
+
+        $seller = Order::query()
+            ->select('seller_id', 'order_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        return view('shopper_order_status', compact('order', 'status', 'rate', 'seller'));
+    }
+
+    ////_____SELLER ORDER STATUS_____/////
+    public function seller_order_status(string $id)
+    {
+        $order = Order::query()
+            ->select('order_id', 'collect_op', 'display_name')
+            ->join('product', 'orders.seller_id', '=', 'product.seller_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('order_id', '=', $id)
+            ->where('orders.seller_id', '=', Session::get('user_id'))
+            ->get()
+            ->first();
+
+        $status = OrderStatus::query()
+            ->select('status', 'date_time')
+            ->where('order_status.order_id', '=', $id)
+            ->orderBy('date_time')
+            ->get();
+
+        $rate = OrderStatus::query()
+            ->select('status')
+            ->where('order_id', '=', $id)
+            ->where('status', '=', 'Rate shopper experience')
+            ->get()
+            ->first();
+
+        $shopper = Order::query()
+            ->select('shopper_id', 'order_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        return view('seller_order_status', compact('order', 'status', 'rate', 'shopper'));
+    }
+
     ////_____SELLER ORDER SECTION_____////
     public function seller_current_order_view()
     {
