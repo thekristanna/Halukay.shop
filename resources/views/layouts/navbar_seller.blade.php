@@ -49,9 +49,9 @@
               <option value="about.html">Logout</option>
           </select> -->
           <select name="name-dropdown" id="name-dropdown" class="unclickable">
-            <option value="username" disabled selected id="username-nav">@daibenangelo</option>
-            <option value="account" data-url="account.html">Account</option>
-            <option value="switch" disabled data-url="/">Switch to Seller</option>
+            <option value="username" disabled selected id="username-nav">{{Session::get('display_name')}}</option>
+            <option value="account" data-url="/seller/my_account">My Account</option>
+            <option value="switch" disabled data-url="#">Switch to Shopper</option>
             <option value="about" data-url="/logout">Logout</option>
         </select>
         {{-- script for select:start --}}
@@ -65,9 +65,9 @@
           });
         </script>
          {{-- script for select:end --}}
-            <span class="role">Seller</span>
+         <span class="role">Seller</span>
         </div>
-        <img src="/img/users/daiben.png" id="profile-pic" />
+        <img src="/img/user_profiles/{{Session::get('profile_photo')}}" id="profile-pic" />
     </div>
     <div class="bx bx-menu" id="menu-icon"></div>
   </header>

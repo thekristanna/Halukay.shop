@@ -15,7 +15,7 @@
             href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
         />
         <!-- CSS -->
-        <link rel="stylesheet" href="../css/seller_notification.css" />
+        <link rel="stylesheet" href="../css/shopper_notification.css" />
         <!-- Favicon -->
         <link
             rel="icon"
@@ -26,6 +26,12 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
+            <!-- header -->
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@endif  
         <!-- seller notification -->
         <div class="container">
             <p class="notifs"><i class="ri-notification-3-fill"></i>Notifications</p>
@@ -33,7 +39,7 @@
                
                <!-- notif -->
                @foreach($notifications as $n)
-               <p class="current-notif"><span class="date">{{$n -> date_sent->format('Y-m-d')}}</span><span class="time">{{($n->date_sent)->format('h:i A') }}</span><span class="details">{{$n -> content}}</span>
+               <span class="current-notif"><span class="date">{{$n -> date_sent->format('Y-m-d')}}</span><span class="time">{{($n->date_sent)->format('h:i A') }}</span><span class="details">{{$n -> content}}</span>
                 @if($n->marked_seen == 0)
                     <form action="/shopper/notifications/seen/{{$n -> notif_id}}" method="POST">
                         @csrf
@@ -59,7 +65,7 @@
                         </button>
                     </form>
                 
-               </p>
+                </span>
                @endforeach
             </div>
         </div>

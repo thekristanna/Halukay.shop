@@ -26,58 +26,46 @@
         <!-- <title>Halukay</title> -->
     </head>
     <body>
+            <!-- header -->
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@endif  
         <!-- seller notification -->
         <div class="container">
             <p class="notifs"><i class="ri-notification-3-fill"></i>Notifications</p>
             <div class="notifications">
-                <!-- notif -->
-                    <p class="current-notif"><span class="date">2020-10-10</span><span class="time">10:30 AM</span><span class="details">@daiben angelo is awaiting your reponse</span>
-                     <button class="check">
-                        <i class="ri-checkbox-line"></i>
-                        <i class="ri-checkbox-fill"></i>
-                    </button>
-                    <button class="delete">
-                        <i class="ri-delete-bin-line"></i>
-                        <i class="ri-delete-bin-fill"></i>
-                    </button>
-                    </p>
-               <!-- notif -->
-               <p class="current-notif"><span class="date">2020-10-10</span><span class="time">10:30 AM</span><span class="details">@daiben angelo is awaiting your reponse Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, laudantium molestiae! Tempore quos obcaecati neque, placeat perferendis facilis aperiam ratione praesentium eveniet nihil cumque facere nisi, quasi nobis! A, autem Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem itaque sit incidunt minima architecto, eaque sint expedita aliquid dolor nemo molestiae temporibus quo rem mollitia officia placeat natus illum quibusdam error nesciunt rerum harum omnis? Labore dolore recusandae earum! Numquam incidunt facilis velit quod distinctio nobis exercitationem. Nemo, nam unde.</span>
-                <button class="check">
-                   <i class="ri-checkbox-line"></i>
-                   <i class="ri-checkbox-fill"></i>
-               </button>
-               <button class="delete">
-                   <i class="ri-delete-bin-line"></i>
-                   <i class="ri-delete-bin-fill"></i>
-               </button>
-               </p>
+               
                <!-- notif -->
                @foreach($notifications as $n)
-               <p class="current-notif"><span class="date">{{$n -> date_sent->format('Y-m-d')}}</span><span class="time">{{ \Carbon\Carbon::parse($n->date_sent)->format('h:i A') }}</span><span class="details">{{$n -> content}}</span>
+               <span class="current-notif"><span class="date">{{$n -> date_sent->format('Y-m-d')}}</span><span class="time">{{($n->date_sent)->format('h:i A') }}</span><span class="details">{{$n -> content}}</span>
                 @if($n->marked_seen == 0)
-                <form action="/seller/notifications/seen/{{$n -> notif_id}}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <button type="submit" class="check">
-                        <i class="ri-checkbox-line"></i>
-                        <i class="ri-checkbox-fill"></i>
-                    </button>
-                </form>
+                    <form action="/shopper/notifications/seen/{{$n -> notif_id}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="check">
+                            <i class="ri-checkbox-line"></i>
+                            <i class="ri-checkbox-fill"></i>
+                        </button>
+                    </form>
+
                @elseif($n->marked_seen == 1)
-               <button class="check" disabled>
-                <i class="ri-checkbox-fill" id="cb-seen"></i>
-               </button>
-                @endif
-                <form action="/seller/notifications/{{$n -> notif_id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="delete" type="submit">
-                        <i class="ri-delete-bin-line"></i>
-                        <i class="ri-delete-bin-fill"></i>
+                    <button class="check" disabled>
+                        <i class="ri-checkbox-fill" id="cb-seen"></i>
                     </button>
-                </form>
-               </p>
+
+                @endif
+                    <form action="/shopper/notifications/{{$n -> notif_id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="delete" type="submit">
+                            <i class="ri-delete-bin-line"></i>
+                            <i class="ri-delete-bin-fill"></i>
+                        </button>
+                    </form>
+                
+                </span>
                @endforeach
             </div>
         </div>

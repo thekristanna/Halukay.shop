@@ -11,23 +11,33 @@
 }
 
 * {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     font-family: Poppins;
     text-decoration: none;
-    color: var(--color-four);
+    color: var(--color-two);
+}
+title {
+    display: none;
+}
+script {
+    display: none;
 }
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 /* Likes: Start */
 .container {
     display: block;
     /* width: 70%; */
+    margin-top: 100px;
 }
 .bag-buttons {
     display: flex;
@@ -144,7 +154,7 @@ body {
     background: transparent;
     cursor: pointer;
 }
-.ri-shopping-bag-fill {
+#shop-bag {
     display: none;
     border: none;
 }
@@ -152,7 +162,7 @@ body {
     display: none;
     
 }
-.icon-btn:hover .ri-shopping-bag-fill {
+.icon-btn:hover #shop-bag {
     display: inline;
 }
 .delete {

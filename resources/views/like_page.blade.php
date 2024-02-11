@@ -22,7 +22,12 @@
     <!-- <title>Halukay</title> -->
   </head>
   <body>
-
+      <!-- header -->
+      @if (Session::get('role') == 'seller')
+      @include('layouts/navbar_seller')
+  @elseif (Session::get('role') == 'shopper')
+      @include('layouts/navbar_shopper')
+  @endif  
     <!-- your bag -->
     <div class="container">
         <p class="orders-header"><i class="ri-heart-3-fill"></i>Likes</p>
@@ -59,7 +64,7 @@
                 <form action="">
                 <button class="icon-btn">
                     <i class="ri-shopping-bag-line shopping-icon"></i>
-                    <i class="ri-shopping-bag-fill shopping-icon-fill"></i>
+                    <i class="ri-shopping-bag-fill shopping-icon-fill" id="shop-bag"></i>
                 </button>
                 </form>
             </div>
