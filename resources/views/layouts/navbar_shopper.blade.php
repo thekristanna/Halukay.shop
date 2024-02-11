@@ -15,7 +15,7 @@
       <a href="/messages" class="shopper-icons" id="messages-nav">Messages</a>
       <a href="/notifications" class="shopper-icons" id="notifications-nav">Notifications</a>
       <a href="/account" class="shopper-icons" id="account-nav">Account</a>
-      <a href="/switch" class="shopper-icons" id="switch-nav">Switch to Seller</a>
+      <a href="/" class="shopper-icons" id="switch-nav">Switch to Seller</a>
       <a href="/logout" class="shopper-icons" id="logout-nav">Logout</a>
              
     </div>
