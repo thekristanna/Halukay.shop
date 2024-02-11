@@ -25,7 +25,7 @@
     <div class="profile">
       <div class="header-icons">
           <button>
-              <a href="/seller/notifications"><i class="ri-notification-3-fill">{{Session::get('notification_count')}}</i></a>
+              <a href="/seller/notifications"><i class="ri-notification-3-fill"></i>{{Session::get('notification_count')}}</a>
           </button>
           <button>
               <a href="#"><i class="ri-discuss-fill"></i></a>

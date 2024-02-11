@@ -61,7 +61,7 @@ class OrderController extends Controller
         return redirect('/shopper/order');
     }
 
-    public function shopper_current_order()
+    public function shopper_current_order(Request $request)
     {
         $orders = Order::query()
             ->select('orders.order_id', 'status_shopper', 'display_name', 'status_shopper')
@@ -72,6 +72,7 @@ class OrderController extends Controller
             ->where('status_shopper', '!=', 'Order Complete')
             ->groupBy('orders.order_id', 'status_shopper', 'display_name')
             ->get();
+
 
         foreach ($orders as $order) {
             $products = OrdersProduct::query()
@@ -86,11 +87,11 @@ class OrderController extends Controller
             $order->totalPrice = $totalPrice;
         }
 
-        return view('shopper_current_order', compact('orders'));
+        return view('shopper_current_order', compact('orders', 'request'));
     }
 
 
-    public function shopper_previous_order()
+    public function shopper_previous_order(Request $request)
     {
         $orders = Order::query()
             ->select('orders.order_id', 'status_shopper', 'display_name')
@@ -115,7 +116,7 @@ class OrderController extends Controller
             $order->totalPrice = $totalPrice;
         }
 
-        return view('shopper_previous_order', compact('orders'));
+        return view('shopper_previous_order', compact('orders', 'request'));
     }
 
     ////_____UPDATE ORDER STATUS SHOPPER_____////
@@ -143,7 +144,7 @@ class OrderController extends Controller
     }
 
     ////_____SHOPPER ORDER STATUS_____/////
-    public function shopper_order_status(string $id)
+    public function shopper_order_status(string $id, Request $request)
     {
         $order = Order::query()
             ->select('order_id', 'collect_op', 'display_name')
@@ -172,7 +173,7 @@ class OrderController extends Controller
             ->where('order_id', '=', $id)
             ->first();
 
-        return view('shopper_order_status', compact('order', 'status', 'rate', 'seller'));
+        return view('shopper_order_status', compact('order', 'status', 'rate', 'seller', 'request'));
     }
 
     ////_____SELLER ORDER STATUS_____/////

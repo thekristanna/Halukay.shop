@@ -96,23 +96,23 @@ class UserController extends Controller
         return redirect('/show/profile/' . $shopper_id);
     }
 
-    public function contact_send_email(Request $r)
+    public function contact_send_email(Request $request)
     {
         $content = [
-            'body' => $r->input('message')
+            'body' => $request->input('message')
         ];
-        Mail::send('emails.to_developer', $content, function ($message) use ($r) {
-            $message->from($r->input('email'));
+        Mail::send('emails.to_developer', $content, function ($message) use ($request) {
+            $message->from($request->input('email'));
             $message->to('contact@halukay.com', 'Developers of Halukay Ecommerce Website');
-            $message->subject($r->input('subject'));
+            $message->subject($request->input('subject'));
         });
         return redirect('/contact')->with('success', 'Email sent!');
     }
 
     // Contact page
-    public function contact_form()
+    public function contact_form(Request $request)
     {
-        return view('contact_email_form');
+        return view('contact_email_form', compact('request'));
     }
 
     ////____PUBLIC SHOW SELLER SHOP___////
@@ -208,7 +208,7 @@ class UserController extends Controller
         return view('myacct_shopper_form', compact('profile'));
     }
 
-    public function my_acct_shopper_view()
+    public function my_acct_shopper_view(Request $request)
     {
         $profile = User::query()
             ->select('*')
@@ -216,7 +216,7 @@ class UserController extends Controller
             ->get()
             ->first();
 
-        return view('myacct_shopper', compact('profile'));
+        return view('myacct_shopper', compact('profile', 'request'));
     }
 
     /////___MY ACCOUNT SELLER___/////

@@ -56,7 +56,7 @@ class ProductController extends Controller
     }
 
     ////____SHOPPER CHECKOUT____////
-    public function checkout_bag(string $id)
+    public function checkout_bag(string $id, Request $request)
     {
         $checkout = Mybag::query()
             ->select('mybag.product_id', 'mybag.seller_id', 'name', 'display_name', 'price', 'product_photo')
@@ -70,7 +70,7 @@ class ProductController extends Controller
             ->where('user_id', '=', $id)
             ->first();
 
-        return view('checkout_bag', compact('checkout', 'name'));
+        return view('checkout_bag', compact('checkout', 'name', 'request'));
     }
 
     public function add_to_bag(string $product_id, string $seller_id)

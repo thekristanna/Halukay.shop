@@ -84,7 +84,7 @@ Route::middleware(['checkSessionShopper', 'checkNotifications'])->group(function
 
 
 //--------SELLER SIDE--------//
-Route::middleware(['checkSessionSeller', 'checkNotifications'])->group(function () {
+Route::middleware(['checkSessionSeller'])->group(function () {
     //---SELLER ACCOUNT---//
     Route::get('/seller/my_account', [UserController::class, 'my_acct_seller_view']);
     Route::get('/seller/my_account/edit', [UserController::class, 'my_acct_seller_form']);
