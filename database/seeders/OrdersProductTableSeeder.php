@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class LikeProductsTableSeeder extends Seeder
+class OrdersProductTableSeeder extends Seeder
 {
 
     /**
@@ -16,50 +16,50 @@ class LikeProductsTableSeeder extends Seeder
     {
         
 
-        \DB::table('like_products')->delete();
+        \DB::table('orders_product')->delete();
         
-        \DB::table('like_products')->insert(array (
+        \DB::table('orders_product')->insert(array (
             0 => 
             array (
-                'like_id' => 1,
-                'product_id' => 22,
+                'op_id' => 7,
+                'order_id' => 7,
+                'product_id' => 1,
                 'shopper_id' => 7,
-                'seller_id' => 1,
             ),
             1 => 
             array (
-                'like_id' => 3,
-                'product_id' => 20,
+                'op_id' => 8,
+                'order_id' => 7,
+                'product_id' => 2,
                 'shopper_id' => 7,
-                'seller_id' => 1,
             ),
             2 => 
             array (
-                'like_id' => 4,
-                'product_id' => 50,
+                'op_id' => 9,
+                'order_id' => 7,
+                'product_id' => 3,
                 'shopper_id' => 7,
-                'seller_id' => 5,
             ),
             3 => 
             array (
-                'like_id' => 42,
-                'product_id' => 6,
+                'op_id' => 10,
+                'order_id' => 7,
+                'product_id' => 4,
                 'shopper_id' => 7,
-                'seller_id' => 0,
             ),
             4 => 
             array (
-                'like_id' => 43,
-                'product_id' => 4,
+                'op_id' => 11,
+                'order_id' => 8,
+                'product_id' => 13,
                 'shopper_id' => 7,
-                'seller_id' => 0,
             ),
             5 => 
             array (
-                'like_id' => 44,
-                'product_id' => 2,
+                'op_id' => 12,
+                'order_id' => 8,
+                'product_id' => 14,
                 'shopper_id' => 7,
-                'seller_id' => 0,
             ),
         ));
         
