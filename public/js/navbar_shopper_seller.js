@@ -1,7 +1,7 @@
-document.getElementById('navigateSelect').addEventListener('change', function() {
-    var url = this.value; 
-    if(url) { 
-      window.location = url; 
+document.getElementById("name-dropdown").addEventListener("change", function() {
+    var selectedOption = this.options[this.selectedIndex];
+    var url = selectedOption.getAttribute("data-url");
+    if (url) {
+        window.location.href = url;
     }
-  });
-  
+});
