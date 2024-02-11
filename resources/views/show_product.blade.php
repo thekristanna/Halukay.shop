@@ -28,10 +28,10 @@
     
     <body>
         @if (Session::get('role') == 'seller')
-        @include('layouts/seller/navbar_home_seller')
+        @include('layouts/navbar_home_seller')
         <link rel="stylesheet" href="../css/navbar_seller.css" />
     @elseif (Session::get('role') == 'shopper')
-        @include('layouts/shopper/navbar_home_shopper')
+        @include('layouts/navbar_home_shopper')
         <link rel="stylesheet" href="../css/navbar_shopper.css" />
     @else
         @include('layouts/navbar_home_public')

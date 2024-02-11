@@ -28,9 +28,9 @@
     <!-- current orders -->
 <div class="container">
     <div class="bag-buttons">
-        <a href="#">Bag</a>
-        <a href="#">Previous Orders</a>
-        <a href="#" id="active">Current Orders</a>
+        <a href="/shopper/my_bag">Bag</a>
+        <a href="/shopper/previous_orders">Previous Orders</a>
+        <a href="/shopper/order" id="active">Current Orders</a>
     </div>
     <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Current Orders</p>
 

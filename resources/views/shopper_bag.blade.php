@@ -31,44 +31,51 @@
       <div class="line">
         <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Your Bag</p>
         <div class="bag-buttons">
-            <a href="#" id="active">Bag</a>
-            <a href="#">Previous Orders</a>
-            <a href="#">Current Orders</a>
+            <a href="/shopper/my_bag" id="active">Bag</a>
+            <a href="/shopper/previous_orders">Previous Orders</a>
+            <a href="/shopper/order">Current Orders</a>
         </div>
       </div>
-        
+      
+      @foreach($seller as $s)
         <div class="orders">
             <div class="top">
-              <a href="#" class="seller-username"><p>Seller:<span class="username">@daibenangelo</span></p></a>
+              <a href="/shop/seller/{{$s -> seller_id}}" class="seller-username">
+                <p>Seller:<span class="username">{{$s -> display_name}}</span></p>
+              </a>
               <p>TOTAL: ₱<span class="price">200</span></p>
                 <div class="top-details">
-                <button class="checkout">Checkout</button>
+                  <a href="/shopper/checkout/{{$s -> seller_id}}"><button class="checkout">Checkout</button></a>
 
                 </div>
             </div>
-            
+            @foreach($product as $p)
+            @if($s -> seller_id == $p -> seller_id)
             <div class="product">
                 <div class="image">
-                    <a href="#" class="product-page"><img src="../img/products/Uniqlo Trousers.png" alt="product-name"> </a>
+                    <a href="/shop/{{$p -> product_id}}" class="product-page"><img src="/img/products/{{$p -> product_photo}}" alt="{{$p -> name}}"> </a>
                </div>
                 <div class="item-name">
                     <p>Item</p>
-                    <p class="product-name">Salvatore Ferragamo Dress</p>
+                    <p class="product-name">{{$p -> name}}</p>
                 </div>
                 <div class="item-price">
                     <p>Price</p>
-                    <p class="product-price">300</p>
+                    <p class="product-price">{{$p -> price}}</p>
                 </div>
-                <button class="delete">
+                <form action="/shopper/my_bag/{{$p -> product_id}}" method="POST">
+                  @csrf
+                  @method ('DELETE')
+                <button class="delete" type="submit">
                     <i class="ri-delete-bin-line"></i>
                     <i class="ri-delete-bin-fill"></i>
                 </button>
+              </form>
             </div>
-
-         
-            
+            @endif
+            @endforeach
         </div>
-        
+        @endforeach
     </div>
     
   </body>
