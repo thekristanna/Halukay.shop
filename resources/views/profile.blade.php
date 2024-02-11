@@ -15,14 +15,20 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/shopper.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
     <!-- Favicon -->
     <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
     <!-- <title>Halukay</title> -->
   </head>
   <body>
-
+    @if (Session::get('role') == 'seller')
+    @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+    @include('layouts/navbar_shopper')
+@else
+    @include('layouts/navbar_public')
+@endif  
     <!-- shopper profile -->
     <div class="container">
       <!-- profile -->
