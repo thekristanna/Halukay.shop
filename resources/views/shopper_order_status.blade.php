@@ -113,7 +113,7 @@
                         <select name="name-dropdown" id="status-dropdown">
                             <option value="select" disabled selected id="select">Select Status</option>
                             <option value="Order Received." id="order-received">Order Received</option>
-                            <option value="Rate your experience with the seller." id="rate-seller">Rate Seller</option>
+                            <option value="Rate seller experience" id="rate-seller">Rate Seller</option>
                         </select>
                     <button class="submit">
                         <i class="ri-send-plane-line"></i>
@@ -130,6 +130,10 @@
                 @foreach($status as $s)
                     <p class="current-status"><span class="date">{{$s -> date_time->format('Y-m-d')}}</span><span class="time">{{($s->date_time)->format('h:i A') }}</span><span class="details">{{$s -> status}}</span></p>
                 @endforeach
+
+                @if($rate && $rate->status == "Rate seller experience")
+                         <a href="/shopper/rate/seller/{{$seller->seller_id}}/{{$seller->order_id}}"><button class="order-id">Rate Seller</button></a>
+                @endif
             </div>
 
 

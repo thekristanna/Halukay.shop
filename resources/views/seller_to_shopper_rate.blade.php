@@ -31,7 +31,7 @@
         <div class="container">
             <h1>Rate Seller</h1>
             <div class="stars">
-                <form action="/shopper/rate/seller/{{$rate -> seller_id}}/{{$rate -> order_id}}" method="POST">
+                <form action="/seller/rate/shopper/{{$rate -> shopper_id}}/{{$rate -> order_id}}" method="POST">
                 @csrf
                 <div class="rating">
                     <input checked="" type="radio" id="star5" name="rate" value="5" />

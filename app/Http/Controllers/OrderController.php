@@ -160,7 +160,19 @@ class OrderController extends Controller
             ->orderBy('order_id')
             ->get();
 
-        return view('shopper_order_status', compact('order', 'status'));
+        $rate = OrderStatus::query()
+            ->select('status')
+            ->where('order_id', '=', $id)
+            ->where('status', '=', 'Rate seller experience')
+            ->get()
+            ->first();
+
+        $seller = Order::query()
+            ->select('seller_id', 'order_id')
+            ->where('order_id', '=', $id)
+            ->first();
+
+        return view('shopper_order_status', compact('order', 'status', 'rate', 'seller'));
     }
 
     ////_____SELLER ORDER STATUS_____/////
