@@ -23,9 +23,9 @@
   <body>
     <!-- header -->
     @if (Session::get('role') == 'seller')
-        @include('layouts/seller/navbar_home_seller')
+        @include('layouts/navbar_home_seller')
     @elseif (Session::get('role') == 'shopper')
-        @include('layouts/shopper/navbar_home_shopper')
+        @include('layouts/navbar_home_shopper')
     @else
         @include('layouts/navbar_home_public')
     @endif  
