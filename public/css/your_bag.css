@@ -164,4 +164,10 @@ body {
 .delete:hover .ri-delete-bin-fill {
     display: inline;
 }
+/* Bag: Media Query */
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.98);
+    }
+}
 /* Bag: End */

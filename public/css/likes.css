@@ -183,4 +183,35 @@ body {
 .delete:hover .ri-delete-bin-fill {
     display: inline;
 }
+/* Likes: Media Query */
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.98);
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        transform: scale(0.94);
+        margin-top: 80px;
+    }
+    .orders {
+        width: 600px;
+    }
+    .item-name, .item-price {
+        margin-right: 50px;
+    }
+}
+@media (max-width: 700px)  {
+    .container {
+        transform: scale(0.92);
+        margin-top: 50px;
+    }
+}
+@media (max-width: 500px)  {
+    .container {
+        transform: scale(0.48);
+        margin-top: -160px;
+        margin-left: -75px;
+    }
+}
 /* Likes: End */
