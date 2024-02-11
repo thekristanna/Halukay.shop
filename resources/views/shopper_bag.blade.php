@@ -22,7 +22,12 @@
     <!-- <title>Halukay</title> -->
   </head>
   <body>
-
+      <!-- header -->
+      @if (Session::get('role') == 'seller')
+      @include('layouts/navbar_seller')
+  @elseif (Session::get('role') == 'shopper')
+      @include('layouts/navbar_shopper')
+  @endif 
     <!-- your bag -->
     <div class="container">
         <div class="bag-buttons">
