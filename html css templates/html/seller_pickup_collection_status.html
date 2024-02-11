@@ -89,21 +89,28 @@
         <div class="container">
             <div class="top-line">
                 <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">for pickup</span></p>
-                <select name="name-dropdown" id="name-dropdown" class="unclickable">
-                    <option value="select" disabled selected id="select">Select Status</option>
-                    <option value="confirm-order" id="confirm-order">Confirm Order</option>
-                    <option value="preparing" id="preparing">Preparing Order</option>
-                    <option value="ready" id="ready">Ready for Shopper Pickup</option>
-                    <option value="delivered" id="delivered">Order has been Collected by Shopper</option>
-                    <option value="rate-shopper" id="rate-shopper">Rate Shopper</option>
-                
-                </select>
+                <div class="send-status">
+                    <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                        <option value="select" disabled selected id="select">Select Status</option>
+                        <option value="confirm-order" id="confirm-order">Confirm Order</option>
+                        <option value="preparing" id="preparing">Preparing Order</option>
+                        <option value="ready" id="ready">Ready for Meetup with Shopper</option>
+                        <option value="delivered" id="delivered">Order has been Collected by Shopper</option>
+                        <option value="rate-shopper" id="rate-shopper">Rate Shopper</option>
+                    
+                    </select>
+                    <button class="submit">
+                        <i class="ri-send-plane-line"></i>
+                        <i class="ri-send-plane-fill"></i>
+                      </button>
+                    </div>
+                </div>
+                <button class="order-id">Order ID: <span id="order-id">1234</span></button>
+                <div class="status">
+                    <p class="current-status"><span class="date">2020-10-10</span><span class="time">10:30 AM</span><span class="details">@daiben angelo is awaiting your reponse</span>
+                   
+                </div>
             </div>
-            <button class="order-id">Order ID: <span id="order-id">1234</span></button>
-            <div class="status">
-                <p class="current-status"><span class="date">2020-10-10</span><span class="time">10:30 AM</span><span class="details">@daiben angelo is awaiting your reponse</span>
-               
-            </div>
-        </div>
-    </body>
-</html>
+        </body>
+    </html>
+    

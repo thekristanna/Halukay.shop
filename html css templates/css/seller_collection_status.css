@@ -37,11 +37,12 @@ body {
 .container {
     display: block;
     justify-content: flex-start;
-    margin-top: 70px;
-    /* width: 70%; */
+    margin-top: 80px;
+    width: 100%
 }
 .top-line {
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 .status-button {
     font-size: 12px;
@@ -169,6 +170,39 @@ font-size: 16px;
 }
 #status-dropdown{
     margin-right: 0;
+}
+/* Collection: Media Query */
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(0.92);
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        transform: scale(0.69);
+        margin-top: 50px;
+    }
+    .details { 
+        width: 600px;
+        justify-content: flex-start;
+    }
+    .current-status {
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        margin-top: 50px;
+        transform: scale(0.75);
+    }
+    .status-header {
+        font-size: 25px
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        margin-left: 20px;
+    }
 }
 /* Collection: End */
 
