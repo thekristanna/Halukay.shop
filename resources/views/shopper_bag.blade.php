@@ -43,7 +43,7 @@
               <a href="/shop/seller/{{$s -> seller_id}}" class="seller-username">
                 <p>Seller:<span class="username">{{$s -> display_name}}</span></p>
               </a>
-              <p>TOTAL: ₱<span class="price order_total_{{$bag->bag_id}}">{{$bag->totalPrice}}</span></p>
+              <p>TOTAL: ₱<span class="price ">{{$bag->totalPrice}}</span></p>
                 <div class="top-details">
                   <a href="/shopper/checkout/{{$s -> seller_id}}"><button class="checkout">Checkout</button></a>
 

@@ -113,6 +113,7 @@ class ProductController extends Controller
             ->where('shopper_id', '=', Session::get('user_id'))
             ->get();
 
+        $bag = [];
         foreach ($product as $bag) {
             $products = Product::query()
                 ->select('product.product_id', 'name', 'product_photo', 'price', 'mybag.seller_id')
