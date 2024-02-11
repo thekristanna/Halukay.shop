@@ -19,9 +19,15 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+    <title>Edit Product | Halukay</title>
   </head>
   <body>
+             <!-- header -->
+             @if (Session::get('role') == 'seller')
+             @include('layouts/navbar_seller')
+         @elseif (Session::get('role') == 'shopper')
+             @include('layouts/navbar_shopper')
+         @endif  
     <!-- edit item -->
     <div class="container">
       <h1>Edit Item</h1>
@@ -50,7 +56,7 @@
 
           <input type="text" required id="condition" name="condition" value="{{$product -> product_condition}}"/>
           <span id="span-condition">Condition</span>
-          <input type="text" required id="brand" name="brand" value="{{$product -> brand}}"/>
+          <input type="text" required id="product-brand" name="brand" value="{{$product -> brand}}"/>
           <span id="span-brand">Brand</span>
         </div>
         <!-- row3 -->

@@ -23,10 +23,16 @@
             type="image/x-icon"
         />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>Add Product | Halukay</title>
     </head>
     <body>
-        <!-- add item -->
+         <!-- header -->
+        @if (Session::get('role') == 'seller')
+        @include('layouts/navbar_seller')
+    @elseif (Session::get('role') == 'shopper')
+        @include('layouts/navbar_shopper')
+    @endif  
+ <!-- add item -->
         <div class="container">
             <h1>Add Item</h1>
             <form action="/seller/add_product" id="add_product_form" method="POST" enctype="multipart/form-data">
@@ -39,16 +45,16 @@
                     <input type="text" required id="price" name="price" />
                     <span id="span-price">Price</span>
                 </div>
-                <!-- row2 -->
-                <div class="row-two">
-                    {{-- <input type="text" required id="category" name="category" />
-                    <span id="span-category">Category</span> --}}
-                    <select id="category-select" name="category">
-                        <option value="" disabled selected>--Please choose an option--</option>
+                 <!-- row2 -->
+                 <div class="row-two">
+                    <span id="span-category">Category</span>
+                    <div class="category"> <select id="category-select" name="category">
+                        <option value="" disabled selected>Choose</option>
                         <option value="clothes">Clothes</option>
                         <option value="shoes">Shoes</option>
                         <option value="bags">Bags</option>
-                    </select>  
+                        </select>
+                    </div>
                     <input type="text" required id="condition" name="product_condition" />
                     <span id="span-condition">Condition</span>
                     <input type="text" required id="brand" name="brand" />
@@ -76,8 +82,8 @@
                         <input
                             type="radio"
                             id="nego"
-                            name="nego_status"
-                            value="negotiable"
+                            name="role"
+                            value="Negotiable"
                         />
                         <label for="nego">Negotiable</label>
                     </div>
@@ -85,7 +91,7 @@
                         <input
                             type="radio"
                             id="non-nego"
-                            name="nego_status"
+                            name="role"
                             value="non-negotiable"
                         />
                         <label for="non-nego">Non-negotiable</label>
@@ -95,7 +101,8 @@
                 <!-- add -->
                 <button class="add">Add Item</button>
             </div>
-            </form>
+        </form>
         </div>
     </body>
 </html>
+

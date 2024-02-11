@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- Remix icon -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <!-- Box icons -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/shopper_collection_status.css" />
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="/img/halukay-favicon.png"
+            type="image/x-icon"
+        />
+        <!-- Page Title -->
+        <title>Status | Halukay</title>
+    </head>
+    <body>
+         <!-- header -->
+    <header>
+        <div class="brand">
+          <img src="/img/halukay-logo.png" alt="halukay-logo" id="logo">
+          <a href="#" id="brand">halukay.shop</a>
+        </div>
+        <div class="navbar">
+          <a href="home.html" class="active" id="home">Home</a>
+          <a href="#"id="about">About</a>
+          <a href="#"id="shop">Shop</a>
+          <a href="#" class="shopper-icons" id="bag-nav">Bag</a>
+          <a href="#" class="shopper-icons" id="add-nav">Add Product</a>
+          <a href="#" class="shopper-icons" id="messages-nav">Messages</a>
+          <a href="#" class="shopper-icons" id="notifications-nav">Notifications</a>
+          <a href="#" class="shopper-icons" id="account-nav">Account</a>
+          <a href="#" class="shopper-icons" id="switch-nav">Switch to Shopper</a>
+          <a href="#" class="shopper-icons" id="logout-nav">Logout</a>
+                 
+        </div>
+        <form class="search">
+            <input type="text" id="search-input" placeholder="Search here"/>
+            <button type="submit" id="search-button">
+              <i class="ri-search-line" id="search-icon"></i>
+            </button>
+          </form> 
+          <div class="profile">
+            <div class="header-icons">
+                <button>
+                    <i class="ri-notification-3-fill"></i>
+                </button>
+                <button>
+                    <i class="ri-discuss-fill"></i>
+                </button>
+  
+                <button>
+                  <i class="ri-add-circle-fill"></i>
+                </button>
+  
+                <button>
+                  <i class="ri-store-3-fill"></i>
+                </button>
+            </div>
+  
+            <div class="profile-name-role">
+                <!-- <p class="name">
+                   @daibenangelo
+                </p> -->
+                <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                    <option value="username" disabled selected id="username-nav">@daibenangelo</option>
+                    <option value="account">Account</option>
+                    <option value="switch">Switch to Shopper</option>
+                    <option value="logout">Logout</option>
+                </select>
+                <span class="role">Seller</span>
+            </div>
+            <img src="../img/users/daiben.png" id="profile-pic" />
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </header>
+
+
+
+        <!-- collection status -->
+        <div class="container">
+            <div class="top-line">
+                <p class="status-header"><i class="ri-box-3-line"></i>Collection Status | <span id="collection-method">{{$order -> collect_op}}</span></p>
+
+                
+                <div class="send-status">
+                    <form action="/seller/order/status/{{$order -> order_id}}" method="POST">
+                        @csrf
+                        <select name="name-dropdown" id="name-dropdown" class="unclickable">
+                            @if($order->collect_op == "delivery")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
+                                <option value="Order is ready to be shipped" id="ready">Ready to ship</option>
+                                <option value="Order is currently is now on delivery" id="delivered">Order in delivery</option>
+                                <option value="Seller({{$order->display_name}}) confirmed order is delivered." id="delivered">Order is received</option>
+                                <option value="Rate shopper experience" id="rate-shopper">Rate Shopper</option>
+
+                            @elseif($order->collect->op == "pickup")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order." id="preparing">Preparing Order</option>
+                                <option value="Order is ready for pickup." id="ready">Ready for Meetup with Shopper</option>
+                                <option value="Order is delivered." id="delivered">Order has been Collected</option>
+                                <option value="Rate shopper experience." id="rate-shopper">Rate Shopper</option>
+
+                            @elseif($order->collect->op == "meetup")
+                                <option value="select" disabled selected id="select">Select Status</option>
+                                <option value="Seller({{$order->display_name}}) confirmed the order." id="confirm-order">Confirm Order</option>
+                                <option value="Seller({{$order->display_name}}) is preparing your order" id="preparing">Preparing Order</option>
+                                <option value="Seller({{$order->display_name}}) is now ready for meetup" id="ready">Ready for Meetup with Shopper</option>
+                                <option value="Order is delivered." id="delivered">Order has been Collected</option>
+                                <option value="Rate shopper experience" id="rate-shopper">Rate Shopper</option>
+                            @endif
+
+                        </select>
+                        <button class="submit">
+                            <i class="ri-send-plane-line"></i>
+                            <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </form>
+                    </div>
+                </div>
+                <button class="order-id">Order ID: <span id="order-id">{{$order -> order_id}}</span></button>
+
+                <div class="status">
+                    @foreach($status as $s)
+                        <p class="current-status"><span class="date">{{$s -> date_time->format('Y-m-d')}}</span><span class="time">{{($s->date_time)->format('h:i A') }}</span><span class="details">{{$s -> status}}</span></p>
+                    @endforeach
+
+                    @if($rate && $rate->status == "Rate shopper experience")
+                         <a href="/seller/rate/shopper/{{$shopper->shopper_id}}/{{$shopper->order_id}}"><button class="order-id">Rate</button></a>
+                    @endif
+                </div> 
+            </div>
+        </body>
+    </html>
+    

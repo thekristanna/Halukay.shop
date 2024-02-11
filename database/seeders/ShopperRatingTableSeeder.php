@@ -18,6 +18,17 @@ class ShopperRatingTableSeeder extends Seeder
 
         \DB::table('shopper_rating')->delete();
         
+        \DB::table('shopper_rating')->insert(array (
+            0 => 
+            array (
+                'rating_id' => 1,
+                'order_id' => 13,
+                'shopper_id' => 7,
+                'seller_id' => 0,
+                'rate' => 5,
+                'comment' => 'VERY GOOD',
+            ),
+        ));
         
         
     }

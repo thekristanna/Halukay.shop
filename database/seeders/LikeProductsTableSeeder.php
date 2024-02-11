@@ -61,6 +61,13 @@ class LikeProductsTableSeeder extends Seeder
                 'shopper_id' => 7,
                 'seller_id' => 0,
             ),
+            6 => 
+            array (
+                'like_id' => 45,
+                'product_id' => 1,
+                'shopper_id' => 7,
+                'seller_id' => 0,
+            ),
         ));
         
         

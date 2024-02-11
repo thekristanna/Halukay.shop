@@ -108,7 +108,7 @@ Route::middleware(['checkSessionSeller', 'checkNotifications'])->group(function 
     Route::get('/seller/previous_orders', [OrderController::class, 'seller_prev_order_view']);
     Route::get('/seller/current_orders', [OrderController::class, 'seller_current_order_view']);
 
-    Route::get('/seller/current_orders/status/{id}', [OrderController::class, 'seller_order_status']);
+    Route::get('/seller/order/status/{id}', [OrderController::class, 'seller_order_status']);
     Route::post('/seller/order/status/{id}', [OrderController::class, 'edit_seller_order_status']);
 
     //----RATE SHOPPER----//

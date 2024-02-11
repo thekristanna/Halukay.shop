@@ -19,19 +19,27 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/halukay-favicon.png" type="image/x-icon" />
     <!-- Page Title -->
-    <!-- <title>Halukay</title> -->
+<title>Previous Orders | Halukay</title>
   </head>
   <body>
-
+ <!-- header -->
+ @if (Session::get('role') == 'seller')
+ @include('layouts/navbar_seller')
+@elseif (Session::get('role') == 'shopper')
+ @include('layouts/navbar_shopper')
+@else
+ @include('layouts/navbar_public')
+@endif  
     <!-- previous orders -->
     <div class="container">
-        <div class="bag-buttons">
-            <a href="/shopper/my_bag">Bag</a>
-            <a href="/shopper/previous_orders" id="active">Previous Orders</a>
-            <a href="/shopper/order">Current Orders</a>
-        </div>
-        <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Previous Orders</p>
-
+        <div class="line">
+            <p class="orders-header"><i class="ri-shopping-bag-fill"></i>Previous</p>
+            <div class="bag-buttons">
+                <a href="/shopper/my_bag">Bag</a>
+                <a href="/shopper/previous_orders" id="active">Previous Orders</a>
+                <a href="/shopper/order">Current Orders</a>
+            </div>
+          </div>
 
         {{-- For each seller --}}
         @foreach ($orders as $o)

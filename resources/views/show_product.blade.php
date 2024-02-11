@@ -27,25 +27,15 @@
     </head>
     
     <body>
-        @if (Session::get('role') == 'seller')
-        @include('layouts/navbar_home_seller')
-        <link rel="stylesheet" href="../css/navbar_seller.css" />
-    @elseif (Session::get('role') == 'shopper')
-        @include('layouts/navbar_home_shopper')
-        <link rel="stylesheet" href="../css/navbar_shopper.css" />
-    @else
-        @include('layouts/navbar_home_public')
-        <link rel="stylesheet" href="../css/navbar_public.css" />
-    @endif
+     <!-- header -->
+     @if (Session::get('role') == 'seller')
+     @include('layouts/navbar_shop_seller')
+ @elseif (Session::get('role') == 'shopper')
+     @include('layouts/navbar_shop_shopper')
+ @else
+     @include('layouts/navbar_shop_public')
+ @endif  
        
-        
-        {{-- <div>
-        @include ('layouts/navbar_shop_public')
-      
-
-        </div> --}}
-        {{-- still needs fixing. separate style for navbar is contradicting other styles in the page --}}
-        
        <!-- product -->
        <div class="container ">  
         
@@ -59,7 +49,7 @@
             <div class="product-image">
                 <img src="/img/products/{{ $product->product_photo }}" id="product-image">
                 <div class="seller-details">
-                    <a href="#"><i class="ri-user-fill"></i>{{ $info->email_address }}</a>
+                    <a href="/"><i class="ri-user-fill"></i>{{ $info->username }}</a>
                     <p><i class="ri-map-pin-fill"></i>{{ $info->address_citytown }}</p>
                 </div>
             </div>
@@ -143,19 +133,19 @@
                         @endif
                     </div>
                     <p class="product-name">{{$product -> name}}</p>
-                    <p class="nego-status">{{$product -> nego_status}}
+                    <p class="nego-status">{{$product -> nego_status}}<button class="icon-btn nego-icon-btn">
+                                    <i class="ri-discuss-line"></i> 
+                                    <i class="ri-discuss-fill" id="filled-message"></i>
+                                </button>
                         <a href="/login" class="heart-icon">
                         @if (Session::get('role') == 'shopper')
                             <form action="/redir_shopper_checkout/{{$product -> product_id}}" method="GET">
                         @else
                             <form action="/redir_login/{{$product -> product_id}}" method="GET">
-                        <button class="icon-btn nego-icon-btn">
-                            <i class="ri-discuss-line"></i> 
-                            <i class="ri-discuss-fill" id="filled-message"></i>
-                        </button>
+                                
                             </form>
                             @endif
-                    </a>
+                        </a>
                     </p>
                 </div>
                 <hr/>

@@ -23,7 +23,7 @@
             type="image/x-icon"
         />
         <!-- Page Title -->
-        <!-- <title>Halukay</title> -->
+        <title>Shop | Halukay</title>
     </head>
     <body>
         <!-- header -->
@@ -141,7 +141,7 @@
 
                             </div>
                         </div>
-                        <div class="name">
+                        <div class="name-product">
                             <p>{{$p -> name}}</p>
                         </div>
                         <div class="nego">
@@ -199,10 +199,10 @@
             <div class="wrapper">
                 <div class="company">
                     <p>Halukay</p>
-                    <a href="home.html" id="home">Home</a>
-                    <a href="about.html" id="about">About</a>
-                    <a href="shop.html" id="shop">Shop</a>
-                    <a href="contact.html" id="contact">Contact</a>
+                    <a href="/home" id="home">Home</a>
+                    <a href="/about" id="about">About</a>
+                    <a href="/shop" id="shop">Shop</a>
+                    <a href="/contact" id="contact">Contact</a>
 
                 </div>
                 <div class="support">
