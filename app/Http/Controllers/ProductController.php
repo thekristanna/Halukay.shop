@@ -443,7 +443,7 @@ class ProductController extends Controller
         }
 
         $products = $products
-            ->paginate(8);
+            ->paginate(16);
         $products->appends($r->except('page'));
 
         $liked = LikeProduct::query()

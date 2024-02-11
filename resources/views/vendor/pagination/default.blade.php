@@ -1,3 +1,52 @@
+<style>
+    nav {
+        display: flex;
+        justify-content: center; /* This centers the children (ul) horizontally */
+        margin: 0 auto;
+    }
+    ul.pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin: 10px;
+        height: 20px;
+        width: 20px;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* This vertically centers the text or link inside the li */
+    }
+    li:hover {
+        background:  #774123;
+        color: white;
+    }
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        color: inherit; 
+        text-decoration: none; 
+    }
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    .active {
+        font-weight: bold; 
+    }
+    style {
+        display: none;
+    }
+</style>
+
+
 @if ($paginator->hasPages())
     <nav>
         <ul class="pagination">
