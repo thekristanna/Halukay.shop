@@ -57,11 +57,12 @@ class OrderController extends Controller
     public function shopper_current_order()
     {
         $orders = Order::query()
-            ->select('orders.order_id', 'status_shopper', 'display_name')
+            ->select('orders.order_id', 'status_shopper', 'display_name', 'status_shopper')
             ->join('orders_product', 'orders.order_id', '=', 'orders_product.order_id')
             ->join('product', 'product.product_id', '=', 'orders_product.product_id')
             ->join('users', 'product.user_id', '=', 'users.user_id')
             ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->where('status_shopper', '!=', 'Order Complete')
             ->groupBy('orders.order_id', 'status_shopper', 'display_name')
             ->get();
 
@@ -90,6 +91,7 @@ class OrderController extends Controller
             ->join('product', 'product.product_id', '=', 'orders_product.product_id')
             ->join('users', 'product.user_id', '=', 'users.user_id')
             ->where('orders.shopper_id', '=', Session::get('user_id'))
+            ->where('status_shopper', '=', 'Order Complete')
             ->groupBy('orders.order_id', 'status_shopper', 'display_name')
             ->get();
 
@@ -105,18 +107,64 @@ class OrderController extends Controller
             $order->products = $products;
             $order->totalPrice = $totalPrice;
         }
-        
-        return view('shopper_previous_order');
+
+        return view('shopper_previous_order', compact('orders'));
     }
 
     ////_____SELLER ORDER SECTION_____////
     public function seller_current_order_view()
     {
-        return view('seller_current_order');
+        $orders = Order::query()
+            ->select('orders.order_id', 'status_seller', 'display_name')
+            ->join('orders_product', 'orders.order_id', '=', 'orders_product.order_id')
+            ->join('product', 'product.product_id', '=', 'orders_product.product_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('orders.seller_id', '=', Session::get('user_id'))
+            ->where('status_seller', '!=', 'Order Complete')
+            ->groupBy('orders.order_id', 'status_seller', 'display_name')
+            ->get();
+
+        foreach ($orders as $order) {
+            $products = OrdersProduct::query()
+                ->select('name', 'price', 'product_photo', 'order_id')
+                ->join('product', 'orders_product.product_id', '=', 'product.product_id')
+                ->where('order_id', '=', $order->order_id)
+                ->get();
+
+            $totalPrice = $products->sum('price');
+
+            $order->products = $products;
+            $order->totalPrice = $totalPrice;
+        }
+
+        return view('seller_current_order', compact('orders'));
     }
 
     public function seller_prev_order_view()
     {
-        return view('seller_previous_order');
+        $orders = Order::query()
+            ->select('orders.order_id', 'status_seller', 'display_name')
+            ->join('orders_product', 'orders.order_id', '=', 'orders_product.order_id')
+            ->join('product', 'product.product_id', '=', 'orders_product.product_id')
+            ->join('users', 'product.user_id', '=', 'users.user_id')
+            ->where('orders.seller_id', '=', Session::get('user_id'))
+            ->where('status_seller', '=', 'Order Complete')
+            ->groupBy('orders.order_id', 'status_seller', 'display_name')
+            ->get();
+
+        foreach ($orders as $order) {
+            $products = OrdersProduct::query()
+                ->select('name', 'price', 'product_photo', 'order_id')
+                ->join('product', 'orders_product.product_id', '=', 'product.product_id')
+                ->where('order_id', '=', $order->order_id)
+                ->get();
+
+            $totalPrice = $products->sum('price');
+
+            $order->products = $products;
+            $order->totalPrice = $totalPrice;
+        }
+
+        return view('seller_previous_order', compact('orders'));
     }
 }

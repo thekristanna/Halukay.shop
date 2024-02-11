@@ -248,7 +248,7 @@ class ProductController extends Controller
             ->first();
 
 
-        return view('myshop_seller_pov', compact('products'));
+        return view('myshop_seller_pov', compact('products', 'seller'));
     }
 
     /////______ADD PRODUCT________/////
