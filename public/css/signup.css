@@ -406,19 +406,19 @@ h1 {
     transform: translate(-50%, -50%);
 }
 /* Signup: Media Query */
-@media (max-width:1300px) {
+@media (max-width: 1300px) {
     .container {
         margin-top: 120px;
         margin-bottom: 100px;
     }
 }
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
     .container {
         margin-top: 170px;
         margin-bottom: 100px;
     }
 }
-@media (max-width:900px) {
+@media (max-width: 900px) {
     .container {
         margin-top: 220px;
         margin-bottom: 200px;
@@ -428,21 +428,21 @@ h1 {
     }
     .row-one {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
     .row-two {
         display: block;
     }
     .row-three {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
     #email {
         grid-column: span 2;
     }
     .row-four {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
     #span-first-name {
         transform: translate(18px, -37px);
@@ -488,7 +488,7 @@ h1 {
         transform: translate(40px, -65px);
         color: var(--color-seven);
     }
-       #span-username {
+    #span-username {
         transform: translate(20px, -60px);
     }
     #username:is(:focus, :valid) ~ #span-username {
@@ -588,7 +588,7 @@ h1 {
         color: var(--color-seven);
     }
 }
-@media (max-width:700px) {
+@media (max-width: 700px) {
     #logo-background {
         top: 90%;
     }
@@ -597,7 +597,7 @@ h1 {
         margin-bottom: 50px;
     }
 }
-@media (max-width:500px){
+@media (max-width: 500px) {
     #logo-background {
         display: none;
     }
@@ -634,7 +634,7 @@ h1 {
         transform: translate(80px, 0px);
         color: var(--color-seven);
     }
-  #span-address-city {
+    #span-address-city {
         transform: translate(275px, 22px);
     }
     #address-city:is(:focus, :valid) ~ #span-address-city {
@@ -691,7 +691,6 @@ h1 {
     }
 }
 /* Signup: End */
-
 
 /* Footer: Start */
 footer {
@@ -832,7 +831,7 @@ footer p {
 
     #email {
         justify-content: center;
-        margin: 0 auto; 
+        margin: 0 auto;
         margin-left: 50px;
     }
     .ri-arrow-right-line {
@@ -855,3 +854,33 @@ footer p {
     }
 }
 /* Footer: End */
+
+/* Error modal */
+.modal {
+    border-radius: 25px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    z-index: 1;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}

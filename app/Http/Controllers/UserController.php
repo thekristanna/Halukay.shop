@@ -380,7 +380,7 @@ class UserController extends Controller
         $this->validate($r, [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email_address' => 'required|unique:users,email_address', //name of table,name of column
+            'email_address' => 'required|unique:users,email_address',
             'username' => 'required|unique:users,username',
             'password' => 'required|min:6',
             'con_pw' => 'required|same:password',
@@ -399,7 +399,7 @@ class UserController extends Controller
         ], [
             'pw' => 'password',
             'con_pw' => 'password confirmation',
-            // 'accept_tc' => 'Terms & Conditions needs to be accepted in the'
+            'accept_tc' => 'Terms & Conditions needs to be accepted in the'
         ]);
 
         $user = new User;

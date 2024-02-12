@@ -35,7 +35,7 @@
         @include('layouts/navbar_public')
     @endif  
         
-        <div class="container">
+        <div class="container"  style="margin-top:150px">
             <h1>Rate Seller</h1>
             <div class="stars">
                 <form action="/seller/rate/shopper/{{$rate -> shopper_id}}/{{$rate -> order_id}}" method="POST">
