@@ -49,7 +49,7 @@
             <div class="product-image">
                 <img src="/img/products/{{ $product->product_photo }}" id="product-image">
                 <div class="seller-details">
-                    <a href="/"><i class="ri-user-fill"></i>{{ $info->username }}</a>
+                    <a href="/shop/seller/{{$info -> seller_id}}"><i class="ri-user-fill"></i>{{ $info->display_name }}</a>
                     <p><i class="ri-map-pin-fill"></i>{{ $info->address_citytown }}</p>
                 </div>
             </div>
@@ -161,10 +161,10 @@
                 </div>
             </div>
             <!-- button -->
-            <button class="next-button">
+            <a href="#"><button class="next-button">
                 <i class="ri ri-arrow-right-circle-line"></i> 
                 <i class="ri ri-arrow-right-circle-fill"></i> 
-            </button>
+            </button></a>
        </div>
 
        {{-- @include('layouts/footer') --}}
